@@ -1,4 +1,4 @@
-package com.fastrax.stayconnected;
+package com.fastrax.stayconnected.web;
 
 import java.text.DateFormat;
 import java.util.Date;
