@@ -2,13 +2,13 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>Welcome to StayConnected at the University of Scranton!</title>
 </head>
 <body>
 <h1>
-	HEY!...StayConnected 
+	Welcome to StayConnected at the University of Scranton!
 </h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+<P> Please log in. </P>
+<img src="StayConnected/src/main/webapp/WEB-INF/images/stayconnected_logo.jpg" />
 </body>
 </html>
