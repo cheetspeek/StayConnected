@@ -9,6 +9,6 @@
 	Welcome to StayConnected at the University of Scranton!
 </h1>
 <P> Please log in. </P>
-<img src="StayConnected/src/main/webapp/WEB-INF/images/stayconnected_logo.jpg" />
+<img src="/StayConnected/src/main/webapp/images/stayconnected_logo.jpg" alt="logo" />
 </body>
 </html>
