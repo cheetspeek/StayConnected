@@ -1,5 +1,17 @@
 package com.fastrax.stayconnected.core;
 
-public class AccountService {
+import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.fastrax.stayconnected.core.entity.Account;
+
+@Service
+public interface AccountService {
+	public Account createAccount(Account account);
+	public List<Account> getAllAccounts();
+	public int delete(Account account);
+	public Account getAccountByUsername(String username);
+	public int getNumberOfAccounts();
+	public int getNumberOfAccountsByRole(String role);
 }
