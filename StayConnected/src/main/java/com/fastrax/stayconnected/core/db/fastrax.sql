@@ -28,7 +28,7 @@ CREATE TABLE job_listing (
 );
 
 create table persistent_logins (
-	email varchar(50) NOT NULL, 
+	username varchar(50) NOT NULL, 
 	series varchar(64) primary key, 
 	token varchar(64) not null, 
 	last_used timestamp not null
