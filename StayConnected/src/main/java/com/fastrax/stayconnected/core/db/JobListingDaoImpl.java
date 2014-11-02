@@ -77,19 +77,19 @@ public class JobListingDaoImpl implements JobListingDao {
 	}
 
 	@Override
-	public List<JobListing> getAllJobs() {
+	public List<JobListing> getAllJobListings() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public JobListing getJobById(int id) {
+	public JobListing getJobListingById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int getNumberOfJobs() {
+	public int getNumberOfJobListings() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
