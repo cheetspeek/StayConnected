@@ -58,7 +58,7 @@ public class JobListinDAOImpl implements JobListingDao {
 	}
 	
 	private int getRecentJobID() {
-		String sql = "select max(id) from account";
+		String sql = "select max(id) from job_listing";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
 
