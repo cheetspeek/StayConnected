@@ -27,7 +27,14 @@ CREATE TABLE job_listing (
 	foreign key (email) references account(email) on delete cascade on update cascade
 );
 
+create table persistent_logins (
+	email varchar(50) NOT NULL, 
+	series varchar(64) primary key, 
+	token varchar(64) not null, 
+	last_used timestamp not null
+);
 
+drop table persistent_logins;
 drop table role;
 drop table job_listing;
 drop table account;
