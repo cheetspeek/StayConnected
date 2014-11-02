@@ -1,5 +1,39 @@
 package com.fastrax.stayconnected.web;
 
+import java.security.Principal;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 public class AccountController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(Principal principal, Model model) {
+		logger.info("login ID via Controller is: "+ principal.getName());
+		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
+		
+		return "AccountHome";
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Principal principal, Model model) {
+		logger.info("login ID via Controller is: "+ principal.getName());
+		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
+		
+		return "AccountRegistration";
+	}
+	
+	@RequestMapping(value = "/registerconfirm", method = RequestMethod.GET)
+	public String registerConfirmation(Principal principal, Model model) {
+		logger.info("login ID via Controller is: "+ principal.getName());
+		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
+		
+		return "AccountConfirmation";
+	}
 
 }
