@@ -16,24 +16,16 @@ public class AccountController {
 	public String home(Principal principal, Model model) {
 		logger.info("login ID via Controller is: "+ principal.getName());
 		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
-		
 		return "AccountHome";
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String register(Principal principal, Model model) {
-		logger.info("login ID via Controller is: "+ principal.getName());
-		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
-		
+	public String register(Model model) {
 		return "AccountRegistration";
 	}
 	
 	@RequestMapping(value = "/registerconfirm", method = RequestMethod.GET)
-	public String registerConfirmation(Principal principal, Model model) {
-		logger.info("login ID via Controller is: "+ principal.getName());
-		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
-		
+	public String registerConfirmation(Model model) {
 		return "AccountConfirmation";
 	}
-
 }

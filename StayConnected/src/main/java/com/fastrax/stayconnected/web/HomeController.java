@@ -26,5 +26,14 @@ public class HomeController {
 			model.addAttribute("error_message", "Incorrect username and/or password");
 		}
 		return "Home";
-	}	
+	}
+	
+//	private String getLoginId() {
+//		String currentPrincipalName = "none";
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+//			currentPrincipalName = authentication.getName();
+//		}
+//		return currentPrincipalName;
+//	}
 }
