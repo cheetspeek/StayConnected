@@ -12,18 +12,13 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 		<form-login 
 			login-processing-url="/j_spring_security_check"
 			login-page="/home" 
-			default-target-url="/"
-			always-use-default-target="false" 
+			default-target-url="/accounthome"
+			always-use-default-target="true" 
 			authentication-failure-url="/home?login_error=t" 
 		/>
 
 
-		<intercept-url pattern="/"
-			access="hasAnyRole('ROLE_USER', 'ROLE_DBA')" />
-		<intercept-url pattern="/adminonly" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/dbaonly" access="hasRole('ROLE_DBA')" />
-		<intercept-url pattern="/admindba"
-			access="hasAnyRole('ROLE_ADMIN', 'ROLE_DBA')" />
+		<intercept-url pattern="/accounthome" 	access="hasAnyRole('Faculty', 'Alumni', 'Student')" />
 		<logout logout-success-url="/logout" />
 	</http>
 

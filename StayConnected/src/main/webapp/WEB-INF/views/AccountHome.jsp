@@ -4,24 +4,23 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Home</title>
+<title>Account Home</title>
 </head>
 <body>
 	<P>
-		Email:
-		<security:authentication property="principal.username" />
+		Email: <security:authentication property="principal.username" />
 	</P>
 
-	<security:authorize access="hasRole('ROLE_DBA')">
-		<a href="<c:url value="/dbaonly" />"> DBA ONLY LINK</a>
-	</security:authorize>
+	<P> <security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
+		<a href="<c:url value="/createlisting" />">Create Job Listing</a>
+	</security:authorize> </P>
+	<P><security:authorize access="hasAnyRole('Faculty', 'Alumni')">
+		<a href="<c:url value="/updatelisting" />">Update Job Listing</a>
+	</security:authorize></P>
+	<P> <a href="<c:url value="/viewlisting" />">View Job Listing</a> </P>
 
-	<security:authorize access="hasRole('ROLE_ADMIN')">
-		<a href="<c:url value="/adminonly" />"> ADMIN ONLY LINK</a>
-	</security:authorize>
-	
 	<P>
-			<a href="<c:url value="j_spring_security_logout" />"> Logout</a>
+		<a href="<c:url value="j_spring_security_logout" />"> Logout</a>
 	</P>
 </body>
 </html>
