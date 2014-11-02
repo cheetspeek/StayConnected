@@ -1,6 +1,7 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +21,12 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String register(Model model) {
+	public String register(Locale locale, Model model) {
 		return "AccountRegistration";
 	}
 	
 	@RequestMapping(value = "/registerconfirm", method = RequestMethod.GET)
-	public String registerConfirmation(Model model) {
+	public String registerConfirmation(Locale locale, Model model) {
 		return "AccountConfirmation";
 	}
 }
