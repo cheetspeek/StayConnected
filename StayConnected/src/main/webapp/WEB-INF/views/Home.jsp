@@ -1,20 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<html>
-<head>
-<title>StayConnected!</title>
-</head>
-<body>
-	<h1>Welcome to StayConnected!</h1>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<div>
+	<h2>Login Page</h2>
+	<p>${error_message}</p>
+	<s:url var="authUrl" value="/j_spring_security_check" />
 	<form class='signin' method="post" action="${authUrl}">
 		Email: <input id="username" type='text' name='j_username'><br>
 		Password: <input id="password" type='password' name='j_password'><br>
 		<input type='submit'name='commit' value ="Sign in">
-		<input type='reset' name='reset' value="Clear">
+		<input type='reset' name='reset' value ="Clear">
 	</form>
-	<P>  <a href="AccountRegistration">Sign Up</a> </P>	
-</body>
-<img src="./src/main/webapp/images/stayconnected_logo.jpg"	alt="logo" />
+</div>
 </html>
-
-

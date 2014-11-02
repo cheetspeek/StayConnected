@@ -14,7 +14,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 			login-page="/home" 
 			default-target-url="/"
 			always-use-default-target="false" 
-			authentication-failure-url="/login?login_error=t" 
+			authentication-failure-url="/home?login_error=t" 
 		/>
 
 
