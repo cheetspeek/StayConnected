@@ -5,6 +5,9 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +26,7 @@ public class AccountController {
 	@RequestMapping(value = "/accounthome", method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
 		logger.info("login ID via Controller is: "+ principal.getName());
-		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
+		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
 		return "AccountHome";
 	}
 	
@@ -47,5 +50,14 @@ public class AccountController {
 	@RequestMapping(value = "/registerconfirm", method = RequestMethod.GET)
 	public String registerConfirmation(Locale locale, Model model) {
 		return "AccountConfirmation";
+	}
+	
+	private String getLoginId() {
+		String currentPrincipalName = "none";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			currentPrincipalName = authentication.getName();
+		}
+		return currentPrincipalName;
 	}
 }

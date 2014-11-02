@@ -35,6 +35,12 @@ public class HomeController {
 		return "Home";
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Locale locale, Model model) {
+		return "logout";
+	}
+
+	
 //	private String getLoginId() {
 //		String currentPrincipalName = "none";
 //		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

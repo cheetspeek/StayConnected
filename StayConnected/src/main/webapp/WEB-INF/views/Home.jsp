@@ -17,8 +17,7 @@
 			name='reset'>
 	</form>
 </body>
-<img src="/StayConnected/src/main/webapp/images/stayconnected_logo.jpg"
-		alt="logo" />
+<img src="./src/main/webapp/images/stayconnected_logo.jpg"	alt="logo" />
 </html>
 
 

@@ -6,5 +6,13 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
     <import resource="jdbc-context.xml"/>
+    
+    <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://134.198.169.32/fastrax" />
+		<property name="username" value="fastrax" />
+		<property name="password" value="lsc0913" />
+	</bean>
 		
 </beans>
