@@ -24,6 +24,7 @@ CREATE TABLE job_listing (
 	job_name varchar(20) NOT NULL,
 	job_description varchar(50) NOT NULL,
 	job_location varchar(20) NOT NULL,
+	active boolean NOT NULL DEFAULT 0,
 	primary key (id),
 	foreign key (account_id) references account(id) 
 		on delete cascade on update cascade
