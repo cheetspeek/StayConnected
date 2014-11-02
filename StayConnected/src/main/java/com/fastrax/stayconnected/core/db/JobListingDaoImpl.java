@@ -1,5 +1,8 @@
 package com.fastrax.stayconnected.core.db;
 
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -7,11 +10,13 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.fastrax.stayconnected.core.entity.JobListing;
+
 
 @Repository
 public class JobListingDaoImpl implements JobListingDao {
@@ -57,7 +62,7 @@ public class JobListingDaoImpl implements JobListingDao {
 			
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
-			System.out.println("Error in creating Product record, rolling back");
+			System.out.println("Error in creating Job Listing record, rolling back");
 			//transactionManager.rollback(status);
 			throw e;
 		}
@@ -75,11 +80,19 @@ public class JobListingDaoImpl implements JobListingDao {
 		String sql = "select max(id) from job_listing";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
-
+	
+	/**
+	 * Gets the all the joblistings
+	 * @author Michael Holmes
+	 * @precondition None?
+	 * @postcondition A list of all job listings is returned
+	 * @return A list of all job listings in the database
+	 */
 	@Override
 	public List<JobListing> getAllJobListings() {
-		// TODO Auto-generated method stub
-		return null;
+		String SQL = "select * from job_listing";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL, new JobListingMapper());
+		return joblistings;
 	}
 
 	@Override
@@ -106,4 +119,19 @@ public class JobListingDaoImpl implements JobListingDao {
 		return 0;
 	}
 
+}
+
+//Helper class to map the result set to the JobListing class
+class JobListingMapper implements RowMapper<JobListing> {
+	public JobListing mapRow(ResultSet rs, int rowNum) throws SQLException {
+		JobListing jl = new JobListing();
+		jl.setId(rs.getInt("id"));
+		jl.setPosition(rs.getString("position"));
+		jl.setAccount_id(rs.getInt("account_id"));
+		jl.setJob_description(rs.getString("job_description"));
+		jl.setJob_name(rs.getString("job_location"));
+		jl.setJob_location(rs.getString("job_location"));
+		jl.setActive(rs.getBoolean("active"));
+		return jl;
+	}
 }

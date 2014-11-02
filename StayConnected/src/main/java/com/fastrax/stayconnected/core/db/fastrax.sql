@@ -4,7 +4,7 @@ CREATE TABLE account (
 	email varchar(50) NOT NULL,
 	password char(40) NOT NULL,
 	active boolean NOT NULL DEFAULT 0,
-	primary key (id)
+	primary key (email)
 );
 
 CREATE TABLE authority (

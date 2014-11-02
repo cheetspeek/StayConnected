@@ -1,6 +1,7 @@
 package com.fastrax.stayconnected.core.entity;
 
 public class Account {
+	
 	public String getFirstname() {
 		return firstname;
 	}

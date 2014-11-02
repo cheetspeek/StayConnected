@@ -56,7 +56,7 @@ public class AccountDaoImpl implements AccountDao {
 			account.setId(getAccountID());
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
-			System.out.println("Error in creating Product record, rolling back");
+			System.out.println("Error in creating AccountDao record, rolling back");
 			//transactionManager.rollback(status);
 			throw e;
 		}
