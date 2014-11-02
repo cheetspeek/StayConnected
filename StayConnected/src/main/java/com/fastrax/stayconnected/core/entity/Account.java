@@ -32,18 +32,12 @@ public class Account {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String password;
 	private boolean active; 
-	private int id;
 
 
 }

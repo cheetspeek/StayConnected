@@ -49,14 +49,14 @@ public class JobListingDaoImpl implements JobListingDao {
 			String SQL = "insert into job_listing (account_id, position, job_name, job_description, job_location, active) values "
 					+ "(?,?,?,?,?)";
 
-			int account_id = jl.getAccount_id();
+			String email = jl.getEmail();
 			String position = jl.getPosition();
 			String job_name = jl.getJob_name();
 			String job_description = jl.getJob_description();
 			String job_location = jl.getJob_location();
 			boolean active = jl.isActive();
 			
-			jdbcTemplate.update(SQL,account_id,position,job_name,job_description,job_location,active);
+			jdbcTemplate.update(SQL,email,position,job_name,job_description,job_location,active);
 			
 			jl.setId(getRecentJobID());
 			
@@ -127,7 +127,7 @@ class JobListingMapper implements RowMapper<JobListing> {
 		JobListing jl = new JobListing();
 		jl.setId(rs.getInt("id"));
 		jl.setPosition(rs.getString("position"));
-		jl.setAccount_id(rs.getInt("account_id"));
+		jl.setEmail(rs.getString("email"));
 		jl.setJob_description(rs.getString("job_description"));
 		jl.setJob_name(rs.getString("job_location"));
 		jl.setJob_location(rs.getString("job_location"));

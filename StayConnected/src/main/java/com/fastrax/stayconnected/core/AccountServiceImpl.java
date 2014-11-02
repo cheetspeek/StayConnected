@@ -25,11 +25,10 @@ public class AccountServiceImpl implements AccountService {
 		return accountDao.deactivate(account);
 	}
 
-	public Account getAccountByUsername(String username) {
-		Account account = accountDao.getAccountByUsername(username);
+	public Account getAccountByEmail(String email) {
+		Account account = accountDao.getAccountByEmail(email);
 		if (account == null) {
 			account = new Account();
-			account.setId(0);
 		}
 		return account;
 	}

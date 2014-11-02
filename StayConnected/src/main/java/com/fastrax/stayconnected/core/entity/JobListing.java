@@ -3,7 +3,8 @@ package com.fastrax.stayconnected.core.entity;
 
 public class JobListing {
 	private int id;
-	private int account_id;
+	//The user who created the listing's email.
+	private String email;
 	private String position;
 	private String job_name;
 	private String job_description;
@@ -16,11 +17,12 @@ public class JobListing {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAccount_id() {
-		return account_id;
+
+	public String getEmail() {
+		return email;
 	}
-	public void setAccount_id(int account_id) {
-		this.account_id = account_id;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPosition() {
 		return position;

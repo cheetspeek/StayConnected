@@ -1,5 +1,4 @@
 CREATE TABLE account (
-    id bigint auto_increment,
 	firstname varchar(20) NOT NULL,
 	lastname varchar(20) NOT NULL,
 	email varchar(50) NOT NULL,
