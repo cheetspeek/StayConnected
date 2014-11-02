@@ -14,7 +14,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Repository
-public class JobListinDAOImpl implements JobListingDao {
+public class JobListingDaoImpl implements JobListingDao {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 	//private DataSourceTransactionManager transactionManager;
@@ -77,19 +77,19 @@ public class JobListinDAOImpl implements JobListingDao {
 	}
 
 	@Override
-	public List<JobListing> getAllJobs() {
+	public List<JobListing> getAllJobListings() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public JobListing getJobById(int id) {
+	public JobListing getJobListingById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int getNumberOfJobs() {
+	public int getNumberOfJobListings() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
