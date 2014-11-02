@@ -13,6 +13,13 @@ public class AccountController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	/**
+	 * Controls the user home page mapping
+	 * @author Ben Degler
+	 * @param principal		Used to access security interface and get current users name
+	 * @param model			properties of the Model object	
+	 * @return AccountHome	account home page of logged in user
+	 */
 	@RequestMapping(value = "/accounthome", method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
 		logger.info("login ID via Controller is: "+ principal.getName());
@@ -20,11 +27,23 @@ public class AccountController {
 		return "AccountHome";
 	}
 	
+	/**
+	 * Controls the user registration page mapping
+	 * @author Ben Degler	
+	 * @param model					properties of the Model object	
+	 * @return AccountRegistration	account register page for new user
+	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(Locale locale, Model model) {
 		return "AccountRegistration";
 	}
 	
+	/**
+	 * Controls the user confirmation page mapping
+	 * @author Ben Degler
+	 * @param model					properties of the Model object	
+	 * @return AccountConfirmation	account confirm page of registering user
+	 */
 	@RequestMapping(value = "/registerconfirm", method = RequestMethod.GET)
 	public String registerConfirmation(Locale locale, Model model) {
 		return "AccountConfirmation";

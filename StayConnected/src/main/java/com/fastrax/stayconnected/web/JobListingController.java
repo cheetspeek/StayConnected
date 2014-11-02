@@ -13,25 +13,48 @@ public class JobListingController {
 	private String loginId;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	/**
+	 * Controller for create job listing page
+	 * @author Ben Degler
+	 * @param model					Model object of JSP files
+	 * @return JobListingCreation	JSP of job listing confirmation page
+	 */
 	@RequestMapping(value = "/createlisting", method = RequestMethod.GET)
-	public String createListing(Locale locale, Model model) {
+	public String createListing(Model model) {
 		return "JobListingCreation";
 	}
 	
+	/**
+	 * Controller for update job listing page
+	 * @author Ben Degler
+	 * @param model					Model object of jsp files
+	 * @return JobListingCreation	JSP of job listing update page
+	 */
 	@RequestMapping(value = "/updatelisting", method = RequestMethod.GET)
-	public String updateListing(Locale locale, Model model) {
+	public String updateListing(Model model) {
 		//pull data from listing of db and populate form
 		return "JobListingCreation";
 	}
 	
-	@RequestMapping(value = "/updatelisting", method = RequestMethod.GET)
-	public String confirmListing(Locale locale, Model model) {
-		//pull data from listing of db and populate form
+	/**
+	 * Controller for confirmation of new job listing page 
+	 * @author Ben Degler
+	 * @param model						Model object of jsp files
+	 * @return JobListingConfirmation	JSP of job listing confirmation page
+	 */
+	@RequestMapping(value = "/confirmlisting", method = RequestMethod.GET)
+	public String confirmListing(Model model) {
 		return "JobListingConfirmation";
 	}
 	
+	/**
+	 * Controller for viewing job listing page
+	 * @author Ben Degler
+	 * @param model			Model object of jsp files
+	 * @return JobListing	JSP of job listing confirmation page
+	 */
 	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
-	public String viewListing(Locale locale, Model model) {
+	public String viewListing(Model model) {
 		return "JobListing";
 	}	
 

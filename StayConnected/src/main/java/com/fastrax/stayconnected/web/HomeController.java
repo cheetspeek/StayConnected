@@ -20,6 +20,13 @@ public class HomeController {
 	private String loginId;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	/**
+	 * Controller for home page
+	 * @author Ben Degler
+	 * @param failed	String to hold status of login
+	 * @param model		Model object of jsp files
+	 * @return Home		JSP of home page
+	 */
 	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String login(@RequestParam(value="login_error", defaultValue="f") String failed, Model model) {
 		if (failed.equalsIgnoreCase("t")) {
