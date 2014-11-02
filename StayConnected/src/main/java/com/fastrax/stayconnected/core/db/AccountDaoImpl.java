@@ -2,6 +2,7 @@ package com.fastrax.stayconnected.core.db;
 
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.fastrax.stayconnected.core.entity.Account;
+import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Repository
 public class AccountDaoImpl implements AccountDao {
@@ -53,7 +56,6 @@ public class AccountDaoImpl implements AccountDao {
 			
 			jdbcTemplate.update(SQL,firstname,lastname,email,password,active);
 			
-			account.setId(getAccountID());
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in creating AccountDao record, rolling back");
@@ -64,22 +66,24 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	/**
-	 * Gets the most recent account ID
+	 * Gets the most recent account 
 	 * @author Michael Holmes
 	 * @precondition Database has at least one account
 	 * @postcondition ID of the most recently added to the database account is returned
 	 * @return the ID of the most recently added account to the database
 	 */
-	private int getAccountID() {
-		String sql = "select max(id) from account";
-		return jdbcTemplate.queryForObject(sql, Integer.class);
+	private String getRecentAccountEmail() {
+		String sql = "(select max(id), email from authority)";
+		List<String> emailList = jdbcTemplate.query(sql, new AccountEmailHelperMapper());
+		String email = emailList.get(0);
+		return email;
 	}
 
 	public List<Account> getAllAccounts(){
 		return null;
 	}
 
-	public Account getAccountByUsername(String username){
+	public Account getAccountByEmail(String email){
 		return null;
 	}
 	
@@ -94,4 +98,12 @@ public class AccountDaoImpl implements AccountDao {
 	public int deactivate(Account account){
 		return 0;
 	}	
+}
+
+//Helper class to extract the most recent email
+class AccountEmailHelperMapper implements RowMapper<String> {
+	public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+		String email = rs.getString("email");
+		return email;
+	}
 }
