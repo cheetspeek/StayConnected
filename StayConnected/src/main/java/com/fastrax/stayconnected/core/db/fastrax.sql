@@ -1,42 +1,34 @@
-CREATE TABLE PRODUCT( 
-	ID BIGINT AUTO_INCREMENT, 
-	NAME VARCHAR(30), 
-	DESCRIPTION VARCHAR(150), 
-	CATEGORY VARCHAR(15), 
-	COST DECIMAL(20,2), 
-	DISCOUNT BOOL NOT NULL DEFAULT '0', 
-	PRIMARY KEY(ID) 
+CREATE TABLE account (
+	id bigint auto_increment,
+	firstname varchar(20) NOT NULL,
+	lastname varchar(20) NOT NULL,
+	email varchar(50) NOT NULL,
+	password char(40) NOT NULL,
+	primary key (id)
 );
 
-CREATE TABLE LOCATION( 
- 	PRODUCT_ID BIGINT, 
- 	LOCATION VARCHAR(15),  
- 	FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCT(ID) 
- 	    ON DELETE CASCADE ON UPDATE CASCADE
- );
- 
-CREATE TABLE PURCHASE_ORDER( 
-	ID BIGINT AUTO_INCREMENT, 
-	TOTAL_COST DECIMAL(20,2), 
-	PRIMARY KEY(ID)
+CREATE TABLE role (
+	id bigint auto_increment,
+	account_id bigint,
+	role varchar(20) NOT NULL,
+	primary key (id),
+	foreign key (account_id) references account(id) 
+		on delete cascade on update cascade
 );
 
-CREATE TABLE ORDER_ITEM(
-	ID BIGINT AUTO_INCREMENT, 
-	PRODUCT_ID BIGINT, 
-	PURCHASE_ORDER_ID BIGINT,
-	DISCOUNT_PRICE DECIMAL(20,2), 
-	PRIMARY KEY (ID), 
-	FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCT(ID)
-	    ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (PURCHASE_ORDER_ID) REFERENCES PURCHASE_ORDER(ID)
-	    ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE job_listing (
+	id bigint auto_increment,
+	account_id bigint,
+	position varchar(20) NOT NULL,
+	job_name varchar(20) NOT NULL,
+	job_description varchar(50) NOT NULL,
+	job_location varchar(20) NOT NULL,
+	primary key (id),
+	foreign key (account_id) references account(id) 
+		on delete cascade on update cascade
 );
 
-drop table LOCATION;
-drop table ORDER_ITEM;
-drop table PURCHASE_ORDER;
-drop table PRODUCT;
 
-
-
+drop table role;
+drop table job_listing;
+drop table account;
