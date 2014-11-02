@@ -1,39 +1,23 @@
 package com.fastrax.stayconnected.core.db;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
+
 
 import com.fastrax.stayconnected.core.entity.Account;
+@Repository
+public interface AccountDao {
 
-public class AccountDao {
+	public Account createAccount(Account account);
 
-	public Account createAccount(Account account) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Account> getAllAccounts();
 
-	public List<Account> getAllAccounts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Account getAccountByUsername(String username);
+	
+	public int getNumberOfAccounts();
 
-	public Account getAccountByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public int getNumberOfAccountsByRole(String role);
 
-	public int getNumberOfAccounts() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getNumberOfAccountsByRole(String role) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int deactivate(Account account) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	public int deactivate(Account account);
+	
 }
