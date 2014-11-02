@@ -20,8 +20,8 @@ public class JobListingServiceImpl implements JobListingService {
 		return jobListingDao.getAllJobListings();
 	}
 
-	public int delete(JobListing jobListing) {
-		return jobListingDao.delete(jobListing);
+	public int deactivate(JobListing jobListing) {
+		return jobListingDao.deactivate(jobListing);
 	}
 
 	public JobListing getJobListingById(int id) {

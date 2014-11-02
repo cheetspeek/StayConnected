@@ -10,7 +10,7 @@ import com.fastrax.stayconnected.core.entity.Account;
 public interface AccountService {
 	public Account createAccount(Account account);
 	public List<Account> getAllAccounts();
-	public int delete(Account account);
+	public int deactivate(Account account);
 	public Account getAccountByUsername(String username);
 	public int getNumberOfAccounts();
 	public int getNumberOfAccountsByRole(String role);

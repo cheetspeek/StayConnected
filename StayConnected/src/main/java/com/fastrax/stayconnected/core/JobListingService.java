@@ -10,7 +10,7 @@ import com.fastrax.stayconnected.core.entity.JobListing;
 public interface JobListingService {
 	public JobListing createJobListing(JobListing jobListing);
 	public List<JobListing> getAllJobListings();
-	public int delete(JobListing jobListing);
+	public int deactivate(JobListing jobListing);
 	public JobListing getJobListingById(int id);
 	public int getNumberOfJobListings();
 }

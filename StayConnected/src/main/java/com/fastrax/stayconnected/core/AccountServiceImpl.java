@@ -21,8 +21,8 @@ public class AccountServiceImpl implements AccountService {
 		return accountDao.getAllAccounts();
 	}
 
-	public int delete(Account account) {
-		return accountDao.delete(account);
+	public int deactivate(Account account) {
+		return accountDao.deactivate(account);
 	}
 
 	public Account getAccountByUsername(String username) {
