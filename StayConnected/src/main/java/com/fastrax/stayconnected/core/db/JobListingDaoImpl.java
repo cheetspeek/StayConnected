@@ -14,7 +14,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Repository
-public class JobListinDAOImpl implements JobListingDao {
+public class JobListingDaoImpl implements JobListingDao {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 	//private DataSourceTransactionManager transactionManager;
