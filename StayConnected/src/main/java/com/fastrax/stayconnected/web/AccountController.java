@@ -25,10 +25,10 @@ public class AccountController {
 	 * @param model			properties of the Model object	
 	 * @return AccountHome	account home page of logged in user
 	 */
-	@RequestMapping(value = "/accounthome", method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/accounthome"}, method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
-		logger.info("login ID via Controller is: "+ principal.getName());
-		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
+//		logger.info("login ID via Controller is: "+ principal.getName());
+//		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
 		return "AccountHome";
 	}
 	
@@ -54,12 +54,12 @@ public class AccountController {
 		return "AccountConfirmation";
 	}
 	
-	private String getLoginId() {
-		String currentPrincipalName = "none";
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-			currentPrincipalName = authentication.getName();
-		}
-		return currentPrincipalName;
-	}
+//	private String getLoginId() {
+//		String currentPrincipalName = "none";
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+//			currentPrincipalName = authentication.getName();
+//		}
+//		return currentPrincipalName;
+//	}
 }
