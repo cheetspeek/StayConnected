@@ -13,10 +13,25 @@ public class JobListingServiceImpl implements JobListingService {
 	@Autowired
 	private JobListingDao jobListingDao;
 
+	/**
+	 * Uses JobListingDAO to create a new job listing on the database 
+	 * @author Conner Simmons
+	 * @precondition JobListing entity exists and passed in as an argument
+	 * @postcondition Job Listing is created in the database and passed back with the database ID updated
+	 * @param JobListing	a job listing object
+	 * @return JobListing	the new JobListing with the database ID updated 
+	 */
 	public JobListing createJobListing(JobListing jobListing) {
 		return jobListingDao.createJobListing(jobListing);
 	}
 
+	/**
+	 * Uses JobListingDAO to return a list of all job a new job listing on the database 
+	 * @author Conner Simmons
+	 * @precondition  None
+	 * @postcondition A list of all job listings is returned
+	 * @return list of all job listings in the database
+	 */
 	public List<JobListing> getAllJobListings() {
 		return jobListingDao.getAllJobListings();
 	}
