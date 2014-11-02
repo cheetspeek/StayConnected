@@ -32,6 +32,8 @@ public class AccountDaoImpl implements AccountDao {
 	/**
 	 * Creates a new user Account
 	 * @author Michael Holmes
+	 * @precondition account does not exist in database already
+	 * @postcondition account is created in the account table on the database
 	 * @param account	an Account object
 	 * @return account	the new account with user's information
 	 */
@@ -61,6 +63,13 @@ public class AccountDaoImpl implements AccountDao {
 		return account;
 	}
 	
+	/**
+	 * Gets the most recent account ID
+	 * @author Michael Holmes
+	 * @precondition Database has at least one account
+	 * @postcondition ID of the most recently added to the database account is returned
+	 * @return the ID of the most recently added account to the database
+	 */
 	private int getAccountID() {
 		String sql = "select max(id) from account";
 		return jdbcTemplate.queryForObject(sql, Integer.class);

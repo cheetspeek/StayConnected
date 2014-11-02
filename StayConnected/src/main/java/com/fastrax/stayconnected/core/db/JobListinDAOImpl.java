@@ -26,7 +26,14 @@ public class JobListinDAOImpl implements JobListingDao {
 		this.jdbcTemplate = new JdbcTemplate(this.dataSource);
 	}
 
-	
+	/**
+	 * Creates a new user Job Listing
+	 * @author Michael Holmes
+	 * @precondition None?
+	 * @postcondition job listing is created in the job_listing table on the database
+	 * @param Joblisting	a job listing object
+	 * @return Joblisting	the new joblisting with job listing's information
+	 */
 	@Override
 	public JobListing createJobListing(JobListing jl) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -57,6 +64,13 @@ public class JobListinDAOImpl implements JobListingDao {
 		return jl;	
 	}
 	
+	/**
+	 * Gets the most recent joblisting ID
+	 * @author Michael Holmes
+	 * @precondition Database has at least one joblisting
+	 * @postcondition ID of the most recently added to the database job listing is returned
+	 * @return the ID of the most recently added job listing to the database
+	 */
 	private int getRecentJobID() {
 		String sql = "select max(id) from job_listing";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
