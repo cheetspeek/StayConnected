@@ -20,7 +20,7 @@ public class HomeController {
 	private String loginId;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String login(@RequestParam(value="login_error", defaultValue="f") String failed, Model model) {
 		if (failed.equalsIgnoreCase("t")) {
 			model.addAttribute("error_message", "Incorrect username and/or password");

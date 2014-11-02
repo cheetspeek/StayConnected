@@ -12,7 +12,7 @@ public class AccountController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/accounthome", method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
 		logger.info("login ID via Controller is: "+ principal.getName());
 		//logger.info("login ID via AuthenticationContext is: "+ getLoginId());
