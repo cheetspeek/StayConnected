@@ -9,7 +9,6 @@
 	Thank You for Visting Us!!  
 </h1>
 
-<a href="<c:url value="/spring_security_login" />" > Sign In</a>
-</p>
+<P> <a href="<c:url value="/spring_security_login" />" > Sign In</a> </P>
 </body>
 </html>

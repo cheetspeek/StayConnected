@@ -1,10 +1,7 @@
 package com.fastrax.stayconnected.web;
 
-import java.security.Principal;
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 //import org.springframework.security.authentication.AnonymousAuthenticationToken;
 //import org.springframework.security.core.Authentication;
 //import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
-	
-	private String loginId;
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Controller for home page
@@ -35,18 +29,15 @@ public class HomeController {
 		return "Home";
 	}
 	
+	/**
+	 * Controller for logging out of account
+	 * @author Ben Degler
+	 * @param model		Model object of jsp files
+	 * @return logout	JSP of logout page
+	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model) {
 		return "logout";
 	}
 
-	
-//	private String getLoginId() {
-//		String currentPrincipalName = "none";
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-//			currentPrincipalName = authentication.getName();
-//		}
-//		return currentPrincipalName;
-//	}
 }

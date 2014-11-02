@@ -8,7 +8,7 @@
 </head>
 <body>
 	<P>
-		Username:
+		Email:
 		<security:authentication property="principal.username" />
 	</P>
 

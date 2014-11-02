@@ -20,7 +20,7 @@ public class JobListingController {
 	 * @return JobListingCreation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/createlisting", method = RequestMethod.GET)
-	public String createListing(Model model) {
+	public String createListing(Locale locale, Model model) {
 		return "JobListingCreation";
 	}
 	
@@ -31,7 +31,7 @@ public class JobListingController {
 	 * @return JobListingCreation	JSP of job listing update page
 	 */
 	@RequestMapping(value = "/updatelisting", method = RequestMethod.GET)
-	public String updateListing(Model model) {
+	public String updateListing(Locale locale, Model model) {
 		//pull data from listing of db and populate form
 		return "JobListingCreation";
 	}
@@ -43,7 +43,7 @@ public class JobListingController {
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/confirmlisting", method = RequestMethod.GET)
-	public String confirmListing(Model model) {
+	public String confirmListing(Locale locale, Model model) {
 		return "JobListingConfirmation";
 	}
 	
@@ -54,7 +54,7 @@ public class JobListingController {
 	 * @return JobListing	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
-	public String viewListing(Model model) {
+	public String viewListing(Locale locale, Model model) {
 		return "JobListing";
 	}	
 
