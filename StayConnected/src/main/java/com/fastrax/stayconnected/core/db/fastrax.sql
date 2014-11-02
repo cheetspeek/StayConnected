@@ -13,8 +13,7 @@ CREATE TABLE role (
 	account_id bigint,
 	role varchar(20) NOT NULL,
 	primary key (id),
-	foreign key (account_id) references account(id) 
-		on delete cascade on update cascade
+	foreign key (account_id) references account(id) on delete cascade on update cascade
 );
 
 CREATE TABLE job_listing (
@@ -26,8 +25,7 @@ CREATE TABLE job_listing (
 	job_location varchar(20) NOT NULL,
 	active boolean NOT NULL DEFAULT 1,
 	primary key (id),
-	foreign key (account_id) references account(id) 
-		on delete cascade on update cascade
+	foreign key (account_id) references account(id) on delete cascade on update cascade
 );
 
 
