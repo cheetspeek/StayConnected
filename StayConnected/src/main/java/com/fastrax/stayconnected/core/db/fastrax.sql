@@ -4,6 +4,7 @@ CREATE TABLE account (
 	lastname varchar(20) NOT NULL,
 	email varchar(50) NOT NULL,
 	password char(40) NOT NULL,
+	active boolean NOT NULL DEFAULT 0,
 	primary key (id)
 );
 
