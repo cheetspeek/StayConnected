@@ -29,29 +29,31 @@ public class AccountController {
 	public String home(Principal principal, Model model) {
 //		logger.info("login ID via Controller is: "+ principal.getName());
 //		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
-		return "AccountHome";
+		return "account/AccountHome";
 	}
 	
 	/**
 	 * Controls the user registration page mapping
 	 * @author Ben Degler	
+	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
 	 * @return AccountRegistration	account register page for new user
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(Locale locale, Model model) {
-		return "AccountRegistration";
+		return "account/AccountRegistration";
 	}
 	
 	/**
 	 * Controls the user confirmation page mapping
 	 * @author Ben Degler
+	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
 	 * @return AccountConfirmation	account confirm page of registering user
 	 */
 	@RequestMapping(value = "/registerconfirm", method = RequestMethod.GET)
 	public String registerConfirmation(Locale locale, Model model) {
-		return "AccountConfirmation";
+		return "account/AccountConfirmation";
 	}
 	
 //	private String getLoginId() {

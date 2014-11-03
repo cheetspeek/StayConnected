@@ -6,6 +6,9 @@
 <body>
 	<div>
 		<h2>StayConnected Login Fantastic!</h2>
+		<!-- <img alt="logo" src="images/stayconnected_logo.jpg"> -->
+		<!-- <img src='<c:url value="resources/images/stayconnected_logo.jpg"/>' class="logo"/> -->
+		<img src="/resources/images/logo.jpg" />
 		<p>${error_message}</p>
 		<s:url var="authUrl" value="/j_spring_security_check" />
 		<form class='signin' method="post" action="${authUrl}">
