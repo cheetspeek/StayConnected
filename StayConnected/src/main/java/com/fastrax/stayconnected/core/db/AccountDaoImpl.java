@@ -1,7 +1,5 @@
 package com.fastrax.stayconnected.core.db;
 
-import java.math.BigDecimal;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -10,7 +8,6 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,7 +15,6 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.fastrax.stayconnected.core.entity.Account;
-import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Repository
 public class AccountDaoImpl implements AccountDao {
@@ -72,7 +68,7 @@ public class AccountDaoImpl implements AccountDao {
 	 * @postcondition ID of the most recently added to the database account is returned
 	 * @return the ID of the most recently added account to the database
 	 */
-	private String getRecentAccountEmail() {
+	public String getRecentAccountEmail() {
 		String sql = "(select max(id), email from authority)";
 		List<String> emailList = jdbcTemplate.query(sql, new AccountEmailHelperMapper());
 		String email = emailList.get(0);

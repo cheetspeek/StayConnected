@@ -27,8 +27,8 @@ public class AccountController {
 	 */
 	@RequestMapping(value = {"/","/accounthome"}, method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
-//		logger.info("login ID via Controller is: "+ principal.getName());
-//		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
+		logger.info("login ID via Controller is: "+ principal.getName());
+		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
 		return "account/AccountHome";
 	}
 	
@@ -56,12 +56,12 @@ public class AccountController {
 		return "account/AccountConfirmation";
 	}
 	
-//	private String getLoginId() {
-//		String currentPrincipalName = "none";
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-//			currentPrincipalName = authentication.getName();
-//		}
-//		return currentPrincipalName;
-//	}
+	private String getLoginId() {
+		String currentPrincipalName = "none";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			currentPrincipalName = authentication.getName();
+		}
+		return currentPrincipalName;
+	}
 }

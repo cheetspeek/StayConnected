@@ -1,6 +1,5 @@
 package com.fastrax.stayconnected.core.db;
 
-import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
