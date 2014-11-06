@@ -1,14 +1,12 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-<title>Stay Connected Login</title>
+<title>Stay Connected</title>
 </head>
 <body>
+<img src="/resources/logo.jpg" />
 	<div>
-		<h2>StayConnected Login Fantastic!</h2>
-		<!-- <img alt="logo" src="images/stayconnected_logo.jpg"> -->
-		<!-- <img src='<c:url value="resources/images/stayconnected_logo.jpg"/>' class="logo"/> -->
-		<img src="/resources/images/logo.jpg" />
+		<h2>Welcome to StayConnected</h2>
 		<p>${error_message}</p>
 		<s:url var="authUrl" value="/j_spring_security_check" />
 		<form class='signin' method="post" action="${authUrl}">
@@ -21,6 +19,6 @@
 		</form>
 	</div>
 	
-	<P>  <a href="register" >Register</a> </P>
+	<P>  <a href="register" >New to StayConnected? Sign up here.</a> </P>
 </body>
 </html>
