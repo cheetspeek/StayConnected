@@ -46,7 +46,7 @@
 		</table>
 	</form:form>
 	<p>
-		<a href="http://localhost:8080/deglerb2/">Return Home</a>
+		<a href="http://localhost:8080/stayconnected/">Return Home</a>
 	</p>
 </body>
 </html>
