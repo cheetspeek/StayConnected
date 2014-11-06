@@ -2,6 +2,14 @@ package com.fastrax.stayconnected.core.entity;
 
 public class Account {
 	
+	private String firstname;
+	private String lastname;
+	private String email;
+	private String emailConfirm;
+	private String password;
+	private String passwordConfirm;
+	private boolean active; 
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -32,12 +40,16 @@ public class Account {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
-	private String firstname;
-	private String lastname;
-	private String email;
-	private String password;
-	private boolean active; 
-
-
+	public String getEmailConfirm() {
+		return emailConfirm;
+	}
+	public void setEmailConfirm(String emailConfirm) {
+		this.emailConfirm = emailConfirm;
+	}
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
 }
