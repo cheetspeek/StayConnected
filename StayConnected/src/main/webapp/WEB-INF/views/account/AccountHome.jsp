@@ -10,7 +10,9 @@
 	<P>
 		Email: <security:authentication property="principal.username" />
 	</P>
-
+	<P><security:authorize access="hasRole('Faculty')">
+		<a href="<c:url value="/accountstatus" />">Update Account Statuses</a>
+	</security:authorize></P>
 	<P> <security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
 		<a href="<c:url value="/createlisting" />">Create Job Listing</a>
 	</security:authorize> </P>

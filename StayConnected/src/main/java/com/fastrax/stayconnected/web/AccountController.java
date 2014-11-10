@@ -69,6 +69,31 @@ public class AccountController {
 		return "account/AccountConfirmation";
 	}
 	
+	/**
+	 * Controls the account status page mapping
+	 * @author Ben Degler
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return AccountStatus	account confirm page of registering user
+	 */
+	@RequestMapping(value = "/accountstatus", method = RequestMethod.GET)
+	public String accountStatus(Locale locale, Model model) {
+		model.addAttribute("accounts", accountService.getAllAccounts());
+		return "account/AccountStatus";
+	}
+	
+	/**
+	 * Controls the account status confirmation page mapping
+	 * @author Ben Degler
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return AccountStatusConfirmation	account confirm page of registering user
+	 */
+	@RequestMapping(value = "/accountstatusconfirmation", method = RequestMethod.POST)
+	public String accountStatusConfirmation(Locale locale, Model model) {
+		return "account/AccountStatusConfirmation";
+	}
+	
 	private String getLoginId() {
 		String currentPrincipalName = "none";
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

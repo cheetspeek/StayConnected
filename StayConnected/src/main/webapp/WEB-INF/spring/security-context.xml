@@ -20,6 +20,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 		<intercept-url pattern="/createlisting"	access="hasAnyRole('Faculty', 'Alumni')" />
 		<intercept-url pattern="/updatelisting"	access="hasAnyRole('Faculty', 'Alumni',)" />
 		<intercept-url pattern="/viewlisting"	access="hasAnyRole('Faculty', 'Alumni', 'Student')" />
+		<intercept-url pattern="/accountstatus"	access="hasRole('Faculty')" />
 		<logout logout-success-url="/home" />
 			
 		<remember-me key="myappkey"
