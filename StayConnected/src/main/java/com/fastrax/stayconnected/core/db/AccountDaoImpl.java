@@ -75,8 +75,17 @@ public class AccountDaoImpl implements AccountDao {
 		return email;
 	}
 
+	/**
+	 * Gets the accounts 
+	 * @author Ben Degler
+	 * @precondition Database has at least one account
+	 * @postcondition a List of all accounts is returned
+	 * @return the list of all accounts and statuses in database
+	 */
 	public List<Account> getAllAccounts(){
-		return null;
+		String SQL = "select * from account";
+		List<Account> accounts = jdbcTemplate.query(SQL, new AccountMapper());
+		return accounts;
 	}
 
 	public Account getAccountByEmail(String email){
@@ -90,10 +99,16 @@ public class AccountDaoImpl implements AccountDao {
 	public int getNumberOfAccountsByRole(String role){
 		return 0;
 	}
+	
+	
 
 	public int deactivate(Account account){
 		return 0;
-	}	
+	}
+	
+	public int activate(Account account){
+		return 0;
+	}
 }
 
 //Helper class to extract the most recent email
@@ -103,3 +118,13 @@ class AccountEmailHelperMapper implements RowMapper<String> {
 		return email;
 	}
 }
+
+class AccountMapper implements RowMapper<Account> {
+	public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Account account = new Account();
+		account.setEmail(rs.getString("email"));
+		account.setActive(rs.getBoolean("active"));
+		return account;
+	}
+}
+

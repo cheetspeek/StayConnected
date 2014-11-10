@@ -19,15 +19,30 @@
 </head>
 <body>
 	<h2>Activate/Deactivate Accounts</h2>
+
+	<table border='1'>
+		<tr>
+			<td>Email</td>
+			<td>Active</td>
+		</tr>
+		<c:forEach items="${accounts}" var="current">
+			<tr>
+				<td><c:out value="${current.email}" /></td>
+				<td><input type="radio" path="active" value="true" onclick=""
+					<c:if test="${current.active == 'true'}">checked</c:if> />Yes 
+					<input type="radio" path="active" value="false"
+					<c:if test="${current.active == 'false'}">checked</c:if> />No
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<tr>
+		<input type="submit" />
+	</tr>
+
+
 	<p>
 		<a href="http://localhost:8080/stayconnected/">Return Home</a>
 	</p>
 </body>
 </html>
-
-
-
-
-
-
-
