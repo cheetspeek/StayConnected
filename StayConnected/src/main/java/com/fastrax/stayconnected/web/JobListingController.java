@@ -35,9 +35,9 @@ public class JobListingController {
 	 * @return JobListingCreation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/createlisting", method = RequestMethod.GET)
-	public String createListing(Principal principle, Locale locale, Model model) {
+	public String createListing(Principal principal, Locale locale, Model model) {
 		JobListing jl = new JobListing();
-		jl.setEmail(principle.getName());
+		jl.setEmail(principal.getName());
 		model.addAttribute("jobListing", jl);
 		return "joblisting/JobListingCreation";
 	}

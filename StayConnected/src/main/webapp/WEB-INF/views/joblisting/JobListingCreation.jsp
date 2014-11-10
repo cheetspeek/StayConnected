@@ -26,7 +26,13 @@
 		<table>
 			<tr>
 				<td>Contact Email:</td>
-				<td><security:authentication property="principal.username" /></td>
+				<td><form:input path="email" readonly="true" /></td>
+			</tr>
+			<tr>
+				<td>Listing Name:</td>
+				<td><form:input path="job_name" /></td>
+				<td><form:errors path="job_name" cssClass="error" />
+				</td>
 			</tr>
 			<tr>
 				<td>Job Position:</td>
@@ -35,19 +41,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Listing name:</td>
-				<td><form:input path="job_name" /></td>
-				<td><form:errors path="job_name" cssClass="error" />
-				</td>
-			</tr>
-			<tr>
-				<td>Description:</td>
+				<td>Job Description:</td>
 				<td><form:input path="job_description" /></td>
 				<td><form:errors path="job_description" cssClass="error" />
 				</td>
 			</tr>
 			<tr>
-				<td>Location:</td>
+				<td>Job Location:</td>
 				<td><form:input path="job_location" /></td>
 				<td><form:errors path="job_location" cssClass="error" />
 				</td>

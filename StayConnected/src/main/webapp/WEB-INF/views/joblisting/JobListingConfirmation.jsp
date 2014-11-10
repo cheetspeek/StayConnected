@@ -7,24 +7,24 @@
 
 	<table>
 		<tr>
-			<td>Name:</td>
-			<td>${listing.name}</td>
+			<td>Contact Email:</td>
+			<td>${jobListing.email}</td>
+		</tr>
+		<tr>
+			<td>Listing Name:</td>
+			<td>${jobListing.job_name}</td>
+		</tr>
+		<tr>
+			<td>Job Position:</td>
+			<td>${jobListing.position}</td>
 		</tr>
 	    <tr>
-			<td>Date:</td>
-			<td>${listing.date}</td>
+			<td>Job Description:</td>
+			<td>${jobListing.job_description}</td>
 		</tr>
 		<tr>
-			<td>Time:</td>
-			<td>${listing.time}</td>
-		</tr>
-		<tr>
-			<td>Location:</td>
-			<td>${listing.location}</td>
-		</tr>
-		<tr>
-			<td>Description:</td>
-			<td>${listing.description}</td>
+			<td>Job Location:</td>
+			<td>${jobListing.job_location}</td>
 		</tr>
 	</table>
 </body>
