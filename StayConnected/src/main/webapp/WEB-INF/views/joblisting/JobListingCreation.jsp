@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h2>Job Listing Creation/Update</h2>
-	<form:form method="POST" action="listing" modelAttribute ="listing">
+	<form:form method="POST" action="jobListingConfirmation" modelAttribute ="jobListing">
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>
 			<tr>
@@ -17,17 +17,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Date:</td>
-				<td><form:input path="date" />
+				<td>Description:</td>
+				<td><form:input path="description" />
 				</td>
-				<td><form:errors path="date" cssClass="error" />
-				</td>
-			</tr>
-			<tr>
-				<td>Time:</td>
-				<td><form:input path="time" />
-				</td>
-				<td><form:errors path="time" cssClass="error" />
+				<td><form:errors path="description" cssClass="error" />
 				</td>
 			</tr>
 			<tr>
@@ -35,13 +28,6 @@
 				<td><form:input path="location" />
 				</td>
 				<td><form:errors path="location" cssClass="error" />
-				</td>
-			</tr>
-			<tr>
-				<td>Description:</td>
-				<td><form:input path="description" />
-				</td>
-				<td><form:errors path="description" cssClass="error" />
 				</td>
 			</tr>
 			<tr>
