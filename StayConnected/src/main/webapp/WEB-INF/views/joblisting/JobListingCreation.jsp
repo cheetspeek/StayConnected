@@ -26,7 +26,7 @@
 		<table>
 			<tr>
 				<td>Contact Email:</td>
-				<td></del><security:authentication property="principal.username" /></td>
+				<td><security:authentication property="principal.username" /></td>
 			</tr>
 			<tr>
 				<td>Job Position:</td>
