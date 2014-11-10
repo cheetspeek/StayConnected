@@ -1,5 +1,6 @@
 package com.fastrax.stayconnected.web;
 
+import java.security.Principal;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -28,19 +29,22 @@ public class JobListingController {
 	
 	/**
 	 * Controller for create job listing page
-	 * @author Ben Degler
+	 * @author Ben Degler, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					Model object of JSP files
 	 * @return JobListingCreation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/createlisting", method = RequestMethod.GET)
-	public String createListing(Locale locale, Model model) {
+	public String createListing(Principal principle, Locale locale, Model model) {
+		JobListing jl = new JobListing();
+		jl.setEmail(principle.getName());
+		model.addAttribute("jobListing", jl);
 		return "joblisting/JobListingCreation";
 	}
 	
 	/**
 	 * Controls the job listing confirmation page mapping
-	 * @author Ben Delger & Louis Balzani
+	 * @author Ben Delger, Louis Balzani, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
 	 * @return AccountConfirmation	account confirm page of registering user

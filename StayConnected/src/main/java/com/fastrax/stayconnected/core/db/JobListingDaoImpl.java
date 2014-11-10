@@ -32,7 +32,7 @@ public class JobListingDaoImpl implements JobListingDao {
 
 	/**
 	 * Creates a new user Job Listing
-	 * @author Michael Holmes
+	 * @author Michael Holmes, Conner Simmons
 	 * @precondition None?
 	 * @postcondition job listing is created in the job_listing table on the database
 	 * @param Joblisting	a job listing object
@@ -45,8 +45,8 @@ public class JobListingDaoImpl implements JobListingDao {
 		//TransactionStatus status = transactionManager.getTransaction(def);
 	
 		try {
-			String SQL = "insert into job_listing (account_id, position, job_name, job_description, job_location, active) values "
-					+ "(?,?,?,?,?)";
+			String SQL = "insert into job_listing (email, position, job_name, job_description, job_location, active) values "
+					+ "(?,?,?,?,?,?)";
 
 			String email = jl.getEmail();
 			String position = jl.getPosition();
