@@ -37,9 +37,6 @@
 		</c:forEach>
 	</table>
 	<p>
-		<a href="http://localhost:8080/stayconnected/accountstatus">Return To Account Status</a>
-	</P>
-	<p>
 		<a href="http://localhost:8080/stayconnected/">Return Home</a>
 	</P>
 </body>

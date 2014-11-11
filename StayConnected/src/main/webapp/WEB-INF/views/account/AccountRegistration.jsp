@@ -23,24 +23,29 @@
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>			
 				<tr>
-					First Name: <input type="text" name="firstname" path="firstname"> <br>
+					First Name: <input type="text" name="firstname" path="firstname"> 
 			    </tr>
 			    <tr>
-			    	Last Name: <input type="text" name="lastname" path="lastname"> <br>
+			    	Last Name: <input type="text" name="lastname" path="lastname"> 
 			    </tr>
 				<tr>
-					Email: <input type="text" name="email" path="email"> <br>
+					Email: <input type="text" name="email" path="email"> 
 				</tr>
 				<tr>
-					Confirm Email: <input type="text" name="emailConfirm" path="emailConfirm"> <br>
+					Confirm Email: <input type="text" name="emailConfirm" path="emailConfirm"> 
 				</tr>
 				<tr>
-					Password: <input type="text" name="password" path="password"> <br>
+					Password: <input type="text" name="password" path="password"> 
 				</tr>
 				<tr>
-					Confirm Password: <input type="text" name="passwordConfirm" path="passwordConfirm"> <br>
+					Confirm Password: <input type="text" name="passwordConfirm" path="passwordConfirm"> 
 				</tr>
-				<tr colspan="3">
+				<tr>
+				 		<input type="radio" name="role" value="Faculty"/>Faculty 
+						<input type="radio" name="role" value="Student"/>Student
+						<input type="radio" name="role" value="Alumni"/>Alumni 
+				</tr> 
+				<tr>
 					<input type="submit" />
 				</tr>
 		</table>

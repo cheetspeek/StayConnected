@@ -33,7 +33,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 		<authentication-provider>
 			<jdbc-user-service id="userService"
 				data-source-ref="dataSource"
-				users-by-username-query="select email, password, true from account where email = ?"
+				users-by-username-query="select email, password, active, true from account where email = ? and active = 1"
 				authorities-by-username-query="select  email, role from authority where email = ?" />
 		</authentication-provider>
 	</authentication-manager>

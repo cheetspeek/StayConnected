@@ -1,7 +1,6 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.validation.Valid;
