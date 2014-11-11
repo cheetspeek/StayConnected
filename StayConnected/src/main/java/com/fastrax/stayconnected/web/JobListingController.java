@@ -1,5 +1,7 @@
 package com.fastrax.stayconnected.web;
 
+import java.security.Principal;
+import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -19,6 +21,7 @@ import com.fastrax.stayconnected.core.JobListingService;
 import com.fastrax.stayconnected.core.entity.Account;
 import com.fastrax.stayconnected.core.entity.JobListing;
 
+
 @Controller
 public class JobListingController {
 	
@@ -26,21 +29,26 @@ public class JobListingController {
 	@Autowired
 	private JobListingService jobListingService;
 	
+	private List<JobListing> jobItems;
+
 	/**
 	 * Controller for create job listing page
-	 * @author Ben Degler
+	 * @author Ben Degler, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					Model object of JSP files
 	 * @return JobListingCreation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/createlisting", method = RequestMethod.GET)
-	public String createListing(Locale locale, Model model) {
+	public String createListing(Principal principal, Locale locale, Model model) {
+		JobListing jl = new JobListing();
+		jl.setEmail(principal.getName());
+		model.addAttribute("jobListing", jl);
 		return "joblisting/JobListingCreation";
 	}
 	
 	/**
 	 * Controls the job listing confirmation page mapping
-	 * @author Ben Delger & Louis Balzani
+	 * @author Ben Delger, Louis Balzani, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
 	 * @return AccountConfirmation	account confirm page of registering user
@@ -88,6 +96,9 @@ public class JobListingController {
 	 */
 	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
 	public String viewListing(Locale locale, Model model) {
+		jobItems = jobListingService.getAllJobListings();
+		model.addAttribute("listing", jobItems);
+
 		return "joblisting/JobListing";
 	}	
 }
