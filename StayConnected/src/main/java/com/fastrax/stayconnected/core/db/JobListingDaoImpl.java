@@ -128,7 +128,7 @@ class JobListingMapper implements RowMapper<JobListing> {
 		jl.setPosition(rs.getString("position"));
 		jl.setEmail(rs.getString("email"));
 		jl.setJob_description(rs.getString("job_description"));
-		jl.setJob_name(rs.getString("job_location"));
+		jl.setJob_name(rs.getString("job_name"));
 		jl.setJob_location(rs.getString("job_location"));
 		jl.setActive(rs.getBoolean("active"));
 		return jl;

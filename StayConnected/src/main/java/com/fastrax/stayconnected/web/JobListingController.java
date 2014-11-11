@@ -1,6 +1,7 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ import com.fastrax.stayconnected.core.JobListingService;
 import com.fastrax.stayconnected.core.entity.Account;
 import com.fastrax.stayconnected.core.entity.JobListing;
 
+
 @Controller
 public class JobListingController {
 	
@@ -27,6 +29,8 @@ public class JobListingController {
 	@Autowired
 	private JobListingService jobListingService;
 	
+	private List<JobListing> jobItems;
+
 	/**
 	 * Controller for create job listing page
 	 * @author Ben Degler, Conner Simmons
@@ -92,6 +96,9 @@ public class JobListingController {
 	 */
 	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
 	public String viewListing(Locale locale, Model model) {
+		jobItems = jobListingService.getAllJobListings();
+		model.addAttribute("listing", jobItems);
+
 		return "joblisting/JobListing";
 	}	
 }
