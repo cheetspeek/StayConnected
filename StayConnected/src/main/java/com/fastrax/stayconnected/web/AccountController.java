@@ -1,6 +1,7 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -23,7 +24,7 @@ import com.fastrax.stayconnected.core.entity.Account;
 
 @Controller
 public class AccountController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private AccountService accountService;
@@ -40,7 +41,7 @@ public class AccountController {
 		logger.info("login ID via AuthenticationContext is: "+ getLoginId());
 		return "account/AccountHome";
 	}
-	
+
 	/**
 	 * Controls the user registration page mapping
 	 * @author Ben Degler	
@@ -52,7 +53,7 @@ public class AccountController {
 	public String register(Locale locale, Model model) {
 		return "account/AccountRegistration";
 	}
-	
+
 	/**
 	 * Controls the user confirmation page mapping
 	 * @author Ben Degler
@@ -68,7 +69,7 @@ public class AccountController {
 		accountService.createAccount(newAccount);
 		return "account/AccountConfirmation";
 	}
-	
+
 	/**
 	 * Controls the account status page mapping
 	 * @author Ben Degler
@@ -81,7 +82,7 @@ public class AccountController {
 		model.addAttribute("accounts", accountService.getAllAccounts());
 		return "account/AccountStatus";
 	}
-	
+
 	/**
 	 * Controls the account status confirmation page mapping
 	 * @author Ben Degler
@@ -90,10 +91,21 @@ public class AccountController {
 	 * @return AccountStatusConfirmation	account confirm page of registering user
 	 */
 	@RequestMapping(value = "/accountstatusconfirmation", method = RequestMethod.POST)
-	public String accountStatusConfirmation(Locale locale, Model model) {
+	public String accountStatusConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
+		System.out.println("Email: " + account.getEmail());
+		System.out.println("Active: " + account.isActive());
+		if(account.isActive())
+		{
+			accountService.activate(account);
+		}
+		else
+		{
+			accountService.deactivate(account);
+		}
+		model.addAttribute("accounts");
 		return "account/AccountStatusConfirmation";
 	}
-	
+
 	private String getLoginId() {
 		String currentPrincipalName = "none";
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

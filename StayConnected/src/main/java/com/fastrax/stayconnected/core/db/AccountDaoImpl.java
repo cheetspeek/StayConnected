@@ -40,7 +40,7 @@ public class AccountDaoImpl implements AccountDao {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
 		//TransactionStatus status = transactionManager.getTransaction(def);
-	
+
 		try {
 			String SQL = "insert into account (firstname, lastname, email, password, active) values "
 					+ "(?,?,?,?,?)";
@@ -49,9 +49,9 @@ public class AccountDaoImpl implements AccountDao {
 			String email = account.getEmail();
 			String password = account.getPassword();
 			boolean active = account.isActive();
-			
+
 			jdbcTemplate.update(SQL,firstname,lastname,email,password,active);
-			
+
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in creating AccountDao record, rolling back");
@@ -60,7 +60,7 @@ public class AccountDaoImpl implements AccountDao {
 		}
 		return account;
 	}
-	
+
 	/**
 	 * Gets the most recent account 
 	 * @author Michael Holmes
@@ -87,26 +87,74 @@ public class AccountDaoImpl implements AccountDao {
 		List<Account> accounts = jdbcTemplate.query(SQL, new AccountMapper());
 		return accounts;
 	}
+	
+	/**
+	 *  
+	 * @author Ben Degler
+	 * @precondition Database has at least one account
+	 * @postcondition a List of all accounts is returned
+	 * @return the list of all accounts and statuses in database
+	 */
+	@Override
+	public int deactivate(Account account) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
 
+		try {
+			String SQL = "UPDATE account "
+					   + "SET active=false "
+					   + "WHERE email=?";
+			String email = account.getEmail();
+			jdbcTemplate.update(SQL,email);
+
+			//transactionManager.commit(status);
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating AccountDao active, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1; 
+	}
+
+	/**
+	 * Gets the accounts 
+	 * @author Ben Degler
+	 * @precondition Database has at least one account
+	 * @postcondition a List of all accounts is returned
+	 * @return the list of all accounts and statuses in database
+	 */
+	@Override
+	public int activate(Account account) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+
+		try {
+			String SQL = "UPDATE account "
+					   + "SET active=true "
+					   + "WHERE email=?";
+			String email = account.getEmail();
+			jdbcTemplate.update(SQL,email);
+
+			//transactionManager.commit(status);
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating AccountDao active, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1; 
+	}
+	
 	public Account getAccountByEmail(String email){
 		return null;
 	}
-	
+
 	public int getNumberOfAccounts(){
 		return 0;
 	}
 
 	public int getNumberOfAccountsByRole(String role){
-		return 0;
-	}
-	
-	
-
-	public int deactivate(Account account){
-		return 0;
-	}
-	
-	public int activate(Account account){
 		return 0;
 	}
 }
