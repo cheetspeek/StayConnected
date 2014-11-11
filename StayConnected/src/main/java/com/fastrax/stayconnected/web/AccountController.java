@@ -87,6 +87,7 @@ public class AccountController {
 	/**
 	 * Controls the account status confirmation page mapping
 	 * @author Ben Degler
+	 * @param account				a new Account object with new user data
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
 	 * @return AccountStatusConfirmation	account confirm page of registering user
