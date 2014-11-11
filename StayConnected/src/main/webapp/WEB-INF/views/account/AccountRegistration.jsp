@@ -23,25 +23,37 @@
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>			
 				<tr>
-					First Name: <input type="text" name="firstname" path="firstname"> <br>
+					<td>First Name:</td>
+					<td><form:input path="firstname" /></td>
+					<td><form:errors path="firstname" cssClass="error" />
 			    </tr>
 			    <tr>
-			    	Last Name: <input type="text" name="lastname" path="lastname"> <br>
+			    	<td>Last Name:</td>
+			    	<td><form:input path="lastname"/></td>
+			    	<td><form:errors path="lastname" cssClass="error" />
 			    </tr>
 				<tr>
-					Email: <input type="text" name="email" path="email"> <br>
+					<td>Email:</td>
+					<td><form:input path="email"/></td>
+					<td><form:errors path="email" cssClass="error" />
 				</tr>
 				<tr>
-					Confirm Email: <input type="text" name="emailConfirm" path="emailConfirm"> <br>
+					<td>Confirm Email:</td>
+					<td><form:input path="emailConfirm"/></td>
+					<td><form:errors path="emailConfirm" cssClass="error" />
 				</tr>
 				<tr>
-					Password: <input type="text" name="password" path="password"> <br>
+					<td>Password:</td>
+					<td><form:input path="password"/></td>
+					<td><form:errors path="password" cssClass="error" />
 				</tr>
 				<tr>
-					Confirm Password: <input type="text" name="passwordConfirm" path="passwordConfirm"> <br>
+					<td>Confirm Password:</td>
+					<td><form:input path="passwordConfirm"/></td>
+					<td><form:errors path="passwordConfirm" cssClass="error" />
 				</tr>
-				<tr colspan="3">
-					<input type="submit" />
+				<tr>
+					<td colspan="3"><input type="submit" /></td>
 				</tr>
 		</table>
 	</form:form>
