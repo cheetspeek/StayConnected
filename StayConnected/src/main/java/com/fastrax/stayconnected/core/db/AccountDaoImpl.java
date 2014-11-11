@@ -30,7 +30,7 @@ public class AccountDaoImpl implements AccountDao {
 
 	/**
 	 * Creates a new user Account
-	 * @author Michael Holmes
+	 * @author Michael Holmes, Ben Degler
 	 * @precondition account does not exist in database already
 	 * @postcondition account is created in the account table on the database
 	 * @param account	an Account object
@@ -44,13 +44,17 @@ public class AccountDaoImpl implements AccountDao {
 		try {
 			String SQL = "insert into account (firstname, lastname, email, password, active) values "
 					+ "(?,?,?,?,?)";
+			String SQL2 = "insert into authority (email, role) values (?,?)";
+			
 			String firstname = account.getFirstname();
 			String lastname = account.getLastname();
 			String email = account.getEmail();
 			String password = account.getPassword();
+			String role = account.getRole();
 			boolean active = account.isActive();
 
 			jdbcTemplate.update(SQL,firstname,lastname,email,password,active);
+			jdbcTemplate.update(SQL2,email,role);
 
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
@@ -88,12 +92,12 @@ public class AccountDaoImpl implements AccountDao {
 		return accounts;
 	}
 	
-	/**
-	 *  
+	/**  
+	 * Deactivate a user account
 	 * @author Ben Degler
-	 * @precondition Database has at least one account
-	 * @postcondition a List of all accounts is returned
-	 * @return the list of all accounts and statuses in database
+	 * @precondition Account exists in database
+	 * @postcondition Account status has been changed to inactive
+	 * @return true to show method completion
 	 */
 	@Override
 	public int deactivate(Account account) {
@@ -117,12 +121,12 @@ public class AccountDaoImpl implements AccountDao {
 		return 1; 
 	}
 
-	/**
-	 * Gets the accounts 
+	/**  
+	 * Activate a user account
 	 * @author Ben Degler
-	 * @precondition Database has at least one account
-	 * @postcondition a List of all accounts is returned
-	 * @return the list of all accounts and statuses in database
+	 * @precondition Account exists in database
+	 * @postcondition Account status has been changed to active
+	 * @return true to show method completion
 	 */
 	@Override
 	public int activate(Account account) {

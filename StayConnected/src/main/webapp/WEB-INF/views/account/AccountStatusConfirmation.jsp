@@ -17,6 +17,9 @@
 			<td>${account.active}</td>
 		</tr>
 	</table>
+	<p>
+		<a href="http://localhost:8080/stayconnected/accountstatus">Return To Account Status</a>
+	</P>
  	<p> <a href="http://localhost:8080/stayconnected/" >Return Home</a> </p>
 </body>
 </html>

@@ -8,8 +8,15 @@ public class Account {
 	private String emailConfirm;
 	private String password;
 	private String passwordConfirm;
-	private boolean active; 
+	private boolean active;
+	private String role; 
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getFirstname() {
 		return firstname;
 	}
