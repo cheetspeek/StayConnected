@@ -9,13 +9,13 @@ public class Account {
 	private String password;
 	private String passwordConfirm;
 	private boolean active;
-	private String role; 
+	private String[] roleList; 
 	
-	public String getRole() {
-		return role;
+	public String[] getRoleList() {
+		return roleList;
 	}
-	public void setRole(String role) {
-		this.role = role;
+	public void setRoleList(String[] roleList) {
+		this.roleList = roleList;
 	}
 	public String getFirstname() {
 		return firstname;

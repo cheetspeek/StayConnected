@@ -1,7 +1,9 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
+import java.util.LinkedHashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -112,5 +114,14 @@ public class AccountController {
 			currentPrincipalName = authentication.getName();
 		}
 		return currentPrincipalName;
+	}
+	
+	@ModelAttribute("rolelist")
+	public Map<String,String> getRoleList() {
+		Map<String,String> roleList = new LinkedHashMap<String,String>();
+		roleList.put("Faculty", "Faculty");
+		roleList.put("Alumni", "Alumni");
+		roleList.put("Student", "Student");
+		return roleList;
 	}
 }

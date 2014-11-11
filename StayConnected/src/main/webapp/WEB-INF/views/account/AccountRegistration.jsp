@@ -41,9 +41,9 @@
 					Confirm Password: <input type="text" name="passwordConfirm" path="passwordConfirm"> 
 				</tr>
 				<tr>
-				 		<input type="radio" name="role" value="Faculty"/>Faculty 
-						<input type="radio" name="role" value="Student"/>Student
-						<input type="radio" name="role" value="Alumni"/>Alumni 
+				 		<input type="checkbox" items="${locationList}" name="roleList" value="Faculty"/>Faculty 
+						<input type="checkbox" name="roleList" value="Student"/>Student
+						<input type="checkbox" name="roleList" value="Alumni"/>Alumni 
 				</tr> 
 				<tr>
 					<input type="submit" />

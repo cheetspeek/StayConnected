@@ -50,11 +50,14 @@ public class AccountDaoImpl implements AccountDao {
 			String lastname = account.getLastname();
 			String email = account.getEmail();
 			String password = account.getPassword();
-			String role = account.getRole();
+			String[] roles = account.getRoleList();
 			boolean active = account.isActive();
 
 			jdbcTemplate.update(SQL,firstname,lastname,email,password,active);
-			jdbcTemplate.update(SQL2,email,role);
+			for(int i = 0; i < roles.length; i++)
+			{
+				jdbcTemplate.update(SQL2,email,roles[i]);
+			}
 
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
