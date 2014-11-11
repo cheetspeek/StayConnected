@@ -42,8 +42,8 @@
 				</tr>
 				<tr>
 				 		<input type="checkbox" items="${locationList}" name="roleList" value="Faculty"/>Faculty 
-						<input type="checkbox" name="roleList" value="Student"/>Student
-						<input type="checkbox" name="roleList" value="Alumni"/>Alumni 
+						<input type="checkbox" items="${locationList}" name="roleList" value="Student"/>Student
+						<input type="checkbox" items="${locationList}" name="roleList" value="Alumni"/>Alumni 
 				</tr> 
 				<tr>
 					<input type="submit" />
