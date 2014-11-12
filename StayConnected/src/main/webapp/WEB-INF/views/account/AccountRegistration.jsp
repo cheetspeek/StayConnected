@@ -21,10 +21,8 @@
 	}
   </style>
 </head>
-<body bgcolor="plum" >
-	<div>
-		<img src="<s:url value="/resources/images/logo_condensed.png" />" width="294" height="100" />
-	</div>
+<body bgcolor=#D9C1F3 >
+	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
 		<form:errors path="*" cssClass="errorblock" element="div" />
@@ -67,7 +65,7 @@
 					</td>
 				</tr> 
 				<tr>
-					<td colspan="1"><input type="submit" /></td>
+					<td colspan="3"><input type="submit" /></td>
 				</tr>
 		</table>
 	</form:form>

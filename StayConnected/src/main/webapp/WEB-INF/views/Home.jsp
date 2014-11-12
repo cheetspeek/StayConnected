@@ -6,7 +6,7 @@
  * { font-family: Avenir }
   </style>
 </head>
-<body bgcolor="plum" >
+<body bgcolor=#D9C1F3 >
 	<div style="text-align: center;">
 		<img src="<s:url value="/resources/images/logo_trans.png" />" width="340" height="125" />
 		<h2>Welcome to StayConnected!</h2>
