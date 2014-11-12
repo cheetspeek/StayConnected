@@ -9,11 +9,21 @@
 <title>StayConnected Registration</title>
   <style>
  * { font-family: Avenir }
+ 	error {
+		color: #ff0000;
+	}
+	.errorblock {
+		color: #000;
+		background-color: #ffEEEE;
+		border: 3px solid #ff0000;
+		padding: 8px;
+		margin: 16px;
+	}
   </style>
 </head>
 <body bgcolor="plum" >
 	<div>
-		<img src="<s:url value="/resources/images/logo_condensed.png" />" width="440" height="150" />
+		<img src="<s:url value="/resources/images/logo_condensed.png" />" width="294" height="100" />
 	</div>
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
@@ -61,9 +71,9 @@
 				</tr>
 		</table>
 	</form:form>
-	<p>
-		<a href="http://localhost:8080/stayconnected/"> HOME</a>
-	</p>
+	
+	<P><a href="http://localhost:8080/stayconnected/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+	</a> </P>
 </body>
 </html>
 

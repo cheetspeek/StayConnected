@@ -8,9 +8,7 @@
 </head>
 <body bgcolor="plum" >
 	<div style="text-align: center;">
-		<img src="<s:url value="/resources/images/logo_trans.png" />" width="543" height="200" />
-	</div>
-	<div>
+		<img src="<s:url value="/resources/images/logo_trans.png" />" width="340" height="125" />
 		<h2>Welcome to StayConnected!</h2>
 		<p>${error_message}</p>
 		<s:url var="authUrl" value="/j_spring_security_check" />
@@ -22,8 +20,9 @@
 				name='commit' value="Sign in"> <input type='reset'
 				name='reset' value="Clear">
 		</form>
-	</div>
 	
-	<P>  <a href="register" >New to StayConnected? Sign up here.</a> </P>
+	<P><a href="register"> <img src="<s:url value="/resources/images/sign_up_box.png" />" width="183" height="55" />
+	</a> </P>
+	</div>
 </body>
 </html>
