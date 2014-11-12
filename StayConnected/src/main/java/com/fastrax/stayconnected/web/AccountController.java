@@ -45,13 +45,15 @@ public class AccountController {
 
 	/**
 	 * Controls the user registration page mapping
-	 * @author Ben Degler	
+	 * @author Ben Degler, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
 	 * @return AccountRegistration	account register page for new user
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(Locale locale, Model model) {
+		Account acct = new Account();
+		model.addAttribute("account", acct);
 		return "account/AccountRegistration";
 	}
 

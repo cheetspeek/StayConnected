@@ -1,5 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ page session="false"%>
 <html>
 <head>
 <style>
@@ -23,30 +26,39 @@
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>			
 				<tr>
-					First Name: <input type="text" name="firstname" path="firstname"> 
+					<td>First Name:</td>
+					<td><form:input path="firstname" /></td>
 			    </tr>
 			    <tr>
-			    	Last Name: <input type="text" name="lastname" path="lastname"> 
+			    	<td>Last Name:</td> 
+			    	<td><form:input path="lastname" /></td>
 			    </tr>
 				<tr>
-					Email: <input type="text" name="email" path="email"> 
+					<td>Email:</td> 
+					<td><form:input path="email" /></td>
 				</tr>
 				<tr>
-					Confirm Email: <input type="text" name="emailConfirm" path="emailConfirm"> 
+					<td>Confirm Email:</td> 
+					<td><form:input path="emailConfirm" /></td>
 				</tr>
 				<tr>
-					Password: <input type="text" name="password" path="password"> 
+					<td>Password:</td> 
+					<td><form:input path="password" /></td>
 				</tr>
 				<tr>
-					Confirm Password: <input type="text" name="passwordConfirm" path="passwordConfirm"> 
+					<td>Confirm Password:</td> 
+					<td><form:input path="passwordConfirm" /></td>
 				</tr>
 				<tr>
-				 		<input type="checkbox" items="${locationList}" name="roleList" value="Faculty"/>Faculty 
-						<input type="checkbox" items="${locationList}" name="roleList" value="Student"/>Student
-						<input type="checkbox" items="${locationList}" name="roleList" value="Alumni"/>Alumni 
+					<td>Role(s):</td>
+					<td>
+				 		<input type="checkbox" name="roleList" value="Faculty"/>Faculty 
+						<input type="checkbox" name="roleList" value="Student"/>Student
+						<input type="checkbox" name="roleList" value="Alumni"/>Alumni 
+					</td>
 				</tr> 
 				<tr>
-					<input type="submit" />
+					<td colspan="3"><input type="submit" /></td>
 				</tr>
 		</table>
 	</form:form>
