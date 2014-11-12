@@ -3,42 +3,41 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-<style>
-.error {
-	color: #ff0000;
-}
-
-.errorblock {
-	color: #000;
-	background-color: #ffEEEE;
-	border: 3px solid #ff0000;
-	padding: 8px;
-	margin: 16px;
-}
-</style>
-<title>Stay Connected: Registration</title>
+<title>StayConnected Registration</title>
+  <style>
+ * { font-family: Avenir }
+  </style>
 </head>
-<body>
-	<h2>Create a New Account</h2>
+<body bgcolor="plum" >
+	<div>
+		<img src="<s:url value="/resources/images/logo_condensed.png" />" width="440" height="150" />
+	</div>
+	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>			
 				<tr>
-					<td>First Name:</td>
+					<td>In order to register you on StayConnected, we need
+					some information from you. Please fill out the following form
+					and submit it when you're done.</td>
+				</tr>
+				<tr>
+					<td>First name:</td>
 					<td><form:input path="firstname" /></td>
 			    </tr>
 			    <tr>
-			    	<td>Last Name:</td> 
+			    	<td>Last name:</td> 
 			    	<td><form:input path="lastname" /></td>
 			    </tr>
 				<tr>
-					<td>Email:</td> 
+					<td>Email address:</td> 
 					<td><form:input path="email" /></td>
 				</tr>
 				<tr>
-					<td>Confirm Email:</td> 
+					<td>Confirm email address:</td> 
 					<td><form:input path="emailConfirm" /></td>
 				</tr>
 				<tr>
@@ -46,7 +45,7 @@
 					<td><form:input path="password" /></td>
 				</tr>
 				<tr>
-					<td>Confirm Password:</td> 
+					<td>Confirm password:</td> 
 					<td><form:input path="passwordConfirm" /></td>
 				</tr>
 				<tr>
@@ -58,12 +57,12 @@
 					</td>
 				</tr> 
 				<tr>
-					<td colspan="3"><input type="submit" /></td>
+					<td colspan="1"><input type="submit" /></td>
 				</tr>
 		</table>
 	</form:form>
 	<p>
-		<a href="http://localhost:8080/stayconnected/">Return Home</a>
+		<a href="http://localhost:8080/stayconnected/"> HOME</a>
 	</p>
 </body>
 </html>
