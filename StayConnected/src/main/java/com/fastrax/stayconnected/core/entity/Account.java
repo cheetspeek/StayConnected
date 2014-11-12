@@ -1,14 +1,26 @@
 package com.fastrax.stayconnected.core.entity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Account {
 	
+	@Size(min=1,max=20)
 	private String firstname;
+	@Size(min=1,max=20)
 	private String lastname;
+	@Size(min=7,max=50)
 	private String email;
+	@Size(min=7,max=50)
 	private String emailConfirm;
+	@Size(min=6,max=40)
 	private String password;
+	@Size(min=6,max=40)
 	private String passwordConfirm;
 	private boolean active;
+	@NotEmpty
 	private String[] roleList; 
 	
 	public String[] getRoleList() {
