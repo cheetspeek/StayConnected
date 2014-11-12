@@ -4,7 +4,9 @@
 <title>Stay Connected</title>
 </head>
 <body>
-<img src="/resources/logo.jpg" />
+	<div style="text-align: center;">
+		<img src="<s:url value="/resources/images/logo.jpg" />" />
+	</div>
 	<div>
 		<h2>Welcome to StayConnected</h2>
 		<p>${error_message}</p>
