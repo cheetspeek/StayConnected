@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fastrax</groupId>
-	<artifactId>stayconnected</artifactId>
-	<name>StayConnected</name>
+	<artifactId>stayconnected_3</artifactId>
+	<name>StayConnected_3</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
