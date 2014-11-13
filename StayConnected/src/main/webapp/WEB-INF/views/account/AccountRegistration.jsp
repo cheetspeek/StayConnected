@@ -15,10 +15,11 @@
 	.errorblock {
 		color: #000;
 		background-color: #ffEEEE;
-		border: 3px solid #ff0000;
-		padding: 8px;
-		margin: 16px;
+		border: 2px solid #ff0000;
+		padding: 4px;
+		margin: 8px;
 	}
+	.
   </style>
 </head>
 <body bgcolor=#D9C1F3 >
@@ -26,18 +27,16 @@
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
 		<form:errors path="*" cssClass="errorblock" element="div" />
-		<table>			
-				<tr>
-					<td>In order to register you on StayConnected, we need
-					some information from you. Please fill out the following form
-					and submit it when you're done.</td>
-				</tr>
+		<P>In order to register you on StayConnected, we need
+		some information from you. Please fill out the following form
+		and submit it when you're done.</P>
+		<table>	
 				<tr>
 					<td>First name:</td>
 					<td><form:input path="firstname" /></td>
 			    </tr>
 			    <tr>
-			    	<td>Last name:</td> 
+			    	<td>Last name:</td>
 			    	<td><form:input path="lastname" /></td>
 			    </tr>
 				<tr>
@@ -53,21 +52,21 @@
 					<td><form:input path="password" /></td>
 				</tr>
 				<tr>
-					<td>Confirm password:</td> 
+					<td>Confirm password:</td>
 					<td><form:input path="passwordConfirm" /></td>
 				</tr>
 				<tr>
-					<td>Role(s):</td>
-					<td>
+					<td>Roles:</td>
+				 	<td>
 				 		<input type="checkbox" name="roleList" value="Faculty"/>Faculty 
 						<input type="checkbox" name="roleList" value="Student"/>Student
 						<input type="checkbox" name="roleList" value="Alumni"/>Alumni 
 					</td>
 				</tr> 
-				<tr>
-					<td colspan="3"><input type="submit" /></td>
-				</tr>
 		</table>
+		<td>
+		<input type="image" src="<s:url value="/resources/images/submit_box.png" />" width="93" height="35" />
+		</td>
 	</form:form>
 	
 	<P><a href="http://localhost:8080/stayconnected/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />

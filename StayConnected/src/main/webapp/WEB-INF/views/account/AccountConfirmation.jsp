@@ -1,30 +1,37 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-<title>Stay Connected</title>
+<title>Stay Connected - Registration Confirmation</title>
+<style>
+ * { font-family: Avenir }
+  </style>
 </head>
-<body>
-	<h2>Register Confirmation!</h2>
- 
+<body bgcolor=#D9C1F3 >
+	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
+	<h2>Registration confirmed!</h2>
+ 	<P> Your account will be active within 48 hours, and you will be notified at the email address you just provided. </P>
 	<table>
 		<tr>
-			<td>First Name :</td>
+			<td>First name:</td>
 			<td>${account.firstname}</td>
 		</tr>
 		<tr>
-			<td>Last Name :</td>
+			<td>Last name:</td>
 			<td>${account.lastname}</td>
 		</tr>
 		<tr>
-			<td>Email :</td>
+			<td>Email address:</td>
 			<td>${account.email}</td>
 		</tr>
 		<tr>
-			<td>Password :</td>
+			<td>Password:</td>
 			<td>${account.password}</td>
 		</tr>
 	</table>
- 	<p> <a href="http://localhost:8080/stayconnected/" >Return Home</a> </p>
+	
+ 	<P><a href="http://localhost:8080/stayconnected/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+	</a> </P>
 </body>
 </html>

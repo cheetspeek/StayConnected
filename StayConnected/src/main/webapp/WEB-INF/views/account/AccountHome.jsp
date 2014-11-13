@@ -2,13 +2,19 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <title>Account Home</title>
+  <style>
+ * { font-family: Avenir }
+  </style>
 </head>
-<body>
+<body bgcolor=#D9C1F3 >
+	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
+	<h2>Account Home Page</h2>
 	<P>
-		Email: <security:authentication property="principal.username" />
+		Your email address is: <security:authentication property="principal.username" />
 	</P>
 	<P><security:authorize access="hasRole('Faculty')">
 		<a href="<c:url value="/accountstatus" />">Update Account Statuses</a>
