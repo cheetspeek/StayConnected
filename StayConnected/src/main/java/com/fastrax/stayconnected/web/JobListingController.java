@@ -65,8 +65,11 @@ public class JobListingController {
 	 * @return JobListingCreation	JSP of job listing update page
 	 */
 	@RequestMapping(value = "/updatelisting", method = RequestMethod.GET)
-	public String updateListing(Locale locale, Model model) {
+	public String updateListing(Principal principal, Locale locale, Model model) {
 		//pull data from listing of db and populate form
+		JobListing jl = new JobListing();
+		jl.setEmail(principal.getName());
+		model.addAttribute("jobListing", jl);
 		return "joblisting/JobListingCreation";
 	}
 	
