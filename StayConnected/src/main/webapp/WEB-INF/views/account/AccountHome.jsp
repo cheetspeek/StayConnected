@@ -17,18 +17,18 @@
 		Your email address is: <security:authentication property="principal.username" />
 	</P>
 	<P><security:authorize access="hasRole('Faculty')">
-		<a href="<c:url value="/accountstatus" />">Update Account Statuses</a>
+		<a href="accountstatus"> <img src="<s:url value="/resources/images/status_box.png" />" width="183" height="55" /></a>
 	</security:authorize></P>
 	<P> <security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
-		<a href="<c:url value="/createlisting" />">Create Job Listing</a>
+		<a href="createlisting"> <img src="<s:url value="/resources/images/create_box.png" />" width="183" height="55" /></a>
 	</security:authorize> </P>
 	<P><security:authorize access="hasAnyRole('Faculty', 'Alumni')">
-		<a href="<c:url value="/updatelisting" />">Update Job Listing</a>
+		<a href="updatelisting"> <img src="<s:url value="/resources/images/update_box.png" />" width="183" height="55" /></a>
 	</security:authorize></P>
-	<P> <a href="<c:url value="/viewlisting" />">View Job Listing</a> </P>
+	<P> <a href="viewlisting"> <img src="<s:url value="/resources/images/view_box.png" />" width="183" height="55" /></a> </P>
 
 	<P>
-		<a href="<c:url value="j_spring_security_logout" />"> Logout</a>
+		<a href="j_spring_security_logout"> <img src="<s:url value="/resources/images/log_out_box.png" />" width="93" height="35" /></a>
 	</P>
 </body>
 </html>
