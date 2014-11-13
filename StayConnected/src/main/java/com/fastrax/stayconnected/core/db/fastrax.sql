@@ -18,10 +18,10 @@ CREATE TABLE authority (
 CREATE TABLE job_listing (
 	id bigint auto_increment,
 	email varchar(50),
-	position varchar(20) NOT NULL,
-	job_name varchar(20) NOT NULL,
-	job_description varchar(50) NOT NULL,
-	job_location varchar(20) NOT NULL,
+	position varchar(50) NOT NULL,
+	job_name varchar(50) NOT NULL,
+	job_description varchar(1000) NOT NULL,
+	job_location varchar(50) NOT NULL,
 	active boolean NOT NULL DEFAULT 1,
 	primary key (id),
 	foreign key (email) references account(email) on delete cascade on update cascade
