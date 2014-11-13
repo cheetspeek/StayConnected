@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -66,6 +67,10 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/registerConfirmation", method = RequestMethod.POST)
 	public String processSubmit(@Valid @ModelAttribute("account") Account newAccount, BindingResult result, Model model) {
+		String password = newAccount.getPassword();
+		password = encodePassword(password);
+		newAccount.setPassword(password);
+		
 		if(!newAccount.getEmail().equals(newAccount.getEmailConfirm()))
 			return "account/AccountRegistration";
 		if(!newAccount.getPassword().equals(newAccount.getPasswordConfirm()))
@@ -130,4 +135,10 @@ public class AccountController {
 		roleList.put("Student", "Student");
 		return roleList;
 	}
+	public static String encodePassword(String rawPassword) {
+		   BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		   String encryptedPassword = passwordEncoder.encode(rawPassword);
+		   return encryptedPassword;
+		}
+
 }
