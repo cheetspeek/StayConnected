@@ -67,18 +67,20 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/registerConfirmation", method = RequestMethod.POST)
 	public String processSubmit(@Valid @ModelAttribute("account") Account newAccount, BindingResult result, Model model) {
-		String password = newAccount.getPassword();
-		password = encodePassword(password);
-		newAccount.setPassword(password);
-		
 		if(!newAccount.getEmail().equals(newAccount.getEmailConfirm()))
 			return "account/AccountRegistration";
-		if(!newAccount.getPassword().equals(newAccount.getPasswordConfirm()))
+		else if(!newAccount.getPassword().equals(newAccount.getPasswordConfirm()))
 			return "account/AccountRegistration";
-		if(result.hasErrors())
+		else if(result.hasErrors())
 			return "account/AccountRegistration";
-		accountService.createAccount(newAccount);
-		return "account/AccountConfirmation";
+		else
+		{
+			String password = newAccount.getPassword();
+			password = encodePassword(password);
+			newAccount.setPassword(password);
+			accountService.createAccount(newAccount);
+			return "account/AccountConfirmation";
+		}
 	}
 
 	/**
