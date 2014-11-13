@@ -27,8 +27,7 @@
 					</td> 
 					
 					<td>
-						<input name="email" type="hidden"
-							value=<c:out value="${current.email}" /> />
+						<input name="email" type="hidden" value=<c:out value="${current.email}" /> />
 						<input type="submit" value="Update Status" />
 					</td>
 					
