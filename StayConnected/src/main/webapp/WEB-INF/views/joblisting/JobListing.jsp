@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 <title>StayConnected - View Listings</title>
@@ -24,7 +25,7 @@
      	</tr>
     </c:forEach>
 </table>
-<P><a href="http://localhost:8080/stayconnected/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
 </a></P>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 <title>Stay Connected</title>
@@ -18,8 +19,8 @@
 		</tr>
 	</table>
 	<p>
-		<a href="http://localhost:8080/stayconnected/accountstatus">Return To Account Status</a>
+		<a href="${contextPath}/accountstatus">Return To Account Status</a>
 	</P>
- 	<p> <a href="http://localhost:8080/stayconnected/" >Return Home</a> </p>
+ 	<p> <a href="${contextPath}/" >Return Home</a> </p>
 </body>
 </html>

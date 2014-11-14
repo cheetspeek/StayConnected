@@ -4,6 +4,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 	<title>Stay Connected</title>
@@ -63,7 +64,7 @@
 			</tr>
 		</table>
 	</form:form>
-	<a href="http://localhost:8080/stayconnected/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+	<a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
 	</a>
 </body>
 </html>
