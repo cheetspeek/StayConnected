@@ -24,6 +24,17 @@ public class JobListingServiceImpl implements JobListingService {
 	public JobListing createJobListing(JobListing jobListing) {
 		return jobListingDao.createJobListing(jobListing);
 	}
+	
+	/**
+	 * Uses JobListingDAO to return the ID of the most recent listing in the database 
+	 * @author Conner Simmons
+	 * @precondition None?
+	 * @postcondition Job Listing ID is returned
+	 * @return int	the ID of the most recent JobListing added to the database
+	 */
+	public int getRecentJobID() {
+		return jobListingDao.getRecentJobID();
+	}
 
 	/**
 	 * Uses JobListingDAO to return a list of all job a new job listing on the database 
@@ -59,5 +70,9 @@ public class JobListingServiceImpl implements JobListingService {
 
 	public int getNumberOfJobsByLocation(String location) {
 		return jobListingDao.getNumberOfJobsByLocation(location);
+	}
+	
+	public int updateJobListing(JobListing jobListing){
+		return jobListingDao.updateJobListing(jobListing);
 	}
 }
