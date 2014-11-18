@@ -64,8 +64,8 @@ public class JobListingController {
 	 * @param model					Model object of jsp files
 	 * @return JobListingCreation	JSP of job listing update page
 	 */
-	@RequestMapping(value = "/updatelisting", method = RequestMethod.GET)
-	public String updateListing(@ModelAttribute("jobListing") JobListing jobListing, Locale locale, Model model) {
+	@RequestMapping(value = "/updatelisting", method = RequestMethod.POST)
+	public String updateListing(@ModelAttribute JobListing jobListing, Locale locale, Model model) {
 		JobListing jl = jobListingService.getJobListingById(jobListing.getId());
 		model.addAttribute("jobListing", jl);
 		return "joblisting/JobListingUpdate";
@@ -79,7 +79,7 @@ public class JobListingController {
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/jobListingConfirmUpdate", method = RequestMethod.POST)
-	public String jobListingConfirmUpdate(@Valid @ModelAttribute("jobListing") JobListing jobListing, BindingResult result, Model model) {
+	public String jobListingConfirmUpdate(@Valid @ModelAttribute JobListing jobListing, BindingResult result, Model model) {
 		if(result.hasErrors()){
 			return "joblisting/JobListingUpdate";
 		}
@@ -98,7 +98,6 @@ public class JobListingController {
 	public String viewListing(Locale locale, Model model) {
 		jobItems = jobListingService.getAllJobListings();
 		model.addAttribute("listing", jobItems);
-
 		return "joblisting/JobListing";
 	}	
 }

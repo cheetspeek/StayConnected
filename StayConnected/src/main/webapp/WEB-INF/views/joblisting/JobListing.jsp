@@ -16,7 +16,7 @@
  	<tr><td>Job ID</td><td>Job Name</td><td>Job Position</td><td>Contact Email</td><td>Job Description</td><td>Job Location</td><td>Action</td></tr>
  	<c:forEach items="${listing}" var="current">
  		<tr>
- 		<form:form method="GET" action="updatelisting" modelAttribute="jobListing">
+ 		<form:form method="POST" action="updatelisting" modelAttribute="jobListing">
 	     	<td><c:out value = "${current.id}"/></td>
 	     	<td><c:out value = "${current.job_name}"/></td>
 	     	<td><c:out value = "${current.position}"/></td>

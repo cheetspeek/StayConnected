@@ -31,6 +31,9 @@
 		and submit it when you're done.</P>
 		<table>
 			<tr>
+				<td><form:input path="id" type="hidden" value="${jobListing.id}" /></td>
+			</tr>
+			<tr>
 				<td>Contact email address:</td>
 				<td><form:input path="email" readonly="true" /></td>
 			</tr>
