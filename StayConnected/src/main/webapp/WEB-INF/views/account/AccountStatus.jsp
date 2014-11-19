@@ -13,6 +13,7 @@
 	<table border='1'>
 		<tr>
 			<td>Email</td>
+			<td>Role</td>
 			<td>Active</td>
 			<td>Action</td>
 		</tr>
@@ -21,6 +22,12 @@
 				<form:form method="POST" action="accountstatusconfirmation" modelAttribute="account">					
 					<td>
 						<c:out value="${current.email}" />
+					</td>
+					<td>
+						<c:forEach items="${current.roleList}" var="role">
+							<c:out value="${role}" />
+							<br>
+						</c:forEach>
 					</td>
 					<td>
 				 		<input type="radio" name="active" value="true" <c:if test="${current.active == 'true'}">checked</c:if> />Yes 

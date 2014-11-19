@@ -95,6 +95,21 @@ public class AccountDaoImpl implements AccountDao {
 		return accounts;
 	}
 	
+	/**
+	 * Gets all the roles of an Account
+	 * @author Conner Simmons
+	 * @precondition Account exists
+	 * @postcondition Account's roles are returned
+	 * @return The roles of the given Account
+	 */
+	public String[] getRoles(Account account) {
+		String sql = "select role from authority where email = " + 
+					"\"" + account.getEmail() + "\"";
+		List<String> rolesList = jdbcTemplate.queryForList(sql, String.class); 
+		String[] roles = rolesList.toArray(new String[rolesList.size()]);
+		return roles;
+	}
+	
 	/**  
 	 * Deactivate a user account
 	 * @author Ben Degler

@@ -14,4 +14,5 @@ public interface AccountDao {
 	public int getNumberOfAccountsByRole(String role);
 	public int deactivate(Account account);
 	public int activate(Account account);	
+	public String[] getRoles(Account account);
 }

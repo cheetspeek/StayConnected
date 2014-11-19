@@ -26,10 +26,6 @@
 			<td>Email address:</td>
 			<td>${account.email}</td>
 		</tr>
-		<tr>
-			<td>Password:</td>
-			<td>${account.password}</td>
-		</tr>
 	</table>
 	
  	<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />

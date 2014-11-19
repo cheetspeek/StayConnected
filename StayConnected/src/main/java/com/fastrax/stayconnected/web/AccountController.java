@@ -2,6 +2,7 @@ package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -92,7 +93,13 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/accountstatus", method = RequestMethod.GET)
 	public String accountStatus(Locale locale, Model model) {
-		model.addAttribute("accounts", accountService.getAllAccounts());
+		List<Account> acctList = accountService.getAllAccounts();
+		Account account;
+		for(int i=0; i<acctList.size(); i++) {
+			account = acctList.get(i);
+			account.setRoleList(accountService.getRoles(account));
+		}
+		model.addAttribute("accounts", acctList);
 		return "account/AccountStatus";
 	}
 

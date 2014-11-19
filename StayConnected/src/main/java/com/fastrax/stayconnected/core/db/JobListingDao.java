@@ -1,7 +1,9 @@
 package com.fastrax.stayconnected.core.db;
 
 import java.util.List;
+
 import org.springframework.stereotype.Repository;
+
 import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Repository
