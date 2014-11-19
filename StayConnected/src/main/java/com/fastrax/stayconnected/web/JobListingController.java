@@ -100,4 +100,18 @@ public class JobListingController {
 		model.addAttribute("listing", jobItems);
 		return "joblisting/JobListing";
 	}	
+	
+	/**
+	 * Controller for viewing job listing page
+	 * @author Ben Degler
+	 * @param locale		a new Locale object
+	 * @param model			Model object of jsp files
+	 * @return JobListing	JSP of showing all job listings
+	 */
+	@RequestMapping(value = "/viewlistingbyacct", method = RequestMethod.GET)
+	public String viewListingByAcct(Principal principal, Locale locale, Model model) {
+		jobItems = jobListingService.getJobListingsByEmail(principal.getName());
+		model.addAttribute("listing", jobItems);
+		return "joblisting/JobListingByAcct";
+	}	
 }

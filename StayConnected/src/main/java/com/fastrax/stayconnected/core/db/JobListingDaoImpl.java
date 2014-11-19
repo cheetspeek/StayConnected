@@ -102,15 +102,26 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return 1, Meaning update has been completed
 	 */
 	public int updateJobListing(JobListing jobListing) {
-		System.out.println(jobListing.getId());
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+	
+		try {
 		String sql = "UPDATE job_listing SET email = ?, position = ?, "
 				+ "job_name = ?, job_description = ?, job_location = ? "
 				+ "WHERE id = ?";
+		
 		Object[] params = {jobListing.getEmail(), jobListing.getPosition(), 
 				jobListing.getJob_name(), jobListing.getJob_description(), 
 				jobListing.getJob_location(), jobListing.getId()};
+		
 		jdbcTemplate.update(sql, params);
 		System.out.println("Updated Record with ID = " + jobListing.getId());
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating Job Listing record, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
 		return 1;
 	}
 
@@ -138,6 +149,20 @@ public class JobListingDaoImpl implements JobListingDao {
 	public int getNumberOfJobListings() {
 		String sql = "select count(*) from job_listing";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
+	
+	/**
+	 * Gets a job listing with a specified ID number
+	 * @author Conner Simmons
+	 * @precondition The job listing with the specified ID number exists
+	 * @postcondition The job listing with the specified ID number is returned
+	 * @return A job listing with the ID number specified
+	 */
+	public List<JobListing> getJobListingsByEmail(String email) {
+		String SQL = "select * from job_listing where email = ?";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL,
+				new Object[] { email }, new JobListingMapper());
+		return joblistings;
 	}
 
 	@Override

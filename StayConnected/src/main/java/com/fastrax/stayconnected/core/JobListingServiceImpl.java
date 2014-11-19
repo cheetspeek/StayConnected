@@ -37,7 +37,7 @@ public class JobListingServiceImpl implements JobListingService {
 	}
 
 	/**
-	 * Uses JobListingDAO to return a list of all job a new job listing on the database 
+	 * Uses JobListingDAO to return a list of all job listings on the database 
 	 * @author Conner Simmons
 	 * @precondition  None
 	 * @postcondition A list of all job listings is returned
@@ -45,6 +45,18 @@ public class JobListingServiceImpl implements JobListingService {
 	 */
 	public List<JobListing> getAllJobListings() {
 		return jobListingDao.getAllJobListings();
+	}
+	
+	/**
+	 * Uses JobListingDAO to return a list of all job listings
+	 * by a given email address in the database 
+	 * @author Conner Simmons
+	 * @precondition  None
+	 * @postcondition A list of all job listings by the email is returned
+	 * @return list of all job listings in the database by given email
+	 */
+	public List<JobListing> getJobListingsByEmail(String email) {
+		return jobListingDao.getJobListingsByEmail(email);
 	}
 
 	public int deactivate(JobListing jobListing) {

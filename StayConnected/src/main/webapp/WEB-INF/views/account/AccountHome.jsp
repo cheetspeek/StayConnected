@@ -22,9 +22,9 @@
 	<P> <security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
 		<a href="createlisting"> <img src="<s:url value="/resources/images/create_box.png" />" width="183" height="55" /></a>
 	</security:authorize> </P>
-	<P><security:authorize access="hasAnyRole('Faculty', 'Alumni')">
-		<a href="updatelisting"> <img src="<s:url value="/resources/images/update_box.png" />" width="183" height="55" /></a>
-	</security:authorize></P>
+	<P> <security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
+		<a href="viewlistingbyacct">View My Listings</a>
+	</security:authorize> </P>
 	<P> <a href="viewlisting"> <img src="<s:url value="/resources/images/view_box.png" />" width="183" height="55" /></a> </P>
 
 	<P>

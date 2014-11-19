@@ -12,6 +12,7 @@ public interface JobListingDao {
 	public int deactivate(JobListing jl);
 	public JobListing getJobListingById(int id);
 	public int getNumberOfJobListings();
+	public List<JobListing> getJobListingsByEmail(String email);
 	public int getNumberOfJobsByLocation(String location);
 	public int updateJobListing(JobListing jl);
 }
