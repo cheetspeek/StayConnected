@@ -16,7 +16,7 @@
 	.errorblock {
 		color: #000;
 		background-color: #ffEEEE;
-		border: 2px solid #ff0000;
+		border: 1px solid #ff0000;
 		padding: 4px;
 		margin: 8px;
 	}

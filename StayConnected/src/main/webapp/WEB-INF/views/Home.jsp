@@ -21,7 +21,7 @@
 				name='reset' value="Clear">
 		</form>
 	
-	<P><a href="register"> <img src="<s:url value="/resources/images/sign_up_box.png" />" width="183" height="55" />
+	<P><a href="register"> <img src="<s:url value="/resources/images/nav/sign_up_box.png" />" width="183" height="55" />
 	</a> </P>
 	</div>
 </body>
