@@ -10,6 +10,11 @@
 </head>
 <body>
 <div style="text-align: center;">
+	<div id="floater" style="text-align: center;">
+		<security:authorize access="hasRole('Faculty')">
+		<a href="accountstatus"> <img src="<s:url value="/resources/images/acct/status_box.png" />" width="183" height="55" /></a>
+		</security:authorize>
+	</div>
 	<h2>Account Home Page</h2>
 	<P>
 		Your email address is: <security:authentication property="principal.username" />

@@ -1,15 +1,20 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<link href="<s:url value="/resources/visuals.css" />" rel="stylesheet">
 <title>StayConnected - View Listings</title>
-	<style>
- * { font-family: Avenir }
-  </style>
 </head>
-<body bgcolor=#D9C1F3>
+<body>
+	<div id="floater" style="text-align: center;">
+		<security:authorize access="hasRole('Faculty')">
+		<a href="accountstatus"> <img src="<s:url value="/resources/images/acct/status_box.png" />" width="183" height="55" /></a>
+		</security:authorize>
+	</div>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
 	<h2>Job Listings</h2>
     <c:forEach items="${listing}" var="current">
