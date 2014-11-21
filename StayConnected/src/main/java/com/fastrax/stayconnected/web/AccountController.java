@@ -138,9 +138,22 @@ public class AccountController {
 		return roleList;
 	}
 	public static String encodePassword(String rawPassword) {
-		   BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		   String encryptedPassword = passwordEncoder.encode(rawPassword);
-		   return encryptedPassword;
-		}
+	   BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	   String encryptedPassword = passwordEncoder.encode(rawPassword);
+	   return encryptedPassword;
+	}
+	
+	/**
+	 * Will display a users account profile
+	 * @author Ben Degler
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return ViewProfile			account confirm page of registering user
+	 */
+	@RequestMapping(value = "/viewprofiles", method = RequestMethod.GET)
+	public String viewProfiles(Locale locale, Model model) {
+		model.addAttribute("profiles", accountService.getAllAccounts());
+		return "account/viewprofile";
+	}
 
 }
