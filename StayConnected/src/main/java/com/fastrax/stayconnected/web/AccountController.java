@@ -156,7 +156,7 @@ public class AccountController {
 	 * @author Ben Degler
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
-	 * @return ViewProfile			account confirm page of registering user
+	 * @return ViewProfile			shows profiles of all public users
 	 */
 	@RequestMapping(value = "/viewallprofiles", method = RequestMethod.GET)
 	public String viewAllProfiles(Locale locale, Model model) {
@@ -181,10 +181,10 @@ public class AccountController {
 	/**
 	 * Controls the update profile confirmation page mapping
 	 * @author Ben Degler
-	 * @param account				a new Account object with new user data
-	 * @param locale				a new Locale object
-	 * @param model					properties of the Model object	
-	 * @return AccountStatusConfirmation	account confirm page of registering user
+	 * @param account						a new Account object with new user data
+	 * @param locale						a new Locale object
+	 * @param model							properties of the Model object	
+	 * @return AccountStatusConfirmation	account confirm page of updated profile
 	 */
 	@RequestMapping(value = "/editprofileconfirmation", method = RequestMethod.POST)
 	public String editProfileConfirmation(@Valid @ModelAttribute("profile") Account account, BindingResult result, Model model) {

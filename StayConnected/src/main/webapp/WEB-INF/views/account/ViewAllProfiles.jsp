@@ -28,6 +28,26 @@
     		<td>Email:</td>
     		<td><c:out value = "${current.email}"/></td>
     	</tr>
+    	<tr>
+    		<td>Phone:</td>
+    		<td><c:out value = "${current.phone}"/></td>
+    	</tr>
+    	<tr>
+    		<td>Address:</td>
+    		<td><c:out value = "${current.address}"/></td>
+    	</tr>
+    	<tr>
+    		<td>City:</td>
+    		<td><c:out value = "${current.city}"/></td>
+    	</tr>
+    	<tr>
+    		<td>Country:</td>
+    		<td><c:out value = "${current.country}"/></td>
+    	</tr>
+    	<tr>
+    		<td>State:</td>
+    		<td><c:out value = "${current.state}"/></td>
+    	</tr>
     </table>
 	<hr>
 	</div>

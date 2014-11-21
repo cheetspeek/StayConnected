@@ -28,17 +28,37 @@
 	<P> Your profile has been successfully updated!. </P>
 	<table>
 		<tr>
-			<td>First name:</td>
-			<td>${profile.firstname}</td>
-		</tr>
-		<tr>
-			<td>Last name:</td>
-			<td>${profile.lastname}</td>
-		</tr>
-		<tr>
-			<td>Email address:</td>
-			<td>${profile.email}</td>
-		</tr>
+    		<td>First Name:</td>
+    		<td><c:out value = "${current.firstname}"/></td>
+    	</tr>
+       	<tr>
+    		<td>Last Name:</td>
+    		<td><c:out value = "${current.lastname}"/></td>
+    	</tr>
+    	<tr>
+    		<td>Email:</td>
+    		<td><c:out value = "${current.email}"/></td>
+    	</tr>
+    	<tr>
+    		<td>Phone:</td>
+    		<td><c:out value = "${current.phone}"/></td>
+    	</tr>
+    	<tr>
+    		<td>Address:</td>
+    		<td><c:out value = "${current.address}"/></td>
+    	</tr>
+    	<tr>
+    		<td>City:</td>
+    		<td><c:out value = "${current.city}"/></td>
+    	</tr>
+    	<tr>
+    		<td>Country:</td>
+    		<td><c:out value = "${current.country}"/></td>
+    	</tr>
+    	<tr>
+    		<td>State:</td>
+    		<td><c:out value = "${current.state}"/></td>
+    	</tr>
 	</table>
 	
  	<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
