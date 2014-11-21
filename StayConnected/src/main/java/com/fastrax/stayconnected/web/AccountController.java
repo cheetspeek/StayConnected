@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fastrax.stayconnected.core.AccountService;
 import com.fastrax.stayconnected.core.entity.Account;
+import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Controller
 public class AccountController {
@@ -157,10 +158,23 @@ public class AccountController {
 	 * @param model					properties of the Model object	
 	 * @return ViewProfile			account confirm page of registering user
 	 */
-	@RequestMapping(value = "/viewprofiles", method = RequestMethod.GET)
-	public String viewProfiles(Locale locale, Model model) {
+	@RequestMapping(value = "/viewallprofiles", method = RequestMethod.GET)
+	public String viewAllProfiles(Locale locale, Model model) {
 		model.addAttribute("profiles", accountService.getAllAccounts());
-		return "account/ViewProfile";
+		return "account/ViewAllProfiles";
+	}
+	
+	/**
+	 * Will display a users account profile
+	 * @author Ben Degler
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return ViewProfile			account confirm page of registering user
+	 */
+	@RequestMapping(value = "/editmyprofile", method = RequestMethod.GET)
+	public String editProfile(@ModelAttribute Account account, Locale locale, Model model) {
+		model.addAttribute("profile", accountService.getAccountByEmail(account.getEmail()));
+		return "account/EditProfile";
 	}
 
 }
