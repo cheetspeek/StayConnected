@@ -26,6 +26,7 @@
 		<a href="viewlistingbyacct"> <img src="<s:url value="/resources/images/acct/mylistings_box.png" />" width="183" height="55" /></a>
 	</security:authorize>
 	<a href="viewlisting"> <img src="<s:url value="/resources/images/acct/view_box.png" />" width="183" height="55" /></a>
+	<a href="viewprofiles">View Profile</a>
 <hr>
 </div>
 	<img src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" style="float: right"/>

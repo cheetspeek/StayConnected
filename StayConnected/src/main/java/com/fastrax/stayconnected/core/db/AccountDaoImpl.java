@@ -192,6 +192,8 @@ class AccountEmailHelperMapper implements RowMapper<String> {
 class AccountMapper implements RowMapper<Account> {
 	public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Account account = new Account();
+		account.setFirstname(rs.getString("firstname"));
+		account.setLastname(rs.getString("lastname"));
 		account.setEmail(rs.getString("email"));
 		account.setActive(rs.getBoolean("active"));
 		return account;

@@ -160,7 +160,7 @@ public class AccountController {
 	@RequestMapping(value = "/viewprofiles", method = RequestMethod.GET)
 	public String viewProfiles(Locale locale, Model model) {
 		model.addAttribute("profiles", accountService.getAllAccounts());
-		return "account/viewprofile";
+		return "account/ViewProfile";
 	}
 
 }
