@@ -114,4 +114,36 @@ public class JobListingController {
 		model.addAttribute("listing", jobItems);
 		return "joblisting/JobListingByAcct";
 	}	
+	
+	/**
+	 * Controller for searching job listing page
+	 * @author Michael Holmes
+	 * @param locale		a new Locale object
+	 * @param model			Model object of jsp files
+	 * @return 	
+	 */
+	@RequestMapping(value = "/searchlisting", method = RequestMethod.GET)
+	public String searchListing(Principal principal, Locale locale, Model model) {
+		JobListing jl = new JobListing();
+		model.addAttribute("searchListing", jl);
+		return "joblisting/SearchListing";
+	}	
+	
+	/**
+	 * Controller for confirmation of search job listing page by location
+	 * @author Michael Holmes Degler
+	 * @param locale					a new Locale object
+	 * @param model						Model object of jsp files
+	 * @return JobListingConfirmation	JSP of job listing confirmation page
+	 */
+	@RequestMapping(value = "/searchLocationConfirmation", method = RequestMethod.POST)
+	public String processSearchListing(@Valid @ModelAttribute("searchListing") JobListing jobListing, BindingResult result, Model model) {
+		if(result.hasErrors()){
+			return "searchlisting";
+		}
+		String location = jobListing.getJob_location();
+		jobItems = jobListingService.getJobListingsByLocation(location);
+		model.addAttribute("listing", jobItems);
+		return "joblisting/JobListing";	
+	}
 }

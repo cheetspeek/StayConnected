@@ -164,6 +164,21 @@ public class JobListingDaoImpl implements JobListingDao {
 				new Object[] { email }, new JobListingMapper());
 		return joblistings;
 	}
+	
+	/**
+	 * Gets a job listing with a specified ID number
+	 * @author Conner Simmons
+	 * @precondition The job listing with the specified ID number exists
+	 * @postcondition The job listing with the specified ID number is returned
+	 * @return A job listing with the ID number specified
+	 */
+	public List<JobListing> getJobListingsByLocation(String location) {
+		String SQL = "select * from job_listing where job_location = ?";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL,
+				new Object[] { location }, new JobListingMapper());
+		return joblistings;
+	}
+
 
 	@Override
 	public int getNumberOfJobsByLocation(String location) {

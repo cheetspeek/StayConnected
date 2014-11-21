@@ -15,6 +15,7 @@ public interface JobListingService {
 	public JobListing getJobListingById(int id);
 	public int getNumberOfJobListings();
 	public List<JobListing> getJobListingsByEmail(String email);
+	public List<JobListing> getJobListingsByLocation(String location);
 	public int getNumberOfJobsByLocation(String location);
 	public int updateJobListing(JobListing jobListing);
 }
