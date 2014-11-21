@@ -16,7 +16,7 @@
     	<form:form method="POST" action="updatelisting" modelAttribute="jobListing">
     	<tr>
     		<td>Job Name:</td>
-    		<td><c:out value = "${current.job_name}"/></td>
+    		<td><c:out value = "${current.company_name}"/></td>
     	</tr>
        	<tr>
     		<td>Job Position:</td>
