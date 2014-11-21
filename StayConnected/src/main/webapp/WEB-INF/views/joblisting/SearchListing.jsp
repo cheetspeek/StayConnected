@@ -9,7 +9,7 @@
 <head>
 	<title>Stay Connected</title>
 	<style>
-	 * { font-family: Avenir }
+	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 	.error {
 		color: #ff0000;
 	}

@@ -6,8 +6,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<link href="<s:url value="/resources/visuals.css" />" rel="stylesheet">
 <title>StayConnected - View Listings</title>
+<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 </head>
 <body>
 	<div id="floater" style="text-align: center;">
