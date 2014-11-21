@@ -169,12 +169,26 @@ public class AccountController {
 	 * @author Ben Degler
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
-	 * @return ViewProfile			account confirm page of registering user
+	 * @return ViewProfile			JSP for editing an account profile
 	 */
 	@RequestMapping(value = "/editmyprofile", method = RequestMethod.GET)
-	public String editProfile(@ModelAttribute Account account, Locale locale, Model model) {
-		model.addAttribute("profile", accountService.getAccountByEmail(account.getEmail()));
+	public String editProfile(Principal principal, Locale locale, Model model) {
+		Account account = accountService.getAccountByEmail(principal.getName());
+		model.addAttribute("profile", account);
 		return "account/EditProfile";
 	}
-
+	
+	/**
+	 * Controls the update profile confirmation page mapping
+	 * @author Ben Degler
+	 * @param account				a new Account object with new user data
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return AccountStatusConfirmation	account confirm page of registering user
+	 */
+	@RequestMapping(value = "/editprofileconfirmation", method = RequestMethod.POST)
+	public String editProfileConfirmation(@Valid @ModelAttribute("profile") Account account, BindingResult result, Model model) {
+		model.addAttribute("profile");
+		return "account/EditProfileConfirmation";
+	}
 }

@@ -169,7 +169,9 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	public Account getAccountByEmail(String email){
-		return null;
+		String SQL = "select * from account where email=\"" + email + "\"";
+		List<Account> account = jdbcTemplate.query(SQL, new AccountMapper());
+		return account.get(0);
 	}
 
 	public int getNumberOfAccounts(){
