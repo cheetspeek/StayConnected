@@ -1,9 +1,15 @@
 CREATE TABLE account (
-	firstname varchar(20) NOT NULL,
-	lastname varchar(20) NOT NULL,
-	email varchar(50) NOT NULL,
+	firstname varchar(50) NOT NULL,
+	lastname varchar(50) NOT NULL,
+	address varchar(250),
+	city varchar(50),
+	country varchar(50),
+	state varchar(50),
+	phone varchar(50),
+	email varchar(100) NOT NULL,
 	password char(60) NOT NULL,
 	active boolean NOT NULL DEFAULT 0,
+	visible boolean NOT NULL DEFAULT 1,
 	primary key (email)
 );
 
@@ -19,9 +25,10 @@ CREATE TABLE job_listing (
 	id bigint auto_increment,
 	email varchar(50),
 	position varchar(50) NOT NULL,
-	job_name varchar(50) NOT NULL,
-	job_description varchar(1000) NOT NULL,
+	company_name varchar(50) NOT NULL,
+	job_description varchar(2000) NOT NULL,
 	job_location varchar(50) NOT NULL,
+	posted_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 	active boolean NOT NULL DEFAULT 1,
 	primary key (id),
 	foreign key (email) references account(email) on delete cascade on update cascade
