@@ -15,4 +15,5 @@ public interface AccountService {
 	public int getNumberOfAccounts();
 	public int getNumberOfAccountsByRole(String role);
 	public int activate(Account account);
+	public String[] getRoles(Account account);
 }

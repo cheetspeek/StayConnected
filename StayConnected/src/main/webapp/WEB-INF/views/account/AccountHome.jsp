@@ -11,25 +11,25 @@
   </style>
 </head>
 <body bgcolor=#D9C1F3 >
-	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
+<div style="text-align: center;">
 	<h2>Account Home Page</h2>
 	<P>
 		Your email address is: <security:authentication property="principal.username" />
 	</P>
-	<P><security:authorize access="hasRole('Faculty')">
-		<a href="accountstatus"> <img src="<s:url value="/resources/images/status_box.png" />" width="183" height="55" /></a>
-	</security:authorize></P>
-	<P> <security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
-		<a href="createlisting"> <img src="<s:url value="/resources/images/create_box.png" />" width="183" height="55" /></a>
-	</security:authorize> </P>
-	<P><security:authorize access="hasAnyRole('Faculty', 'Alumni')">
-		<a href="updatelisting"> <img src="<s:url value="/resources/images/update_box.png" />" width="183" height="55" /></a>
-	</security:authorize></P>
-	<P> <a href="viewlisting"> <img src="<s:url value="/resources/images/view_box.png" />" width="183" height="55" /></a> </P>
-
-	<P>
-		<a href="j_spring_security_logout"> <img src="<s:url value="/resources/images/log_out_box.png" />" width="93" height="35" /></a>
-	</P>
+	<security:authorize access="hasRole('Faculty')">
+		<a href="accountstatus"> <img src="<s:url value="/resources/images/acct/status_box.png" />" width="183" height="55" /></a>
+	</security:authorize>
+	<security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
+		<a href="createlisting"> <img src="<s:url value="/resources/images/acct/create_box.png" />" width="183" height="55" /></a>
+	</security:authorize>
+	<security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
+		<a href="viewlistingbyacct"> <img src="<s:url value="/resources/images/acct/mylistings_box.png" />" width="183" height="55" /></a>
+	</security:authorize>
+	<a href="viewlisting"> <img src="<s:url value="/resources/images/acct/view_box.png" />" width="183" height="55" /></a>
+<hr>
+</div>
+	<img src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" style="float: right"/>
+		<a href="j_spring_security_logout"> <img src="<s:url value="/resources/images/nav/log_out_box.png" />" width="93" height="35" /></a>
 </body>
 </html>
 

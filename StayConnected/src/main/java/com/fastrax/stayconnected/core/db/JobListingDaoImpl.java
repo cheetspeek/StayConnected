@@ -16,7 +16,6 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.fastrax.stayconnected.core.entity.JobListing;
 
-
 @Repository
 public class JobListingDaoImpl implements JobListingDao {
 	private DataSource dataSource;
@@ -75,7 +74,8 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @postcondition ID of the most recently added to the database job listing is returned
 	 * @return the ID of the most recently added job listing to the database
 	 */
-	private int getRecentJobID() {
+	@Override
+	public int getRecentJobID() {
 		String sql = "select max(id) from job_listing";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
@@ -93,17 +93,76 @@ public class JobListingDaoImpl implements JobListingDao {
 		List<JobListing> joblistings = jdbcTemplate.query(SQL, new JobListingMapper());
 		return joblistings;
 	}
-
-	@Override
-	public JobListing getJobListingById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	/**
+	 * Update a job listing
+	 * @author Conner Simmons
+	 * @precondition The job listing exists
+	 * @postcondition The job listing is updated
+	 * @return 1, Meaning update has been completed
+	 */
+	public int updateJobListing(JobListing jobListing) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+	
+		try {
+		String sql = "UPDATE job_listing SET email = ?, position = ?, "
+				+ "job_name = ?, job_description = ?, job_location = ? "
+				+ "WHERE id = ?";
+		
+		Object[] params = {jobListing.getEmail(), jobListing.getPosition(), 
+				jobListing.getJob_name(), jobListing.getJob_description(), 
+				jobListing.getJob_location(), jobListing.getId()};
+		
+		jdbcTemplate.update(sql, params);
+		System.out.println("Updated Record with ID = " + jobListing.getId());
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating Job Listing record, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1;
 	}
 
-	@Override
+	/**
+	 * Gets a job listing with a specified ID number
+	 * @author Conner Simmons
+	 * @precondition The job listing with the specified ID number exists
+	 * @postcondition The job listing with the specified ID number is returned
+	 * @return A job listing with the ID number specified
+	 */
+	public JobListing getJobListingById(int id) {
+		String SQL = "select * from job_listing where id = ?";
+		JobListing jl = jdbcTemplate.queryForObject(SQL,
+				new Object[] { id }, new JobListingMapper());
+		return jl;
+	}
+
+	/**
+	 * Get the number of job listings
+	 * @author Conner Simmons
+	 * @precondition None?
+	 * @postcondition Number of job listings is returned
+	 * @return The number of job listings in the database
+	 */
 	public int getNumberOfJobListings() {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "select count(*) from job_listing";
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
+	
+	/**
+	 * Gets a job listing with a specified ID number
+	 * @author Conner Simmons
+	 * @precondition The job listing with the specified ID number exists
+	 * @postcondition The job listing with the specified ID number is returned
+	 * @return A job listing with the ID number specified
+	 */
+	public List<JobListing> getJobListingsByEmail(String email) {
+		String SQL = "select * from job_listing where email = ?";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL,
+				new Object[] { email }, new JobListingMapper());
+		return joblistings;
 	}
 
 	@Override
@@ -117,7 +176,6 @@ public class JobListingDaoImpl implements JobListingDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }
 
 //Helper class to map the result set to the JobListing class

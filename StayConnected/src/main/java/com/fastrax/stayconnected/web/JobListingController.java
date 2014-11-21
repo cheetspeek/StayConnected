@@ -20,10 +20,10 @@ import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Controller
 public class JobListingController {
-	
+
 	@Autowired
 	private JobListingService jobListingService;
-	
+
 	private List<JobListing> jobItems;
 
 	/**
@@ -40,39 +40,37 @@ public class JobListingController {
 		model.addAttribute("jobListing", jl);
 		return "joblisting/JobListingCreation";
 	}
-	
+
 	/**
 	 * Controls the job listing confirmation page mapping
 	 * @author Ben Delger, Louis Balzani, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					properties of the Model object	
-	 * @return AccountConfirmation	account confirm page of registering user
+	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/jobListingConfirmation", method = RequestMethod.POST)
-	public String processSubmit(@Valid @ModelAttribute("jobListing") JobListing newListing, BindingResult result, Model model) {
+	public String processSubmit(@Valid @ModelAttribute("jobListing") JobListing jobListing, BindingResult result, Model model) {
 		if(result.hasErrors()){
 			return "joblisting/JobListingCreation";
 		}
-		jobListingService.createJobListing(newListing);
+		jobListingService.createJobListing(jobListing);
 		return "joblisting/JobListingConfirmation";
 	}
-	
+
 	/**
 	 * Controller for update job listing page
-	 * @author Ben Degler
+	 * @author Ben Degler, Conner Simmons
 	 * @param locale				a new Locale object
 	 * @param model					Model object of jsp files
 	 * @return JobListingCreation	JSP of job listing update page
 	 */
-	@RequestMapping(value = "/updatelisting", method = RequestMethod.GET)
-	public String updateListing(Principal principal, Locale locale, Model model) {
-		//pull data from listing of db and populate form
-		JobListing jl = new JobListing();
-		jl.setEmail(principal.getName());
+	@RequestMapping(value = "/updatelisting", method = RequestMethod.POST)
+	public String updateListing(@ModelAttribute JobListing jobListing, Locale locale, Model model) {
+		JobListing jl = jobListingService.getJobListingById(jobListing.getId());
 		model.addAttribute("jobListing", jl);
-		return "joblisting/JobListingCreation";
+		return "joblisting/JobListingUpdate";
 	}
-	
+
 	/**
 	 * Controller for confirmation of new job listing page 
 	 * @author Ben Degler
@@ -80,23 +78,40 @@ public class JobListingController {
 	 * @param model						Model object of jsp files
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
-	@RequestMapping(value = "/confirmlisting", method = RequestMethod.GET)
-	public String confirmListing(Locale locale, Model model) {
-		return "joblisting/JobListingConfirmation";
+	@RequestMapping(value = "/jobListingConfirmUpdate", method = RequestMethod.POST)
+	public String jobListingConfirmUpdate(@Valid @ModelAttribute JobListing jobListing, BindingResult result, Model model) {
+		if(result.hasErrors()){
+			return "joblisting/JobListingUpdate";
+		}
+		jobListingService.updateJobListing(jobListing);
+		return "joblisting/JobListingConfirmUpdate";
 	}
+
+	/**
+	 * Controller for viewing job listing page
+	 * @author Ben Degler
+	 * @param locale		a new Locale object
+	 * @param model			Model object of jsp files
+	 * @return JobListing	JSP of showing all job listings
+	 */
+	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
+	public String viewListing(Locale locale, Model model) {
+		jobItems = jobListingService.getAllJobListings();
+		model.addAttribute("listing", jobItems);
+		return "joblisting/JobListing";
+	}	
 	
 	/**
 	 * Controller for viewing job listing page
 	 * @author Ben Degler
 	 * @param locale		a new Locale object
 	 * @param model			Model object of jsp files
-	 * @return JobListing	JSP of job listing confirmation page
+	 * @return JobListing	JSP of showing all job listings
 	 */
-	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
-	public String viewListing(Locale locale, Model model) {
-		jobItems = jobListingService.getAllJobListings();
+	@RequestMapping(value = "/viewlistingbyacct", method = RequestMethod.GET)
+	public String viewListingByAcct(Principal principal, Locale locale, Model model) {
+		jobItems = jobListingService.getJobListingsByEmail(principal.getName());
 		model.addAttribute("listing", jobItems);
-
-		return "joblisting/JobListing";
+		return "joblisting/JobListingByAcct";
 	}	
 }

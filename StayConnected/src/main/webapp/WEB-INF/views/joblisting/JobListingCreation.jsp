@@ -24,12 +24,11 @@
 </head>
 <body bgcolor=#D9C1F3>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
-	<h2>Job Listing Creation and Updating</h2>
+	<h2>Job Listing Creation</h2>
 	<form:form method="POST" action="jobListingConfirmation" modelAttribute ="jobListing">
 		<form:errors path="*" cssClass="errorblock" element="div" />
-		<P>Here, you can create, update, and post a new
-		job listing for others to see. Please fill out the following form
-		and submit it when you're done.</P>
+		<P>Here, you can create and post a new job listing for others to see. 
+		Please fill out the following form and submit it when you're done.</P>
 		<table>
 			<tr>
 				<td>Contact email address:</td>
