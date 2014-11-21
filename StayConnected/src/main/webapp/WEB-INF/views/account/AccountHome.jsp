@@ -29,8 +29,10 @@
 		<a href="viewlistingbyacct"> <img src="<s:url value="/resources/images/acct/mylistings_box.png" />" width="183" height="55" /></a>
 	</security:authorize>
 	<a href="viewlisting"> <img src="<s:url value="/resources/images/acct/view_box.png" />" width="183" height="55" /></a>
+	<a href="searchlisting">Search Job Listing</a>
 	<a href="viewallprofiles">View All Profiles</a>
 	<a href="editmyprofile">Edit My Profile</a>
+
 <hr>
 </div>
 	<img src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" style="float: right"/>

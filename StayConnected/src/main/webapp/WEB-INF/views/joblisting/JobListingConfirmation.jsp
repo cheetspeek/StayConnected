@@ -20,7 +20,7 @@
 			<td>${jobListing.email}</td>
 		</tr>
 		<tr>
-			<td>Listing name:</td>
+			<td>Company name:</td>
 			<td>${jobListing.job_name}</td>
 		</tr>
 		<tr>

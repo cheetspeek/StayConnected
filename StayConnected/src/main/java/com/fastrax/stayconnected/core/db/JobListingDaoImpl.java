@@ -173,7 +173,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return A job listing with the ID number specified
 	 */
 	public List<JobListing> getJobListingsByLocation(String location) {
-		String SQL = "select * from job_listing where job_location = ?";
+		String SQL = "select * from job_listing where location = ?";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] { location }, new JobListingMapper());
 		return joblistings;
