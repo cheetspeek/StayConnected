@@ -50,11 +50,11 @@
 				</tr>
 				<tr>
 					<td>Password:</td> 
-					<td><form:input path="password" /></td>
+					<td><form:input path="password" type="password"/></td>
 				</tr>
 				<tr>
 					<td>Confirm password:</td>
-					<td><form:input path="passwordConfirm" /></td>
+					<td><form:input path="passwordConfirm" type="password"/></td>
 				</tr>
 				<tr>
 					<td>Roles:</td>
