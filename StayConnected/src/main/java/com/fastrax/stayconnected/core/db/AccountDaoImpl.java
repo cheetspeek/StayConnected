@@ -43,8 +43,8 @@ public class AccountDaoImpl implements AccountDao {
 
 		try {
 			String SQL = "insert into account (firstname, lastname, address, city,"+
-					" country, state, phone, email, password, active) values "
-					+ "(?,?,?,?,?,?,?,?,?,?,?)";
+					" country, state, phone, email, password) values "
+					+ "(?,?,?,?,?,?,?,?,?)";
 			String SQL2 = "insert into authority (email, role) values (?,?)";
 			
 			String firstname = account.getFirstname();
@@ -57,10 +57,9 @@ public class AccountDaoImpl implements AccountDao {
 			String email = account.getEmail();
 			String password = account.getPassword();
 			String[] roles = account.getRoleList();
-			boolean active = account.isActive();
 
-			jdbcTemplate.update(SQL, firstname, lastname, address, city,
-					country, state, phone, email, password, active);
+			jdbcTemplate.update(SQL, firstname, lastname, address, city, 
+					country, state, phone, email, password);
 			for(int i = 0; i < roles.length; i++)
 			{
 				jdbcTemplate.update(SQL2,email,roles[i]);
