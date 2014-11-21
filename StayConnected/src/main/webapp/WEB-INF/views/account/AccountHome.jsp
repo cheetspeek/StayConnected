@@ -5,12 +5,10 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
+<link href="<s:url value="/resources/visuals.css" />" rel="stylesheet">
 <title>Account Home</title>
-  <style>
- * { font-family: Avenir }
-  </style>
 </head>
-<body bgcolor=#D9C1F3 >
+<body>
 <div style="text-align: center;">
 	<h2>Account Home Page</h2>
 	<P>

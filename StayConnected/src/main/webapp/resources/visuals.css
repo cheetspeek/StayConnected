@@ -1,0 +1,11 @@
+body {
+	background-color: #D9C1F3;
+	font-family: Avenir;
+}
+
+#floater {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%
+}
