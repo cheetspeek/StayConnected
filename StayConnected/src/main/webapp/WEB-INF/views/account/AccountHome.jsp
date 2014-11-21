@@ -5,7 +5,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-<link href="<s:url value="/resources/visuals.css" />" rel="stylesheet">
+<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 <title>Account Home</title>
 </head>
 <body>

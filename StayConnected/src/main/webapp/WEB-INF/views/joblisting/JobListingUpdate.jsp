@@ -7,9 +7,9 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 	<title>Stay Connected</title>
 	<style>
-	 * { font-family: Avenir }
 	.error {
 		color: #ff0000;
 	}

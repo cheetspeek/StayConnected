@@ -3,8 +3,6 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<style>
-</style>
 <title>Stay Connected: Account Status</title>
 </head>
 <body>

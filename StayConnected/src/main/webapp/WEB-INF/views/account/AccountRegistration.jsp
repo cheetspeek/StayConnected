@@ -7,11 +7,11 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/js/countries.js" />"></script>
 <!--<script type="text/javascript" src="/resources/js/countries.js"></script>-->
 <title>StayConnected Registration</title>
   <style>
- * { font-family: Avenir }
  	error {
 		color: #ff0000;
 	}

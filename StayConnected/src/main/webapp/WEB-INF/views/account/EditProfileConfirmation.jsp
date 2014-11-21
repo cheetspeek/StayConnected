@@ -7,10 +7,9 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 	<title>Stay Connected</title>
 	<style>
-	 * { font-family: Avenir }
-	.error {
 		color: #ff0000;
 	}
 	.errorblock {
@@ -24,7 +23,7 @@
 </head>
 <body bgcolor=#D9C1F3>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
-	<h2>Profile Updatedg</h2>
+	<h2>Profile Updated!</h2>
 	<P> Your profile has been successfully updated!. </P>
 	<table>
 		<tr>

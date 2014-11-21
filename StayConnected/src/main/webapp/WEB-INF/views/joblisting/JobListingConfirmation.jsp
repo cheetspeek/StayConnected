@@ -4,10 +4,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 <title>Stay Connected - Job Listing Confirmation</title>
-<style>
- * { font-family: Avenir }
-  </style>
 </head>
 <body bgcolor=#D9C1F3 >
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />

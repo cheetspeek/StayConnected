@@ -1,14 +1,17 @@
 package com.fastrax.stayconnected.core.entity;
 
+import java.sql.Date;
+
 
 public class JobListing {
 	private int id;
 	//The user who created the listing's email.
 	private String email;
 	private String position;
-	private String job_name;
+	private String company_name;
 	private String job_description;
 	private String job_location;
+	private Date posted_date;
 	private boolean active;
 
 	public int getId() {
@@ -29,11 +32,11 @@ public class JobListing {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	public String getJob_name() {
-		return job_name;
+	public String getCompany_name() {
+		return company_name;
 	}
-	public void setJob_name(String job_name) {
-		this.job_name = job_name;
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
 	}
 	public String getJob_description() {
 		return job_description;
@@ -46,6 +49,12 @@ public class JobListing {
 	}
 	public void setJob_location(String job_location) {
 		this.job_location = job_location;
+	}
+	public Date getPosted_date() {
+		return posted_date;
+	}
+	public void setPosted_date(Date posted_date) {
+		this.posted_date = posted_date;
 	}
 	public boolean isActive() {
 		return active;

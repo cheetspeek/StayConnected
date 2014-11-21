@@ -7,9 +7,9 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 	<title>Stay Connected</title>
 	<style>
-	 * { font-family: Avenir }
 	.error {
 		color: #ff0000;
 	}
@@ -35,9 +35,9 @@
 				<td><form:input path="email" readonly="true" /></td>
 			</tr>
 			<tr>
-				<td>Listing name:</td>
-				<td><form:input path="job_name" /></td>
-				<td><form:errors path="job_name" cssClass="error" />
+				<td>Company name:</td>
+				<td><form:input path="company_name" /></td>
+				<td><form:errors path="company_name" cssClass="error" />
 				</td>
 			</tr>
 			<tr>
