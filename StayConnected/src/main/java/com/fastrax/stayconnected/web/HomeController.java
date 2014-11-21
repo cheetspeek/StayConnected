@@ -19,7 +19,7 @@ public class HomeController {
 	@RequestMapping(value = {"/home"}, method = RequestMethod.GET)
 	public String login(@RequestParam(value="login_error", defaultValue="f") String failed, Model model) {
 		if (failed.equalsIgnoreCase("t")) {
-			model.addAttribute("error_message", "Incorrect username and/or password");
+			model.addAttribute("error_message", "Incorrect username/password or account inactive");
 		}
 		return "Home";
 	}
