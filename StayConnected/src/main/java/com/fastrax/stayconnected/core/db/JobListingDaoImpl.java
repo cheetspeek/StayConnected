@@ -44,17 +44,16 @@ public class JobListingDaoImpl implements JobListingDao {
 		//TransactionStatus status = transactionManager.getTransaction(def);
 	
 		try {
-			String SQL = "insert into job_listing (email, position, job_name, job_description, job_location, active) values "
-					+ "(?,?,?,?,?,?)";
+			String SQL = "insert into job_listing (email, position, company_name, job_description, job_location) values "
+					+ "(?,?,?,?,?)";
 
 			String email = jl.getEmail();
 			String position = jl.getPosition();
-			String job_name = jl.getJob_name();
+			String company_name = jl.getCompany_name();
 			String job_description = jl.getJob_description();
 			String job_location = jl.getJob_location();
-			boolean active = jl.isActive();
 			
-			jdbcTemplate.update(SQL,email,position,job_name,job_description,job_location,active);
+			jdbcTemplate.update(SQL,email,position,company_name,job_description,job_location);
 			
 			jl.setId(getRecentJobID());
 			
@@ -112,7 +111,7 @@ public class JobListingDaoImpl implements JobListingDao {
 				+ "WHERE id = ?";
 		
 		Object[] params = {jobListing.getEmail(), jobListing.getPosition(), 
-				jobListing.getJob_name(), jobListing.getJob_description(), 
+				jobListing.getCompany_name(), jobListing.getJob_description(), 
 				jobListing.getJob_location(), jobListing.getId()};
 		
 		jdbcTemplate.update(sql, params);
@@ -201,8 +200,9 @@ class JobListingMapper implements RowMapper<JobListing> {
 		jl.setPosition(rs.getString("position"));
 		jl.setEmail(rs.getString("email"));
 		jl.setJob_description(rs.getString("job_description"));
-		jl.setJob_name(rs.getString("job_name"));
+		jl.setCompany_name(rs.getString("company_name"));
 		jl.setJob_location(rs.getString("job_location"));
+		jl.setPosted_date(rs.getDate("posted_date"));
 		jl.setActive(rs.getBoolean("active"));
 		return jl;
 	}
