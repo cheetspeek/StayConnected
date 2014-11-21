@@ -15,6 +15,8 @@ public class Account {
 	private String city;
 	private String state;
 	private String country;
+	private String phone;
+
 	@Email
 	private String email;
 	@Email
@@ -68,6 +70,12 @@ public class Account {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;

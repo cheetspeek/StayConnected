@@ -61,12 +61,16 @@
 			    <script language="javascript">
 					populateCountries("country", "state");
  				</script>
+ 				<tr>
+					<td>Phone Number:</td> 
+					<td><form:input path="phone" /></td>
+				</tr>
 				<tr>
 					<td>Email Address:</td> 
 					<td><form:input path="email" /></td>
 				</tr>
 				<tr>
-					<td>Confirm email address:</td> 
+					<td>Confirm Email Address:</td> 
 					<td><form:input path="emailConfirm" /></td>
 				</tr>
 				<tr>
@@ -74,7 +78,7 @@
 					<td><form:input path="password" type="password"/></td>
 				</tr>
 				<tr>
-					<td>Confirm password:</td>
+					<td>Confirm Password:</td>
 					<td><form:input path="passwordConfirm" type="password"/></td>
 				</tr>
 				<tr>
