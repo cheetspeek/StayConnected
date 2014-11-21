@@ -44,7 +44,7 @@ public class AccountDaoImpl implements AccountDao {
 		try {
 			String SQL = "insert into account (firstname, lastname, address, city,"+
 					" country, state, phone, email, password, active) values "
-					+ "(?,?,?,?,?,?,?,?,?,?)";
+					+ "(?,?,?,?,?,?,?,?,?,?,?)";
 			String SQL2 = "insert into authority (email, role) values (?,?)";
 			
 			String firstname = account.getFirstname();
