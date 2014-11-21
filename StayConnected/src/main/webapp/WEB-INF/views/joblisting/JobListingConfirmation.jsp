@@ -19,7 +19,7 @@
 		</tr>
 		<tr>
 			<td>Company name:</td>
-			<td>${jobListing.job_name}</td>
+			<td>${jobListing.company_name}</td>
 		</tr>
 		<tr>
 			<td>Job position:</td>
