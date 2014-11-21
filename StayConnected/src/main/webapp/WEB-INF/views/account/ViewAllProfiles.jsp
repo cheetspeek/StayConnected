@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<title>StayConnected - View Profiles</title>
+<title>StayConnected - View All Profiles</title>
 	<style>
  * { font-family: Avenir }
   </style>
