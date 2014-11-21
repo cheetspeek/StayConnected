@@ -7,6 +7,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<script src="<c:url value="/resources/js/countries.js" />"></script>
+<!--<script type="text/javascript" src="/resources/js/countries.js"></script>-->
 <title>StayConnected Registration</title>
   <style>
  * { font-family: Avenir }
@@ -40,12 +42,35 @@
 			    	<td>Last name:</td>
 			    	<td><form:input path="lastname" /></td>
 			    </tr>
+			    <tr>
+			    	<td>Address:</td>
+			    	<td><form:input path="address" /></td>
+			    </tr>
+			    <tr>
+			    	<td>City:</td>
+			    	<td><form:input path="city" /></td>
+			    </tr>
+			    <tr>
+					<td>Country:</td> 
+					<td><select id="country" name="country"></select></td>
+				</tr>
+			    <tr>
+			    	<td>State:</td>
+			    	<td><select name ="state" id="state"></select></td>
+			    </tr>
+			    <script language="javascript">
+					populateCountries("country", "state");
+ 				</script>
+ 				<tr>
+					<td>Phone Number:</td> 
+					<td><form:input path="phone" /></td>
+				</tr>
 				<tr>
-					<td>Email address:</td> 
+					<td>Email Address:</td> 
 					<td><form:input path="email" /></td>
 				</tr>
 				<tr>
-					<td>Confirm email address:</td> 
+					<td>Confirm Email Address:</td> 
 					<td><form:input path="emailConfirm" /></td>
 				</tr>
 				<tr>
@@ -53,7 +78,7 @@
 					<td><form:input path="password" type="password"/></td>
 				</tr>
 				<tr>
-					<td>Confirm password:</td>
+					<td>Confirm Password:</td>
 					<td><form:input path="passwordConfirm" type="password"/></td>
 				</tr>
 				<tr>

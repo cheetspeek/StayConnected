@@ -42,18 +42,24 @@ public class AccountDaoImpl implements AccountDao {
 		//TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
-			String SQL = "insert into account (firstname, lastname, email, password, active) values "
-					+ "(?,?,?,?,?)";
+			String SQL = "insert into account (firstname, lastname, address, city,"+
+					" country, state, phone, email, password) values "
+					+ "(?,?,?,?,?,?,?,?,?)";
 			String SQL2 = "insert into authority (email, role) values (?,?)";
 			
 			String firstname = account.getFirstname();
 			String lastname = account.getLastname();
+			String address = account.getAddress();
+			String city = account.getCity();
+			String country = account.getCountry();
+			String state = account.getState();
+			String phone = account.getPhone();
 			String email = account.getEmail();
 			String password = account.getPassword();
 			String[] roles = account.getRoleList();
-			boolean active = account.isActive();
 
-			jdbcTemplate.update(SQL,firstname,lastname,email,password,active);
+			jdbcTemplate.update(SQL, firstname, lastname, address, city, 
+					country, state, phone, email, password);
 			for(int i = 0; i < roles.length; i++)
 			{
 				jdbcTemplate.update(SQL2,email,roles[i]);
@@ -196,6 +202,11 @@ class AccountMapper implements RowMapper<Account> {
 		Account account = new Account();
 		account.setFirstname(rs.getString("firstname"));
 		account.setLastname(rs.getString("lastname"));
+		account.setAddress(rs.getString("address"));
+		account.setCity(rs.getString("city"));
+		account.setCountry(rs.getString("country"));
+		account.setState(rs.getString("state"));
+		account.setPhone(rs.getString("phone"));
 		account.setEmail(rs.getString("email"));
 		account.setActive(rs.getBoolean("active"));
 		return account;

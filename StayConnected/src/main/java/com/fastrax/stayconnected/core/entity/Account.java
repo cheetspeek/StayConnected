@@ -2,6 +2,7 @@ package com.fastrax.stayconnected.core.entity;
 
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Account {
@@ -10,9 +11,15 @@ public class Account {
 	private String firstname;
 	@Size(min=1,max=20)
 	private String lastname;
-	@Size(min=7,max=50)
+	private String address;
+	private String city;
+	private String state;
+	private String country;
+	private String phone;
+
+	@Email
 	private String email;
-	@Size(min=7,max=50)
+	@Email
 	private String emailConfirm;
 	@Size(min=6,max=40)
 	private String password;
@@ -39,6 +46,36 @@ public class Account {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;
