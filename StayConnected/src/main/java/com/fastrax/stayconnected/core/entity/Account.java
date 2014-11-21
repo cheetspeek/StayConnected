@@ -2,6 +2,7 @@ package com.fastrax.stayconnected.core.entity;
 
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Account {
@@ -10,9 +11,9 @@ public class Account {
 	private String firstname;
 	@Size(min=1,max=20)
 	private String lastname;
-	@Size(min=7,max=50)
+	@Email
 	private String email;
-	@Size(min=7,max=50)
+	@Email
 	private String emailConfirm;
 	@Size(min=6,max=40)
 	private String password;

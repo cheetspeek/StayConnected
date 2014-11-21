@@ -7,6 +7,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<script type= "text/javascript" src = "countries.js"></script>
 <title>StayConnected Registration</title>
   <style>
  * { font-family: Avenir }
