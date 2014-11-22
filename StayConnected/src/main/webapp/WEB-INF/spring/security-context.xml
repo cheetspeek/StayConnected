@@ -15,14 +15,14 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 			always-use-default-target="true" 
 			authentication-failure-url="/home?login_error=t" />
 		
-		<intercept-url pattern="/"	access="hasAnyRole('Faculty', 'Alumni', 'Student')" />	
-		<intercept-url pattern="/accounthome"	access="hasAnyRole('Faculty', 'Alumni', 'Student')" />
-		<intercept-url pattern="/createlisting"	access="hasAnyRole('Faculty', 'Alumni')" />
-		<intercept-url pattern="/updatelisting"	access="hasAnyRole('Faculty', 'Alumni',)" />
-		<intercept-url pattern="/viewlisting"	access="hasAnyRole('Faculty', 'Alumni', 'Student')" />
-		<intercept-url pattern="/searchlisting"	access="hasAnyRole('Faculty', 'Alumni', 'Student')" />
+		<intercept-url pattern="/"	access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')" />	
+		<intercept-url pattern="/accounthome"	access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')" />
+		<intercept-url pattern="/createlisting"	access="hasAnyRole('Admin', 'Faculty', 'Alumni')" />
+		<intercept-url pattern="/updatelisting"	access="hasAnyRole('Admin', 'Faculty', 'Alumni',)" />
+		<intercept-url pattern="/viewlisting"	access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')" />
+		<intercept-url pattern="/searchlisting"	access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')" />
 		
-		<intercept-url pattern="/accountstatus"	access="hasRole('Faculty')" />
+		<intercept-url pattern="/accountstatus"	access="hasRole('Admin')" />
 		<logout logout-success-url="/home" />
 			
 		<remember-me key="myappkey"

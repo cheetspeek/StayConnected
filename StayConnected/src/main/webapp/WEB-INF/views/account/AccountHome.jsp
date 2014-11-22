@@ -12,7 +12,7 @@
 <body>
 <div style="text-align: center;">
 	<div id="floater" style="text-align: center;">
-		<security:authorize access="hasRole('Faculty')">
+		<security:authorize access="hasRole('Admin')">
 		<a href="accountstatus"> <img src="<s:url value="/resources/images/acct/status_box.png" />" width="183" height="55" /></a>
 		</security:authorize>
 	</div>
@@ -20,13 +20,13 @@
 	<P>
 		Your email address is: <security:authentication property="principal.username" />
 	</P>
-	<security:authorize access="hasRole('Faculty')">
+	<security:authorize access="hasRole('Admin')">
 		<a href="accountstatus"> <img src="<s:url value="/resources/images/acct/status_box.png" />" width="183" height="55" /></a>
 	</security:authorize>
-	<security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
+	<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')"> 
 		<a href="createlisting"> <img src="<s:url value="/resources/images/acct/create_box.png" />" width="183" height="55" /></a>
 	</security:authorize>
-	<security:authorize access="hasAnyRole('Faculty', 'Alumni')"> 
+	<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')"> 
 		<a href="viewlistingbyacct"> <img src="<s:url value="/resources/images/acct/mylistings_box.png" />" width="183" height="55" /></a>
 	</security:authorize>
 	<a href="viewlisting"> <img src="<s:url value="/resources/images/acct/view_box.png" />" width="183" height="55" /></a>
