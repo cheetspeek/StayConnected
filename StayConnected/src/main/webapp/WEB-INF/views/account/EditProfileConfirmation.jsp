@@ -9,17 +9,6 @@
 <head>
 	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 	<title>Stay Connected</title>
-	<style>
-		color: #ff0000;
-	}
-	.errorblock {
-		color: #000;
-		background-color: #ffEEEE;
-		border: 1px solid #ff0000;
-		padding: 4px;
-		margin: 8px;
-	}
-	</style>
 </head>
 <body>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
@@ -28,35 +17,35 @@
 	<table>
 		<tr>
     		<td>First Name:</td>
-    		<td><c:out value = "${current.firstname}"/></td>
+    		<td><c:out value = "${profile.firstname}"/></td>
     	</tr>
        	<tr>
     		<td>Last Name:</td>
-    		<td><c:out value = "${current.lastname}"/></td>
+    		<td><c:out value = "${profile.lastname}"/></td>
     	</tr>
     	<tr>
     		<td>Email:</td>
-    		<td><c:out value = "${current.email}"/></td>
+    		<td><c:out value = "${profile.email}"/></td>
     	</tr>
     	<tr>
     		<td>Phone:</td>
-    		<td><c:out value = "${current.phone}"/></td>
+    		<td><c:out value = "${profile.phone}"/></td>
     	</tr>
     	<tr>
     		<td>Address:</td>
-    		<td><c:out value = "${current.address}"/></td>
+    		<td><c:out value = "${profile.address}"/></td>
     	</tr>
     	<tr>
     		<td>City:</td>
-    		<td><c:out value = "${current.city}"/></td>
+    		<td><c:out value = "${profile.city}"/></td>
     	</tr>
     	<tr>
     		<td>Country:</td>
-    		<td><c:out value = "${current.country}"/></td>
+    		<td><c:out value = "${profile.country}"/></td>
     	</tr>
     	<tr>
     		<td>State:</td>
-    		<td><c:out value = "${current.state}"/></td>
+    		<td><c:out value = "${profile.state}"/></td>
     	</tr>
 	</table>
 	

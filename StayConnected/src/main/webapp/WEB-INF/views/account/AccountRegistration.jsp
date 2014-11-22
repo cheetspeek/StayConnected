@@ -8,7 +8,7 @@
 <html>
 <head>
 <link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
-<script src="<c:url value="/resources/js/countries.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/countries.js" />"></script>
 <title>StayConnected Registration</title>
 </head>
 <body>
@@ -44,11 +44,8 @@
 				</tr>
 			    <tr>
 			    	<td>State:</td>
-			    	<td><select name ="state" id="state"></select></td>
+			    	<td><select id="state" name="state" ></select></td>
 			    </tr>
-			    <script language="javascript">
-			    	populateCountries("country", "state");
-			    </script>
  				<tr>
 					<td>Phone Number:</td> 
 					<td><form:input path="phone" /></td>
@@ -84,8 +81,7 @@
 				</tr> 
 		</table>
 		<td>
-		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" 
-			onclick="submitClick()"/>
+		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" />
 		</td>
 	</form:form>
 	
@@ -94,15 +90,6 @@
 </body>
 </html>
 
-<!--  
 <script>
-function submitClick() {
-	populateCountries("country", "state");
-}
+   	populateCountries("country", "state");
 </script>
--->
-
-
-
-
-

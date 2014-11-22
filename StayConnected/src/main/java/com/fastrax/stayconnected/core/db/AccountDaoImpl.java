@@ -187,6 +187,39 @@ public class AccountDaoImpl implements AccountDao {
 	public int getNumberOfAccountsByRole(String role){
 		return 0;
 	}
+
+	/**  
+	 * Update a user account
+	 * @author Conner Simmons
+	 * @precondition Account exists in database
+	 * @postcondition Account has been updated
+	 * @return true to show method completion
+	 */
+	public int updateAccount(Account account) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+		System.out.println("in update account");
+		System.out.println(account.getId());
+		try {
+		String sql = "UPDATE account SET firstname = ?, lastname = ?, "
+				+ "address = ?, city = ?, country = ?, state = ?, phone = ?, "
+				+ "email = ? WHERE id = ?";
+		
+		Object[] params = {account.getFirstname(), account.getLastname(),
+				account.getAddress(), account.getCity(), account.getCountry(),
+				account.getState(), account.getPhone(), account.getEmail(),
+				account.getId()};
+		
+		jdbcTemplate.update(sql, params);
+		System.out.println("Updated Record with ID = " + account.getId());
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating Account record, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1;
+	}
 }
 
 //Helper class to extract the most recent email

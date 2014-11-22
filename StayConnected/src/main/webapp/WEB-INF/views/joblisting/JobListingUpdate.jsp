@@ -9,18 +9,6 @@
 <head>
 	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 	<title>Stay Connected</title>
-	<style>
-	.error {
-		color: #ff0000;
-	}
-	.errorblock {
-		color: #000;
-		background-color: #ffEEEE;
-		border: 1px solid #ff0000;
-		padding: 4px;
-		margin: 8px;
-	}
-	</style>
 </head>
 <body bgcolor=#D9C1F3>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />

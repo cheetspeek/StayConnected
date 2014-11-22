@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fastrax.stayconnected.core.AccountService;
 import com.fastrax.stayconnected.core.entity.Account;
-import com.fastrax.stayconnected.core.entity.JobListing;
 
 @Controller
 public class AccountController {
@@ -173,14 +172,16 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/editmyprofile", method = RequestMethod.GET)
 	public String editProfile(Principal principal, Locale locale, Model model) {
+		System.out.println("in edit profile");
 		Account account = accountService.getAccountByEmail(principal.getName());
+		System.out.println(account.getEmail());
 		model.addAttribute("profile", account);
 		return "account/EditProfile";
 	}
 	
 	/**
 	 * Controls the update profile confirmation page mapping
-	 * @author Ben Degler
+	 * @author Ben Degler, Conner Simmons
 	 * @param account						a new Account object with new user data
 	 * @param locale						a new Locale object
 	 * @param model							properties of the Model object	
@@ -188,7 +189,12 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/editprofileconfirmation", method = RequestMethod.POST)
 	public String editProfileConfirmation(@Valid @ModelAttribute("profile") Account account, BindingResult result, Model model) {
-		model.addAttribute("profile");
+		if(result.hasErrors()){
+			return "account/EditProfile";
+		}
+		System.out.println("in edit profile confirm");
+		System.out.println(account.getEmail());
+		accountService.updateAccount(account);
 		return "account/EditProfileConfirmation";
 	}
 }

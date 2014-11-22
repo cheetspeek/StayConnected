@@ -107,7 +107,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	
 		try {
 		String sql = "UPDATE job_listing SET email = ?, position = ?, "
-				+ "job_name = ?, job_description = ?, job_location = ? "
+				+ "company_name = ?, job_description = ?, job_location = ? "
 				+ "WHERE id = ?";
 		
 		Object[] params = {jobListing.getEmail(), jobListing.getPosition(), 

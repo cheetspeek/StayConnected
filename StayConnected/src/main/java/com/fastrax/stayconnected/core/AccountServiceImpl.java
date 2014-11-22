@@ -12,6 +12,7 @@ import com.fastrax.stayconnected.core.entity.Account;
 public class AccountServiceImpl implements AccountService {
 	@Autowired
 	private AccountDao accountDao;
+	
 	/**
 	 * Uses accountDAO to create an account on the database 
 	 * @author Conner Simmons
@@ -55,5 +56,17 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public String[] getRoles(Account account) {
 		return accountDao.getRoles(account);
+	}
+
+	/**
+	 * Uses accountDAO to update an account in the database 
+	 * @author Conner Simmons
+	 * @precondition Account entity exists and passed in as an argument
+	 * @postcondition Account is updated in the database
+	 * @param Account	an account object
+	 * @return Account	the account with the updated information
+	 */
+	public int updateAccount(Account account) {
+		return accountDao.updateAccount(account);
 	}
 }

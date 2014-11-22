@@ -1,4 +1,5 @@
 CREATE TABLE account (
+	id bigint auto_increment,
 	firstname varchar(50) NOT NULL,
 	lastname varchar(50) NOT NULL,
 	address varchar(250),
@@ -6,11 +7,11 @@ CREATE TABLE account (
 	country varchar(50),
 	state varchar(50),
 	phone varchar(50),
-	email varchar(100) NOT NULL,
+	email varchar(100) NOT NULL UNIQUE,
 	password char(60) NOT NULL,
 	active boolean NOT NULL DEFAULT 0,
 	visible boolean NOT NULL DEFAULT 1,
-	primary key (email)
+	primary key (id)
 );
 
 CREATE TABLE authority (
@@ -42,6 +43,6 @@ create table persistent_logins (
 );
 
 drop table persistent_logins;
-drop table role;
 drop table job_listing;
+drop table auhority;
 drop table account;

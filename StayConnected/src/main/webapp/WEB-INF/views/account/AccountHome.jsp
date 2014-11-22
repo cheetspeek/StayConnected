@@ -3,6 +3,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 <link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
@@ -32,7 +33,6 @@
 	<a href="searchlisting">Search Job Listing</a>
 	<a href="viewallprofiles">View All Profiles</a>
 	<a href="editmyprofile">Edit My Profile</a>
-
 <hr>
 </div>
 	<img src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" style="float: right"/>
