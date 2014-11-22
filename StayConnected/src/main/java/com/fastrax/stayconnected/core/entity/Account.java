@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Account {
-	
 	@Size(min=1,max=20)
 	private String firstname;
 	@Size(min=1,max=20)
@@ -16,7 +15,6 @@ public class Account {
 	private String state;
 	private String country;
 	private String phone;
-
 	@Email
 	private String email;
 	@Email

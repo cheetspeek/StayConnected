@@ -7,7 +7,7 @@
 <link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 <title>Stay Connected - Registration Confirmation</title>
 </head>
-<body bgcolor=#D9C1F3 >
+<body>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
 	<h2>Registration confirmed!</h2>
  	<P> Your account will be active within 48 hours, and you will be notified at the email address you just provided. </P>

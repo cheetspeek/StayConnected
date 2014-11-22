@@ -9,21 +9,8 @@
 <head>
 <link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 <title>Stay Connected</title>
-<style>
-.error {
-	color: #ff0000;
-}
-
-.errorblock {
-	color: #000;
-	background-color: #ffEEEE;
-	border: 1px solid #ff0000;
-	padding: 4px;
-	margin: 8px;
-}
-</style>
 </head>
-<body bgcolor=#D9C1F3>
+<body>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />"
 		width="220" height="75" style="float: right" />
 	<h2>Profile Updating</h2>
@@ -35,14 +22,17 @@
 			<tr>
 				<td>First Name:</td>
 				<td><form:input path="firstname" value="${profile.firstname}" /></td>
+				<td><form:errors path="firstname" cssClass="error" />
 			</tr>
 			<tr>
 				<td>Last Name:</td>
 				<td><form:input path="lastname" value="${profile.lastname}" /></td>
+				<td><form:errors path="lastname" cssClass="error" />
 			</tr>
 			<tr>
 				<td>Email:</td>
 				<td><form:input path="email" value="${profile.email}" /></td>
+				<td><form:errors path="email" cssClass="error" />
 			</tr>
 
 			<tr>

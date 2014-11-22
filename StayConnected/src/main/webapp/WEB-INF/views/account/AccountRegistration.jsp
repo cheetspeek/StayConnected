@@ -10,21 +10,8 @@
 <link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/js/countries.js" />"></script>
 <title>StayConnected Registration</title>
-  <style>
- 	error {
-		color: #ff0000;
-	}
-	.errorblock {
-		color: #000;
-		background-color: #ffEEEE;
-		border: 2px solid #ff0000;
-		padding: 4px;
-		margin: 8px;
-	}
-	.
-  </style>
 </head>
-<body bgcolor=#D9C1F3 >
+<body>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
@@ -36,10 +23,12 @@
 				<tr>
 					<td>First name:</td>
 					<td><form:input path="firstname" /></td>
+					<td><form:errors path="firstname" cssClass="error" />
 			    </tr>
 			    <tr>
 			    	<td>Last name:</td>
 			    	<td><form:input path="lastname" /></td>
+			    	<td><form:errors path="lastname" cssClass="error" />
 			    </tr>
 			    <tr>
 			    	<td>Address:</td>
@@ -58,8 +47,8 @@
 			    	<td><select name ="state" id="state"></select></td>
 			    </tr>
 			    <script language="javascript">
-					populateCountries("country", "state");
- 				</script>
+			    	populateCountries("country", "state");
+			    </script>
  				<tr>
 					<td>Phone Number:</td> 
 					<td><form:input path="phone" /></td>
@@ -67,18 +56,22 @@
 				<tr>
 					<td>Email Address:</td> 
 					<td><form:input path="email" /></td>
+					<td><form:errors path="email" cssClass="error" />
 				</tr>
 				<tr>
 					<td>Confirm Email Address:</td> 
 					<td><form:input path="emailConfirm" /></td>
+					<td><form:errors path="emailConfirm" cssClass="error" />
 				</tr>
 				<tr>
 					<td>Password:</td> 
 					<td><form:input path="password" type="password"/></td>
+					<td><form:errors path="password" cssClass="error" />
 				</tr>
 				<tr>
 					<td>Confirm Password:</td>
 					<td><form:input path="passwordConfirm" type="password"/></td>
+					<td><form:errors path="passwordConfirm" cssClass="error" />
 				</tr>
 				<tr>
 					<td>Roles:</td>
@@ -87,10 +80,12 @@
 						<input type="checkbox" name="roleList" value="Student"/>Student
 						<input type="checkbox" name="roleList" value="Alumni"/>Alumni 
 					</td>
+					<td><form:errors path="roleList" cssClass="error" />
 				</tr> 
 		</table>
 		<td>
-		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" />
+		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" 
+			onclick="submitClick()"/>
 		</td>
 	</form:form>
 	
@@ -99,7 +94,13 @@
 </body>
 </html>
 
-
+<!--  
+<script>
+function submitClick() {
+	populateCountries("country", "state");
+}
+</script>
+-->
 
 
 
