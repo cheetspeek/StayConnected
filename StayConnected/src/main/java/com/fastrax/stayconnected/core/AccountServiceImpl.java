@@ -67,6 +67,7 @@ public class AccountServiceImpl implements AccountService {
 	 * @return Account	the account with the updated information
 	 */
 	public int updateAccount(Account account) {
+		//account.setId();
 		return accountDao.updateAccount(account);
 	}
 }

@@ -242,6 +242,7 @@ class AccountMapper implements RowMapper<Account> {
 		account.setPhone(rs.getString("phone"));
 		account.setEmail(rs.getString("email"));
 		account.setActive(rs.getBoolean("active"));
+		account.setId(rs.getInt("id"));
 		return account;
 	}
 }
