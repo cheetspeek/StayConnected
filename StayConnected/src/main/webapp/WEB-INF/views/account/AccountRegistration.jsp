@@ -90,11 +90,11 @@
 				</tr> 
 		</table>
 		<td>
-		<input type="image" src="<s:url value="/resources/images/submit_box.png" />" width="93" height="35" />
+		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" />
 		</td>
 	</form:form>
 	
-	<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+	<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/nav/home_box.png" />" width="93" height="35" />
 	</a> </P>
 </body>
 </html>

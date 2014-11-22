@@ -34,11 +34,11 @@
 				<td><form:input path="job_location" readonly="false" /></td>
 			</tr>
 			<tr>
-				<td><input type="image" src="<s:url value="/resources/images/submit_box.png" />" width="93" height="35" /></td>
+				<td><input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" /></td>
 			</tr>
 		</table>
 	</form:form>
-	<a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+	<a href="${contextPath}/"> <img src="<s:url value="/resources/images/nav/home_box.png" />" width="93" height="35" />
 	</a>
 </body>
 </html>

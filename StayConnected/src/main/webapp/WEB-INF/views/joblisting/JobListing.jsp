@@ -45,7 +45,7 @@
 	</div>
 	</c:forEach>
 
-<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/home_box.png" />" width="93" height="35" />
+<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/nav/home_box.png" />" width="93" height="35" />
 </a></P>
 </body>
 </html>
