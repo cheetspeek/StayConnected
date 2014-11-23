@@ -7,23 +7,57 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-	<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
-	<title>Stay Connected</title>
-	<style>
-	.error {
-		color: #ff0000;
-	}
-	.errorblock {
-		color: #000;
-		background-color: #ffEEEE;
-		border: 2px solid #ff0000;
-		padding: 4px;
-		margin: 8px;
-	}
-	</style>
+<!-- 
+<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
+-->
+<link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
+<title>Stay Connected</title>
 </head>
-<body bgcolor=#D9C1F3>
+<body>
+	<!--  
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
+	-->
+	<header>
+		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
+	</header>
+	
+	<nav>
+		<a href="${contextPath}/"> 
+			<img src="<s:url value="/resources/images/nav/home_box.png" />" 
+			width="93" height="35" style="float:left"/>
+		</a>
+		<security:authorize access="hasRole('Admin')">
+			<a href="accountstatus"> 
+				<img src="<s:url value="/resources/images/acct/status_box.png" />" 
+				width="183" height="55" />
+			</a>
+		</security:authorize>
+		<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')"> 
+			<a href="createlisting"> 
+				<img src="<s:url value="/resources/images/acct/create_box.png" />" 
+				width="183" height="55" />
+			</a>
+		</security:authorize>
+		<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')"> 
+			<a href="viewlistingbyacct"> 
+				<img src="<s:url value="/resources/images/acct/mylistings_box.png" />" 
+				width="183" height="55" />
+			</a>
+		</security:authorize>
+		<a href="viewlisting"> 
+			<img src="<s:url value="/resources/images/acct/view_box.png" />" 
+			width="183" height="55" />
+		</a>
+		<a href="searchlisting">Search Job Listing</a><br>
+		<a href="viewallprofiles">View All Profiles</a><br>
+		<a href="editmyprofile">Edit My Profile</a><br>
+		<a href="j_spring_security_logout"> 
+			<img src="<s:url value="/resources/images/nav/log_out_box.png" />" 
+			width="93" height="35" />
+		</a>
+	</nav>
+	
+	<section>
 	<h2>Job Listing Creation</h2>
 	<form:form method="POST" action="jobListingConfirmation" modelAttribute ="jobListing">
 		<form:errors path="*" cssClass="errorblock" element="div" />
@@ -63,7 +97,12 @@
 			</tr>
 		</table>
 	</form:form>
-	<a href="${contextPath}/"> <img src="<s:url value="/resources/images/nav/home_box.png" />" width="93" height="35" />
-	</a>
+	</section>
+	
+	<footer>
+		<p style="float:middle">
+		Copyright © FasTrax, Inc.
+		</p>
+	</footer>
 </body>
 </html>

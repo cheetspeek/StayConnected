@@ -1,0 +1,54 @@
+html, header, nav, section, footer {
+	background-color: #D9C1F3;
+	font-family: Avenir;
+}
+
+header {
+	height: 75px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	padding: 5px;
+}
+
+img.alt-logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+nav {
+	position: fixed;
+	line-height: 30px;
+	width: 200px;
+	float: left;
+	padding: 80px 5;
+}
+
+section {
+	padding: 80px 215;
+	overflow-y: scroll;
+}
+
+footer {
+	bottom: 0;
+	height: 50px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+}
+
+.error {
+	color: #ff0000;
+}
+
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 2px solid #ff0000;
+	padding: 4px;
+	margin: 8px;
+}
