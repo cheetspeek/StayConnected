@@ -12,43 +12,7 @@
 <title>Account Home</title>
 </head>
 <body>
-	
-	<nav>
-		<security:authorize access="hasRole('Admin')">
-			<a href="accountstatus"> 
-				<img src="<s:url value="/resources/images/acct/status_box.png" />" 
-				width="183" height="55" />
-			</a>
-		</security:authorize>
-		<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')"> 
-			<a href="createlisting"> 
-				<img src="<s:url value="/resources/images/acct/create_box.png" />" 
-				width="183" height="55" />
-			</a>
-		</security:authorize>
-		<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')"> 
-			<a href="viewlistingbyacct"> 
-				<img src="<s:url value="/resources/images/acct/mylistings_box.png" />" 
-				width="183" height="55" />
-			</a>
-		</security:authorize>
-		<a href="viewlisting"> 
-			<img src="<s:url value="/resources/images/acct/view_box.png" />" 
-			width="183" height="55" />
-		</a>
-		<a href="searchlisting"> 
-			<img src="<s:url value="/resources/images/acct/search_box.png" />" 
-			width="183" height="55" />
-		</a>
-		<a href="viewallprofiles"> 
-			<img src="<s:url value="/resources/images/acct/view_prof_box.png" />" 
-			width="183" height="55" />
-		</a>
-		<a href="editmyprofile"> 
-			<img src="<s:url value="/resources/images/acct/edit_prof.png" />" 
-			width="183" height="55" />
-		</a>
-	</nav>
+	<modules:nav/>
 	
 	<modules:header/>
 	
@@ -57,11 +21,7 @@
 		<p>Your email address is: <security:authentication property="principal.username" /></p>
 	</section>
 	
-	<footer>
-		<p style="float:middle">
-		Copyright © FasTrax, Inc.
-		</p>
-	</footer>
+	<modules:footer/>
 </body>
 </html>
 
