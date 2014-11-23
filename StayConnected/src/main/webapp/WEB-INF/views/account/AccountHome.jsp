@@ -6,25 +6,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
-<!-- 
-<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
--->
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <title>Account Home</title>
 </head>
 <body>
-	<!--  
-	<div style="text-align: center;">
-	<div id="floater" style="text-align: center;">
-		<security:authorize access="hasRole('Admin')">
-		<a href="accountstatus"> <img src="<s:url value="/resources/images/acct/status_box.png" />" width="183" height="55" /></a>
-		</security:authorize>
-	</div>
-	-->
-	
-	<header>
-		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
-	</header>
 	
 	<nav>
 		<security:authorize access="hasRole('Admin')">
@@ -49,14 +34,28 @@
 			<img src="<s:url value="/resources/images/acct/view_box.png" />" 
 			width="183" height="55" />
 		</a>
-		<a href="searchlisting">Search Job Listing</a><br>
-		<a href="viewallprofiles">View All Profiles</a><br>
-		<a href="editmyprofile">Edit My Profile</a><br>
-		<a href="j_spring_security_logout"> 
-			<img src="<s:url value="/resources/images/nav/log_out_box.png" />" 
-			width="93" height="35" />
+		<a href="searchlisting"> 
+			<img src="<s:url value="/resources/images/acct/search_box.png" />" 
+			width="183" height="55" />
+		</a>
+		<a href="viewallprofiles"> 
+			<img src="<s:url value="/resources/images/acct/view_prof_box.png" />" 
+			width="183" height="55" />
+		</a>
+		<a href="editmyprofile"> 
+			<img src="<s:url value="/resources/images/acct/edit_prof.png" />" 
+			width="183" height="55" />
 		</a>
 	</nav>
+	
+	<header>
+		<a><img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" 
+			width="237" height="50" style="vertical-align: middle;"/></a>
+		<a href="j_spring_security_logout"> 
+			<img class="log_out_box" src="<s:url value="/resources/images/nav/log_out_box.png" />" 
+			width="93" height="35" />
+		</a>
+	</header>
 	
 	<section>
 		<h2>Account Home Page</h2>

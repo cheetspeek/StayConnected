@@ -1,29 +1,37 @@
-html, header, nav, section, footer {
+html, section, footer {
 	background-color: #D9C1F3;
 	font-family: Avenir;
 }
 
 header {
-	height: 75px;
+	background-color: #ECE0F9;
+	height: 60px;
 	left: 0;
 	position: fixed;
 	width: 100%;
 	top: 0;
-	padding: 5px;
+	padding: 3px;
+	box-shadow: 1px 1px 1px #000000;
 }
 
 img.alt-logo {
-	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.log_out_box {
 	margin-left: auto;
 	margin-right: auto;
 }
 
 nav {
+	background-color: #ECE0F9;
 	position: fixed;
 	line-height: 30px;
-	width: 200px;
+	width: 183px;
 	float: left;
-	padding: 80px 5;
+	padding: 60px 0px;
+	box-shadow: 1px 1px 1px #000000;
 }
 
 section {
