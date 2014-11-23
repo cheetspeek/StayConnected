@@ -7,9 +7,6 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<!-- 
-<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
--->
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <title>Stay Connected</title>
 </head>
@@ -17,9 +14,6 @@
 	<!--  
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
 	-->
-	<header>
-		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
-	</header>
 	
 	<nav>
 		<a href="${contextPath}/"> 
@@ -56,6 +50,18 @@
 			width="93" height="35" />
 		</a>
 	</nav>
+	
+	<header>
+		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
+		<a href="j_spring_security_logout"> 
+			<img class="log_out_box" src="<s:url value="/resources/images/nav/log_out_box.png" />" 
+			width="93" height="35" />
+		</a>
+		<a href="${contextPath}/"> 
+			<img class = "home_box" src="<s:url value="/resources/images/nav/home_box.png" />" 
+			width="93" height="35"/>
+		</a>
+	</header>
 	
 	<section>
 	<h2>Job Listing Creation</h2>
