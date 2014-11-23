@@ -5,7 +5,7 @@ html, section, footer {
 
 header {
 	background-color: #ECE0F9;
-	height: 60px;
+	height: 55px;
 	left: 0;
 	position: fixed;
 	width: 100%;
@@ -19,16 +19,10 @@ img.alt-logo {
 	margin-right: auto;
 }
 
-img.log_out_box {
+img.header_box {
 	position: relative;
 	float: right;
-	top: 10;
-}
-
-img.home_box {
-	position: relative;
-	float: right;
-	top: 10;
+	top: 9;
 }
 
 nav {
