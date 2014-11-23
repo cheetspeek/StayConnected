@@ -2,11 +2,9 @@
 <html>
 <head>
 <title>Stay Connected</title>
-  <style>
- * { font-family: Avenir }
-  </style>
+<link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 </head>
-<body bgcolor=#D9C1F3 >
+<body>
 	<div style="text-align: center;">
 		<img src="<s:url value="/resources/images/logo_trans.png" />" width="340" height="125" />
 		<h2>Welcome to StayConnected!</h2>
@@ -24,5 +22,11 @@
 	<P><a href="register"> <img src="<s:url value="/resources/images/nav/sign_up_box.png" />" width="183" height="55" />
 	</a> </P>
 	</div>
+	
+	<footer>
+		<p style="float:middle">
+		Copyright © FasTrax, Inc.
+		</p>
+	</footer>
 </body>
 </html>

@@ -15,7 +15,21 @@
 <title>StayConnected Registration</title>
 </head>
 <body>
+	<!--  
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
+	-->
+	<header>
+		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
+	</header>
+	
+		<nav>
+		<a href="${contextPath}/"> 
+			<img src="<s:url value="/resources/images/nav/home_box.png" />" 
+			width="93" height="35" style="float:left"/>
+		</a>
+	</nav>
+	
+	<section>
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
 		<form:errors path="*" cssClass="errorblock" element="div" />
@@ -87,9 +101,13 @@
 		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" />
 		</td>
 	</form:form>
+	</section>
 	
-	<P><a href="${contextPath}/"> <img src="<s:url value="/resources/images/nav/home_box.png" />" width="93" height="35" />
-	</a> </P>
+	<footer>
+		<p style="float:middle">
+		Copyright © FasTrax, Inc.
+		</p>
+	</footer>
 </body>
 </html>
 
