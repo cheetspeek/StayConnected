@@ -12,6 +12,7 @@
 	<div id="menu" style="float:right">
    		<ul>
       <li><a href="${contextPath}/">Home</a></li>
+      <security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')">
       <li><a href="#" title="Job Listings">Job Listings <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /> </a>
       	<ul>
       		<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')">
@@ -24,12 +25,15 @@
       		<li><a href="searchlisting">Search Listings</a></li>
     	</ul>
       </li>
+      </security:authorize>
+      <security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')">
       <li><a href="#" title="Profiles">Profiles <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /></a>
       	<ul>
       		<li><a href="viewallprofiles">View All Profiles</a></li>
       		<li><a href="editprofilepasswordcheck">Edit My Profile</a></li>
     	</ul>
       </li>
+      </security:authorize>
       <security:authorize access="hasRole('Admin')">
       	<li><a href="#">Accounts <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /></a>
       		<ul>
@@ -38,7 +42,9 @@
       		</ul>
       	</li>
       </security:authorize>
+      <security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')">
       <li><a href="j_spring_security_logout" title="Log Out">Log Out</a></li>
+      </security:authorize>
   	   </ul>
 	</div>
 

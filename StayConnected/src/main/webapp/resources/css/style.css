@@ -108,7 +108,7 @@ ul li {
 ul li a {
 	display: block;
 	background: #ECE0F9;
-	padding: 0px 25px 0px 25px;
+	padding: 0px 18px 0px 18px;
 	text-decoration: none;
 	font-size: 22px;
     white-space: nowrap;
@@ -126,7 +126,7 @@ ul ul li a {
 }
  
 ul li a:hover {
-	background: #;
+	background: #D9C1F3;
 }
 li:hover ul {
 	display: block; position: absolute;
@@ -138,7 +138,7 @@ li:hover a {
 	background: #ECE0F9;
 }
 li:hover li a:hover {
-	background: #fff;
+	background: #D9C1F3;
 }
 #drop-nav li ul li {
 	border-top: 0px;

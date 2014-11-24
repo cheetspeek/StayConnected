@@ -13,6 +13,7 @@
 <title>StayConnected Registration</title>
 </head>
 <body>
+	<modules:header/>
 	<section>
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
@@ -85,7 +86,7 @@
 		</table>
 		<td>
 		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" />
-		<a href="${contextPath}/home">Cancel</a>
+		<a href="${contextPath}/home"> <img src="<s:url value="/resources/images/nav/cancel_box.png" />" width="93" height="35" /> </a>
 		</td>
 	</form:form>
 	</section>
