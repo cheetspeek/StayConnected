@@ -321,11 +321,14 @@ public class AccountController {
 			@Valid @ModelAttribute("account") Account account,
 			BindingResult result, Model model) {
 		String[] list = account.getRoleList();
-		System.out.println(account.getEmail());
-		for (int i = 0; i < list.length; i++) {
+		/*System.out.println(account.getEmail());
+		for(int i = 0; i < list.length; i++)
+		{
 			System.out.println(list[i]);
-		}
-		model.addAttribute("account");
+		}*/
+		
+		accountService.updateRoles(account);
+		model.addAttribute("account", account);
 		model.addAttribute("roleList", list);
 		return "account/AccountRoleConfirmation";
 	}

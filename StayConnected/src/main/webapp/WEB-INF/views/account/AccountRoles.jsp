@@ -29,8 +29,7 @@
 					<td>
 						<c:out value="${current.email}" />
 					</td>
-					<td>
-							
+					<td>							
 						<c:forEach items="${current.roleList}" var="role">	
 							<input type="checkbox" name="roleList" value=<c:out value="${role}"/> checked/><c:out value="${role}"/>
 							<br>			
