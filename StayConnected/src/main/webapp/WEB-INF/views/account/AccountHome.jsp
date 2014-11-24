@@ -51,7 +51,7 @@
 		</a>
 		<a href="searchlisting">Search Job Listing</a><br>
 		<a href="viewallprofiles">View All Profiles</a><br>
-		<a href="editmyprofile">Edit My Profile</a><br>
+		<a href="EditProfilePasswordCheck">Edit My Profile</a><br>
 		<a href="j_spring_security_logout"> 
 			<img src="<s:url value="/resources/images/nav/log_out_box.png" />" 
 			width="93" height="35" />

@@ -12,8 +12,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -148,8 +152,10 @@ public class AccountController {
 	   BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	   String encryptedPassword = passwordEncoder.encode(rawPassword);
 	   return encryptedPassword;
+	
 	}
 	
+		
 	/**
 	 * Will display a users account profile
 	 * @author Ben Degler
@@ -170,13 +176,30 @@ public class AccountController {
 	 * @param model					properties of the Model object	
 	 * @return ViewProfile			JSP for editing an account profile
 	 */
-	@RequestMapping(value = "/editmyprofile", method = RequestMethod.GET)
-	public String editProfile(Principal principal, Locale locale, Model model) {
+	@RequestMapping(value = "/editmyprofile", method = RequestMethod.POST)
+	public String editProfile(@Valid @ModelAttribute("profile") Account account,BindingResult result, Model model) {
 		System.out.println("in edit profile");
+		System.out.println(account.getEmail());
+		System.out.println(account.getPassword());
+		return "account/EditProfile";
+	}
+	
+	/**
+	 * Will display a users account profile
+	 * @author Ben Degler
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return ViewProfile			JSP for editing an account profile
+	 */
+	@RequestMapping(value = "/EditProfilePasswordCheck", method = RequestMethod.GET)
+	public String editProfilePassCheck(Principal principal, Locale locale, Model model) {
+		System.out.println("in edit profile password check");
 		Account account = accountService.getAccountByEmail(principal.getName());
 		System.out.println(account.getEmail());
+		System.out.println(account.getPassword());
+
 		model.addAttribute("profile", account);
-		return "account/EditProfile";
+		return "account/EditProfilePasswordCheck";
 	}
 	
 	/**
@@ -194,7 +217,11 @@ public class AccountController {
 		}
 		System.out.println("in edit profile confirm");
 		System.out.println(account.getEmail());
+		System.out.println(account.getPassword());
 		accountService.updateAccount(account);
+		UsernamePasswordAuthenticationToken auth2 = new UsernamePasswordAuthenticationToken(account.getEmail(), account.getPassword());  
+		auth2.setDetails(account);
+	    SecurityContextHolder.getContext().setAuthentication(auth2);
 		return "account/EditProfileConfirmation";
 	}
 }

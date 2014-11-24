@@ -63,8 +63,7 @@
 	<section>
 	<h2>Profile Updating</h2>
 	<form:form method="POST" action="editprofileconfirmation" modelAttribute="profile">
-		<form:errors path="*" cssClass="errorblock" element="div" />
-		<P>Message text here?</P>
+		<P>Please Update your profile</P>
 		<table>
 			<tr>
 				<td><form:input path="id" type="hidden" value="${profile.id}" /></td>
@@ -112,7 +111,11 @@
 				<!--
 				<td><form:input path="state" value="${current.state}" /></td>
 				-->
-				<td><select id="state" name="state"></select></td>
+				<td><select id="state" name="state" ></select></td>
+			</tr>
+			<tr>
+				<td><form:input path="password" type="hidden"/></td>
+				<td><form:errors path="password" cssClass="error" />
 			</tr>
 			<tr>
 				<td><input type="image"
