@@ -317,19 +317,16 @@ public class AccountController {
 	 *         registering user
 	 */
 	@RequestMapping(value = "/accountroleconfirmation", method = RequestMethod.POST)
-	public String accountRolesConfirmation(
-			@Valid @ModelAttribute("account") Account account,
-			BindingResult result, Model model) {
+	public String accountRolesConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
 		String[] list = account.getRoleList();
 		/*System.out.println(account.getEmail());
 		for(int i = 0; i < list.length; i++)
 		{
 			System.out.println(list[i]);
 		}*/
-		
 		accountService.updateRoles(account);
 		model.addAttribute("account", account);
 		model.addAttribute("roleList", list);
-		return "account/AccountRoleConfirmation";
+		return "account/AccountRoleConfirmation";		
 	}
 }
