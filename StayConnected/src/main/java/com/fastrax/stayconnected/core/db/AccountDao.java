@@ -16,4 +16,5 @@ public interface AccountDao {
 	public int activate(Account account);	
 	public String[] getRoles(Account account);
 	public int updateAccount(Account account);
+	
 }

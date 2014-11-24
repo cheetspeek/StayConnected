@@ -142,7 +142,11 @@ public class JobListingController {
 			return "searchlisting";
 		}
 		String location = jobListing.getJob_location();
-		jobItems = jobListingService.getJobListingsByLocation(location);
+		String email = jobListing.getEmail();
+		String company = jobListing.getCompany_name();
+		String desc = jobListing.getJob_description();
+		String pos = jobListing.getPosition();
+		jobItems = jobListingService.getJobByMultiple(email, pos, company, desc, location);
 		model.addAttribute("listing", jobItems);
 		return "joblisting/JobListing";	
 	}
