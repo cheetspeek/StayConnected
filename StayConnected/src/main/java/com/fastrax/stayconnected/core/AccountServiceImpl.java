@@ -70,4 +70,9 @@ public class AccountServiceImpl implements AccountService {
 		//account.setId();
 		return accountDao.updateAccount(account);
 	}
+
+	@Override
+	public int updateRoles(Account account) {
+		return accountDao.updateRoles(account);
+	}
 }
