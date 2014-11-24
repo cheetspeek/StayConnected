@@ -40,6 +40,10 @@
 				<td><form:input path="email" /></td>
 				<td><form:errors path="email" cssClass="error" />
 			</tr>
+			<tr>
+				<td><form:input path="emailConfirm" type="hidden"  /></td>
+				<td><form:errors path="emailConfirm" cssClass="error" />
+			</tr>
 
 			<tr>
 				<td>Phone:</td>

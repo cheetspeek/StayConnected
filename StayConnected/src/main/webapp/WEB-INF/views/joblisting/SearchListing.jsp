@@ -16,7 +16,7 @@
 	
 	<section>
 	<h2>Search Job Listings</h2>
-	<form:form method="POST" action="searchLocationConfirmation" modelAttribute ="searchListing">
+	<form:form method="POST" action="searchConfirmation" modelAttribute ="searchListing">
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<P>Please enter at least one of the following fields (multi-field searches are allowed)</P>
 		<table>
