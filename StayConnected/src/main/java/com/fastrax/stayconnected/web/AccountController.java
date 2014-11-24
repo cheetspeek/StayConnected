@@ -191,7 +191,7 @@ public class AccountController {
 	 * @param model					properties of the Model object	
 	 * @return ViewProfile			JSP for editing an account profile
 	 */
-	@RequestMapping(value = "/EditProfilePasswordCheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/editprofilepasswordcheck", method = RequestMethod.GET)
 	public String editProfilePassCheck(Principal principal, Locale locale, Model model) {
 		System.out.println("in edit profile password check");
 		Account account = accountService.getAccountByEmail(principal.getName());
