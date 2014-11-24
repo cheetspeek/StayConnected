@@ -23,18 +23,18 @@
 			<td>Action</td>
 		</tr>
 		<c:forEach items="${accounts}" var="current">
+			<c:set var="roles" value="${current.role}"/>
 			<tr>
 				<form:form method="POST" action="accountroleconfirmation" modelAttribute="account">					
 					<td>
 						<c:out value="${current.email}" />
 					</td>
 					<td>
-							
-						<c:forEach items="${current.roleList}" var="role">	
-							<input type="checkbox" name="roleList" value=<c:out value="${role}"/> checked/><c:out value="${role}"/>
-							<br>			
-						</c:forEach>
-							
+						<input type="checkbox" name="roleList" value="Admin" <c:if test="${roles.adminChecked == 'true'}">checked</c:if>/>Admin
+						<input type="checkbox" name="roleList" value="Faculty" <c:if test="${roles.facultyChecked == 'true'}">checked</c:if>/>Faculty
+						<input type="checkbox" name="roleList" value="Alumni" <c:if test="${roles.alumniChecked == 'true'}">checked</c:if>/>Alumni
+						<input type="checkbox" name="roleList" value="Student" <c:if test="${roles.studentChecked == 'true'}">checked</c:if>/>Student
+						<br>				
 					</td>					
 					<td>
 						<input name="email" type="hidden" value=<c:out value="${current.email}" /> />
@@ -43,6 +43,7 @@
 				</form:form>
 			</tr>
 		</c:forEach>
+		
 	</table>
 	</section>
 
