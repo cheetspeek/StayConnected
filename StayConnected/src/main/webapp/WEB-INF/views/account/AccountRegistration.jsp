@@ -13,8 +13,6 @@
 <title>StayConnected Registration</title>
 </head>
 <body>
-	<modules:header/>
-	
 	<section>
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
