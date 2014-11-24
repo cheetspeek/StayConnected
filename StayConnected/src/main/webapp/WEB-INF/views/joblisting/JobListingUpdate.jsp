@@ -11,8 +11,7 @@
 <title>Stay Connected</title>
 </head>
 <body>
-	<modules:nav/>
-	
+
 	<modules:header/>
 	
 	<section>

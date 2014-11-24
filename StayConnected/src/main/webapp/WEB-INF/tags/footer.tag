@@ -3,5 +3,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="modules" tagdir="/WEB-INF/tags" %>
 <footer>
-	<p style="float: middle">Copyright © FasTrax, Inc.</p>
+	<P>© 2014 FasTrax, Inc. Most rights reserved.</P>
 </footer>

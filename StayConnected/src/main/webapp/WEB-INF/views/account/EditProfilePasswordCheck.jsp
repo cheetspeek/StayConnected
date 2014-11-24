@@ -12,12 +12,10 @@
 <title>Stay Connected</title>
 </head>
 <body>
-	<modules:nav/>
-	
 	<modules:header/>
 	
 	<section>
-	<h2>Profile Update Confirm Password</h2>
+	<h2>Profile Update: Confirm Password</h2>
 	<form:form method="POST" action="editmyprofile" modelAttribute="profile">
 		<P>In order to update your profile you need to re-enter your password.</P>
 		<table>

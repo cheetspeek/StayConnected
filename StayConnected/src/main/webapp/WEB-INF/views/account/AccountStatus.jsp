@@ -11,8 +11,7 @@
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 </head>
 <body>
-	<modules:nav/>
-	
+
 	<modules:header/>
 
 	<section>

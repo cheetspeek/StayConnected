@@ -11,8 +11,7 @@
 <title>StayConnected - View Your Listings</title>
 </head>
 <body>
-	<modules:nav/>
-	
+
 	<modules:header/>
 	
 	<section>

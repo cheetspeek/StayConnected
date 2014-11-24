@@ -11,8 +11,7 @@
 <title>Account Home</title>
 </head>
 <body>
-	<modules:nav/>
-	
+
 	<modules:header/>
 	
 	<section>
