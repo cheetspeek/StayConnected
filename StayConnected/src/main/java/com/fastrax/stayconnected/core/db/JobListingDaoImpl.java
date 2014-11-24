@@ -180,11 +180,11 @@ public class JobListingDaoImpl implements JobListingDao {
 	}
 
 	/**
-	 * Gets a job listing with multiple specified fields
+	 * Gets job listings with multiple specified fields
 	 * @author Michael Holmes
 	 * @precondition The multiple specified fields
-	 * @postcondition The job listing wit multiple specified fields is returned
-	 * @return A job listing with multiple specified fields is returned
+	 * @postcondition Job listings wit multiple specified fields is returned
+	 * @return Job listings with multiple specified fields is returned
 	 */
 	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location) {
 		email = "%" + email + "%";
@@ -196,6 +196,21 @@ public class JobListingDaoImpl implements JobListingDao {
 		String SQL = "select * from job_listing where email LIKE ? AND position LIKE ? AND company_name LIKE ? AND job_description LIKE ? AND job_location LIKE ?";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] {email, position, company, desc, location }, new JobListingMapper());
+		return joblistings;
+	}
+	
+	/**
+	 * Gets job listings using the Full Text search in my sql (searches across position, company, description, and location)
+	 * @author Michael Holmes
+	 * @precondition A search term
+	 * @postcondition The job listings who match the search term
+	 * @return the job listings which match the search terms
+	 */
+	public List<JobListing> getJobFullTextSearch(String searchText) {
+		searchText = searchText + "*";
+		String SQL = "SELECT * FROM job_listing WHERE MATCH (position,company_name,job_description,job_location) AGAINST (? IN BOOLEAN MODE)";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL,
+				new Object[] {searchText }, new JobListingMapper());
 		return joblistings;
 	}
 

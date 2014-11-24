@@ -88,6 +88,10 @@ public class JobListingServiceImpl implements JobListingService {
 		return jobListingDao.deactivate(jobListing);
 	}
 
+	public List<JobListing> getJobFullTextSearch(String searchTerm){
+		return jobListingDao.getJobFullTextSearch(searchTerm);
+	}
+
 	public JobListing getJobByListingsId(int id) {
 		JobListing jobListing = jobListingDao.getJobListingById(id);
 		if (jobListing == null) {
