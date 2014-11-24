@@ -85,6 +85,7 @@
 		</table>
 		<td>
 		<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="93" height="35" />
+		<a href="${contextPath}/home">Cancel</a>
 		</td>
 	</form:form>
 	</section>
