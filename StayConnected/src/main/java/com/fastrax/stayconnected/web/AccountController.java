@@ -1,6 +1,7 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fastrax.stayconnected.core.AccountService;
 import com.fastrax.stayconnected.core.entity.Account;
+import com.fastrax.stayconnected.core.entity.Role;
 
 @Controller
 public class AccountController {
@@ -295,9 +297,33 @@ public class AccountController {
 	public String accountRoles(Locale locale, Model model) {
 		List<Account> acctList = accountService.getAllAccounts();
 		Account account;
+		
 		for (int i = 0; i < acctList.size(); i++) {
+			Role x = new Role();
 			account = acctList.get(i);
-			account.setRoleList(accountService.getRoles(account));
+			String[] list = accountService.getRoles(account);
+			
+			for(int j = 0; j < list.length; j++)
+			{
+				if(list[j].equals("Admin"))
+				{
+					x.setAdminChecked(true);
+				}
+				else if(list[j].equals("Faculty"))
+				{
+					x.setFacultyChecked(true);
+				}
+				else if(list[j].equals("Alumni"))
+				{
+					x.setAlumniChecked(true);
+				}
+				else
+				{
+					x.setStudentChecked(true);
+				}
+			}
+			//account.setRoleList(accountService.getRoles(account));
+			acctList.get(i).setRole(x);
 		}
 		model.addAttribute("accounts", acctList);
 		return "account/AccountRoles";

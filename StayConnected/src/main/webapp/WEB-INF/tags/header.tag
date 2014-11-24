@@ -12,7 +12,7 @@
 	<div id="menu" style="float:right">
    		<ul>
       <li><a href="${contextPath}/">Home</a></li>
-      <li><a href="#" title="Job Listings">Job Listings</a>
+      <li><a href="#" title="Job Listings">Job Listings <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /> </a>
       	<ul>
       		<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')">
       			<li><a href="createlisting">Create New Listing</a></li>
@@ -24,14 +24,14 @@
       		<li><a href="searchlisting">Search Listings</a></li>
     	</ul>
       </li>
-      <li><a href="#" title="Profiles">Profiles</a>
+      <li><a href="#" title="Profiles">Profiles <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /></a>
       	<ul>
       		<li><a href="viewallprofiles">View All Profiles</a></li>
       		<li><a href="editprofilepasswordcheck">Edit My Profile</a></li>
     	</ul>
       </li>
       <security:authorize access="hasRole('Admin')">
-      	<li><a href="accountstatus">Accounts</a>
+      	<li><a href="#">Accounts <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /></a>
       		<ul>
       			<li><a href="accountstatus">Update Status</a></li>
       			<li><a href="accountroles">Update Roles</a></li>
