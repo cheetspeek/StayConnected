@@ -38,15 +38,17 @@
 			    <tr>
 			    	<td>Last name:</td>
 			    	<td><form:input path="lastname" /></td>
-			    	<td><form:errors path="lastname" cssClass="error" />
+			    	<td><form:errors path="lastname" cssClass="error" /></td>
 			    </tr>
 			    <tr>
 			    	<td>Address:</td>
 			    	<td><form:input path="address" /></td>
+			    	<td><form:errors path="address" cssClass="error" /></td>
 			    </tr>
 			    <tr>
 			    	<td>City:</td>
 			    	<td><form:input path="city" /></td>
+			    	<td><form:errors path="city" cssClass="error" /></td>
 			    </tr>
 			    <tr>
 					<td>Country:</td> 
@@ -59,6 +61,7 @@
  				<tr>
 					<td>Phone Number:</td> 
 					<td><form:input path="phone" /></td>
+					<td><form:errors path="phone" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Email Address:</td> 
