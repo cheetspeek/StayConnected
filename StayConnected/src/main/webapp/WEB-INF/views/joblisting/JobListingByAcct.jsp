@@ -5,7 +5,6 @@
 <%@ page session="false"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="modules" tagdir="/WEB-INF/tags"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">

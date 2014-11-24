@@ -4,7 +4,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="modules" tagdir="/WEB-INF/tags"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 <title>StayConnected - View Listings</title>
