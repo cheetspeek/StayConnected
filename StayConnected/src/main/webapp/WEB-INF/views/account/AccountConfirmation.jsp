@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<link href="<s:url value="/resources/css/styles.css" />" rel="stylesheet">
+<link href="<s:url value="/resources/css/style.css" />" rel="stylesheet">
 <title>Stay Connected - Registration Confirmation</title>
 </head>
 <body>
