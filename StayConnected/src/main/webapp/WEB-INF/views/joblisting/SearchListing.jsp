@@ -22,6 +22,22 @@
 		<P>Here, you can search for job listings by location.</P>
 		<table>
 			<tr>
+				<td>Posted Email:</td>
+				<td><form:input path="email" readonly="false" /></td>
+			</tr>
+			<tr>
+				<td>Position:</td>
+				<td><form:input path="position" readonly="false" /></td>
+			</tr>
+			<tr>
+				<td>Company:</td>
+				<td><form:input path="company_name" readonly="false" /></td>
+			</tr>
+			<tr>
+				<td>Job Description:</td>
+				<td><form:input path="job_description" readonly="false" /></td>
+			</tr>
+			<tr>
 				<td>Location:</td>
 				<td><form:input path="job_location" readonly="false" /></td>
 			</tr>

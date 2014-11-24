@@ -165,17 +165,37 @@ public class JobListingDaoImpl implements JobListingDao {
 	}
 	
 	/**
-	 * Gets a job listing with a specified ID number
-	 * @author Conner Simmons
-	 * @precondition The job listing with the specified ID number exists
-	 * @postcondition The job listing with the specified ID number is returned
-	 * @return A job listing with the ID number specified
+	 * Gets a job listing with a specified location 
+	 * @author Michael Holmes
+	 * @precondition The job listing with the specified location exists
+	 * @postcondition The job listing with the specified location is returned
+	 * @return A job listing with that location specified
 	 */
 	public List<JobListing> getJobListingsByLocation(String location) {
 		location = "%" + location + "%";
 		String SQL = "select * from job_listing where job_location LIKE ?";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] { location }, new JobListingMapper());
+		return joblistings;
+	}
+
+	/**
+	 * Gets a job listing with multiple specified fields
+	 * @author Michael Holmes
+	 * @precondition The multiple specified fields
+	 * @postcondition The job listing wit multiple specified fields is returned
+	 * @return A job listing with multiple specified fields is returned
+	 */
+	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location) {
+		email = "%" + email + "%";
+		position = "%" + position + "%";
+		company = "%" + company + "%";
+		desc = "%" + desc + "%";
+		location = "%" + location + "%";
+		
+		String SQL = "select * from job_listing where email LIKE ? AND position LIKE ? AND company_name LIKE ? AND job_description LIKE ? AND job_location LIKE ?";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL,
+				new Object[] {email, position, company, desc, location }, new JobListingMapper());
 		return joblistings;
 	}
 
