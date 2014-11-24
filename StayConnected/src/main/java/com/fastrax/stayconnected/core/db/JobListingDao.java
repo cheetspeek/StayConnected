@@ -18,4 +18,8 @@ public interface JobListingDao {
 	public List<JobListing> getJobListingsByLocation(String location);
 	public int getNumberOfJobsByLocation(String location);
 	public int updateJobListing(JobListing jl);
+	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location);
+	public List<JobListing> getJobFullTextSearch(String searchTerm);
+
+
 }

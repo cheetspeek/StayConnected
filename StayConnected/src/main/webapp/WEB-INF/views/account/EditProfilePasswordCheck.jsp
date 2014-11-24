@@ -23,7 +23,7 @@
 		<table>
 		<tr>
 				<td>Password:</td>
-				<td><form:input path="password" /></td>
+				<td><form:input path="password" type="password"/></td>
 				<td><form:errors path="password" cssClass="error" />
 			</tr>
 			<tr>

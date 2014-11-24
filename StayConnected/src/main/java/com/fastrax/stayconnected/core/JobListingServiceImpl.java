@@ -35,6 +35,18 @@ public class JobListingServiceImpl implements JobListingService {
 	public int getRecentJobID() {
 		return jobListingDao.getRecentJobID();
 	}
+	
+	/**
+	 * Gets a job listing with multiple specified fields
+	 * @author Michael Holmes
+	 * @precondition The multiple specified fields
+	 * @postcondition The job listing wit multiple specified fields is returned
+	 * @return A job listing with multiple specified fields is returned
+	 */
+	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location) {
+
+		return jobListingDao.getJobByMultiple(email, position, company, desc, location);
+	}
 
 	/**
 	 * Uses JobListingDAO to return a list of all job listings on the database 
@@ -74,6 +86,10 @@ public class JobListingServiceImpl implements JobListingService {
 	
 	public int deactivate(JobListing jobListing) {
 		return jobListingDao.deactivate(jobListing);
+	}
+
+	public List<JobListing> getJobFullTextSearch(String searchTerm){
+		return jobListingDao.getJobFullTextSearch(searchTerm);
 	}
 
 	public JobListing getJobByListingsId(int id) {

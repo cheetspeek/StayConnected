@@ -219,7 +219,9 @@ public class AccountController {
 		System.out.println(account.getEmail());
 		System.out.println(account.getPassword());
 		accountService.updateAccount(account);
-		UsernamePasswordAuthenticationToken auth2 = new UsernamePasswordAuthenticationToken(account.getEmail(), account.getPassword());  
+	   Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+
+		UsernamePasswordAuthenticationToken auth2 = new UsernamePasswordAuthenticationToken(account.getEmail(), account.getPassword(),auth.getAuthorities());  
 		auth2.setDetails(account);
 	    SecurityContextHolder.getContext().setAuthentication(auth2);
 		return "account/EditProfileConfirmation";

@@ -24,7 +24,7 @@ CREATE TABLE authority (
 
 CREATE TABLE job_listing (
 	id bigint auto_increment,
-	email varchar(50),
+	email varchar(100),
 	position varchar(50) NOT NULL,
 	company_name varchar(50) NOT NULL,
 	job_description varchar(2000) NOT NULL,
