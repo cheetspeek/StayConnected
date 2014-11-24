@@ -31,7 +31,12 @@
     	</ul>
       </li>
       <security:authorize access="hasRole('Admin')">
-      	<li><a href="accountstatus">Accounts</a></li>
+      	<li><a href="accountstatus">Accounts</a>
+      		<ul>
+      			<li><a href="accountstatus">Update Status</a></li>
+      			<li><a href="accountroles">Update Roles</a></li>
+      		</ul>
+      	</li>
       </security:authorize>
       <li><a href="j_spring_security_logout" title="Log Out">Log Out</a></li>
   	   </ul>
