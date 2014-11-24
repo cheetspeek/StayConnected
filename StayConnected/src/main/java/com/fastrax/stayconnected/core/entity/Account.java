@@ -4,6 +4,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import com.fastrax.stayconnected.core.entity.Role;
 
 public class Account {
 	private int id;
@@ -30,7 +31,14 @@ public class Account {
 	private boolean active;
 	@NotEmpty
 	private String[] roleList; 
+	private Role role;
 	
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}	
 	public int getId() {
 		return id;
 	}
