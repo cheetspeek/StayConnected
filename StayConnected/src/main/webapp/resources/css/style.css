@@ -5,7 +5,7 @@ html, section, footer {
 
 header {
 	background-color: #ECE0F9;
-	height: 55px;
+	height: 60px;
 	left: 0;
 	position: fixed;
 	width: 100%;
@@ -36,18 +36,18 @@ nav {
 }
 
 section {
-	padding: 80px 215;
+	padding: 55px 30px;
 	overflow-y: scroll;
 }
 
 footer {
+	background-color: #ECE0F9;
 	bottom: 0;
 	height: 50px;
 	left: 0;
 	position: fixed;
 	width: 100%;
 	text-align: center;
-	padding: 5px;
 }
 
 .error {
@@ -61,3 +61,85 @@ footer {
 	padding: 4px;
 	margin: 8px;
 }
+
+/* 
+#menu { 
+	left: 100px;
+}
+
+#menu ul {
+	list-style: none; 
+}
+
+#menu ul li {
+	display: inline;
+	float: left;
+	margin-bottom: 10px; 
+}
+
+#menu ul li a { 
+	padding: 7px 30px;
+	background: #ECE0F9; 
+	font-size: 16pt;
+	text-decoration: none;  
+	color: #000000;
+    text-shadow: #eee 0px 0px 2px; 
+}
+*/
+
+ul {
+	list-style: none; 
+	padding: 0px 0px 0px 0px; 
+}
+
+ul li {
+	display: block;
+	position: relative;
+	float: left;
+	border: 1px solid #000;
+}
+ 
+ li ul {
+ 	display: none;
+ }
+ 
+ul li a {
+	display: block;
+	background: #ECE0F9;
+	padding: 0px 35px 0px 35px;
+	text-decoration: none;
+	font-size: 22px;
+    white-space: nowrap;
+    color: #000;
+}
+
+ul ul li a {
+	display: block;
+	background: #ECE0F9;
+	padding: 5px 25px 5px 25px;
+	text-decoration: none;
+	font-size: 16px;
+    white-space: nowrap;
+    color: #000;
+}
+ 
+ul li a:hover {
+	background: #;
+}
+li:hover ul {
+	display: block; position: absolute;
+}
+li:hover li {
+	float: none;
+}
+li:hover a {
+	background: #ECE0F9;
+}
+li:hover li a:hover {
+	background: #fff;
+}
+#drop-nav li ul li {
+	border-top: 0px;
+}
+
+

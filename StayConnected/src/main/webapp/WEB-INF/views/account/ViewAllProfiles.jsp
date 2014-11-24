@@ -11,8 +11,7 @@
 <title>StayConnected - View All Profiles</title>
 </head>
 <body>
-	<modules:nav/>
-	
+
 	<modules:header/>
 
 	<section>

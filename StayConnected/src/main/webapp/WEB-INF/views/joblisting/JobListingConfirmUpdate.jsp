@@ -11,8 +11,7 @@
 <title>Stay Connected - Job Listing Update Confirmation</title>
 </head>
 <body>
-	<modules:nav/>
-	
+
 	<modules:header/>
 	
 	<section>
