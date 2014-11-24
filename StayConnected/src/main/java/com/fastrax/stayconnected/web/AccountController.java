@@ -226,4 +226,44 @@ public class AccountController {
 	    SecurityContextHolder.getContext().setAuthentication(auth2);
 		return "account/EditProfileConfirmation";
 	}
+	
+	/**
+	 * Controls the account roles page mapping
+	 * @author Ben Degler
+	 * @param locale				a new Locale object
+	 * @param model					properties of the Model object	
+	 * @return AccountRoles			account role update page for registered user
+	 */
+	@RequestMapping(value = "/accountroles", method = RequestMethod.GET)
+	public String accountRoles(Locale locale, Model model) {
+		List<Account> acctList = accountService.getAllAccounts();
+		Account account;
+		for(int i=0; i<acctList.size(); i++) {
+			account = acctList.get(i);
+			account.setRoleList(accountService.getRoles(account));
+		}
+		model.addAttribute("accounts", acctList);
+		return "account/AccountRoles";
+	}
+
+	/**
+	 * Controls the account role confirmation page mapping
+	 * @author Ben Degler
+	 * @param account					a new Account object with new user data
+	 * @param locale					a new Locale object
+	 * @param model						properties of the Model object	
+	 * @return AccountRoleConfirmation	account role update confirm page of registering user
+	 */
+	@RequestMapping(value = "/accountroleconfirmation", method = RequestMethod.POST)
+	public String accountRolesConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
+		String[] list = account.getRoleList();
+		System.out.println(account.getEmail());
+		for(int i = 0; i < list.length; i++)
+		{
+			System.out.println(list[i]);
+		}
+		model.addAttribute("account");
+		model.addAttribute("roleList", list);
+		return "account/AccountRoleConfirmation";
+	}
 }
