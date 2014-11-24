@@ -19,9 +19,9 @@ public class Account {
 	private String country;
 	@Size(min=7)
 	private String phone;
-	@Email
+	@Email @NotEmpty
 	private String email;
-	@Email
+	@Email @NotEmpty
 	private String emailConfirm;
 	@Size(min=6)
 	private String password;
