@@ -11,6 +11,9 @@
 			width="183" height="55" />
 		</a>
 	</security:authorize>
+	<security:authorize access="hasRole('Admin')">
+		<a href="accountroles">Account Role Update </a>
+	</security:authorize>
 	<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni')">
 		<a href="createlisting"> <img
 			src="<s:url value="/resources/images/acct/create_box.png" />"
