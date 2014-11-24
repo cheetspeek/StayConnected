@@ -8,9 +8,6 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <html>
 <head>
-<!-- 
-<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
--->
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <script type="text/javascript" src="<c:url value="/resources/js/countries.js" />"></script>
 <title>Stay Connected</title>

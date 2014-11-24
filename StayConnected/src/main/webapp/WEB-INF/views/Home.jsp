@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="modules" tagdir="/WEB-INF/tags" %>
 <html>
 <head>
 <title>Stay Connected</title>
@@ -23,10 +24,6 @@
 	</a> </P>
 	</div>
 	
-	<footer>
-		<p style="float:middle">
-		Copyright © FasTrax, Inc.
-		</p>
-	</footer>
+	<modules:footer/>
 </body>
 </html>

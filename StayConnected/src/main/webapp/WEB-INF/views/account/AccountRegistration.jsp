@@ -4,25 +4,18 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="modules" tagdir="/WEB-INF/tags" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<!-- 
-<link href="<s:url value="/resources/css/visuals.css" />" rel="stylesheet">
--->
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <script type="text/javascript" src="<c:url value="/resources/js/countries.js" />"></script>
 <title>StayConnected Registration</title>
 </head>
 <body>
-	<!--  
-	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
-	-->
-	<header>
-		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
-	</header>
+	<modules:header/>
 	
-		<nav>
+	<nav>
 		<a href="${contextPath}/"> 
 			<img src="<s:url value="/resources/images/nav/home_box.png" />" 
 			width="93" height="35" style="float:left"/>
@@ -103,11 +96,7 @@
 	</form:form>
 	</section>
 	
-	<footer>
-		<p style="float:middle">
-		Copyright © FasTrax, Inc.
-		</p>
-	</footer>
+	<modules:footer/>
 </body>
 </html>
 
