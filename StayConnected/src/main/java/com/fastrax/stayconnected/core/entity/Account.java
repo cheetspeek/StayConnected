@@ -18,7 +18,6 @@ public class Account {
 	private String city;
 	private String state;
 	private String country;
-	@Size(min=7)
 	private String phone;
 	@Email @NotEmpty
 	private String email;
