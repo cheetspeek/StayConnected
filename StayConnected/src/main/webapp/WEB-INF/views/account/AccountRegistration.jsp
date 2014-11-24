@@ -15,13 +15,6 @@
 <body>
 	<modules:header/>
 	
-	<nav>
-		<a href="${contextPath}/"> 
-			<img src="<s:url value="/resources/images/nav/home_box.png" />" 
-			width="93" height="35" style="float:left"/>
-		</a>
-	</nav>
-	
 	<section>
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">

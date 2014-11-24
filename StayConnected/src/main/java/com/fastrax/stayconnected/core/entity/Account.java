@@ -11,9 +11,9 @@ public class Account {
 	private String firstname;
 	@Size(min=1,max=50)
 	private String lastname;
-	@Size(min=1,max=250)
+	@Size(max=250)
 	private String address;
-	@Size(min=1,max=100)
+	@Size(max=100)
 	private String city;
 	private String state;
 	private String country;
