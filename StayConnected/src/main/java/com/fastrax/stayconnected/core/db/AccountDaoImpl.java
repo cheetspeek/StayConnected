@@ -220,6 +220,45 @@ public class AccountDaoImpl implements AccountDao {
 		}
 		return 1;
 	}
+
+	/**  
+	 * Update a users roles
+	 * @author Ben Degler
+	 * @precondition Account exists in database
+	 * @postcondition Authority has been updated
+	 * @return true to show method completion
+	 */
+	@Override
+	public int updateRoles(Account account) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+
+		try {
+			String SQL = "DELETE "
+					   + "FROM authority "
+					   + "WHERE email=?";
+			String SQL2 = "insert into authority (email, role) values (?,?)";
+			
+			String email = account.getEmail();
+			String[] roles = account.getRoleList();
+			
+			System.out.println("in update roles");
+			System.out.println(account.getEmail());
+			jdbcTemplate.update(SQL,email);
+			for(int i = 0; i < roles.length; i++)
+			{
+				System.out.println("Role: " + roles[i]);
+				jdbcTemplate.update(SQL2,email,roles[i]);
+			}
+			//transactionManager.commit(status);
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating AccountDao active, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1; 
+	}
 }
 
 //Helper class to extract the most recent email
@@ -243,6 +282,7 @@ class AccountMapper implements RowMapper<Account> {
 		account.setEmail(rs.getString("email"));
 		account.setActive(rs.getBoolean("active"));
 		account.setId(rs.getInt("id"));
+		account.setPasswordConfirm(rs.getString("password"));
 		return account;
 	}
 }

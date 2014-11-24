@@ -15,10 +15,10 @@
 	<modules:header/>
 	
 	<section>
-	<h2>Search by location</h2>
+	<h2>Search Job Listings</h2>
 	<form:form method="POST" action="searchLocationConfirmation" modelAttribute ="searchListing">
 		<form:errors path="*" cssClass="errorblock" element="div" />
-		<P>Here, you can search for job listings by location.</P>
+		<P>Please enter at least one of the following fields (multi-field searches are allowed)</P>
 		<table>
 			<tr>
 				<td>Posted Email:</td>

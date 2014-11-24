@@ -7,22 +7,25 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Account {
 	private int id;
-	@Size(min=1,max=20)
+	@Size(min=1,max=50)
 	private String firstname;
-	@Size(min=1,max=20)
+	@Size(min=1,max=50)
 	private String lastname;
+	@Size(max=250)
 	private String address;
+	@Size(max=100)
 	private String city;
 	private String state;
 	private String country;
+	@Size(min=7)
 	private String phone;
-	@Email
+	@Email @NotEmpty
 	private String email;
-	@Email
+	@Email @NotEmpty
 	private String emailConfirm;
-	@Size(min=6,max=40)
+	@Size(min=6)
 	private String password;
-	@Size(min=6,max=40)
+	@Size(min=6)
 	private String passwordConfirm;
 	private boolean active;
 	@NotEmpty

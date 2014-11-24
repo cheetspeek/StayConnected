@@ -2,14 +2,20 @@ package com.fastrax.stayconnected.core.entity;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Size;
+
 
 public class JobListing {
 	private int id;
 	//The user who created the listing's email.
 	private String email;
+	@Size(min=1,max=100)
 	private String position;
+	@Size(min=1,max=100)
 	private String company_name;
+	@Size(min=1,max=2000)
 	private String job_description;
+	@Size(min=1,max=100)
 	private String job_location;
 	private Date posted_date;
 	private boolean active;
