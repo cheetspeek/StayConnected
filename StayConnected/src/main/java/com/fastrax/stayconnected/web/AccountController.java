@@ -209,11 +209,12 @@ public class AccountController {
 			 BindingResult result, Model model) {
 		System.out.println("in edit profile");
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
 		Account getPass = accountService.getAccountByEmail(principal.getName());
+		
+		System.out.println(account.getEmailConfirm());
 
-		System.out.println(account.getPassword());
-		System.out.println(getPass.getEmail());
-
+	
 		if (!passwordEncoder.matches(account.getPassword(),
 				getPass.getPasswordConfirm())) {
 			return "account/EditProfilePasswordCheck";
@@ -263,7 +264,11 @@ public class AccountController {
 	public String editProfileConfirmation(
 			@Valid @ModelAttribute("profile") Account account,
 			BindingResult result, Model model) {
+		
 		if (result.hasErrors()) {
+			for(int i = 0; i < result.getAllErrors().size(); i++){
+				System.out.println(result.getAllErrors().get(i));
+			}
 			return "account/EditProfile";
 		}
 		System.out.println("in edit profile confirm");
@@ -274,8 +279,7 @@ public class AccountController {
 				.getAuthentication();
 
 		UsernamePasswordAuthenticationToken auth2 = new UsernamePasswordAuthenticationToken(
-				account.getEmail(), account.getPassword(),
-				auth.getAuthorities());
+				account.getEmail(), account.getPassword());
 		auth2.setDetails(account);
 		SecurityContextHolder.getContext().setAuthentication(auth2);
 		return "account/EditProfileConfirmation";

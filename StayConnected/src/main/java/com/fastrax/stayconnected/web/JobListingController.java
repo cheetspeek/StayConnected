@@ -136,11 +136,8 @@ public class JobListingController {
 	 * @param model						Model object of jsp files
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
-	@RequestMapping(value = "/searchLocationConfirmation", method = RequestMethod.POST)
+	@RequestMapping(value = "/searchConfirmation", method = RequestMethod.POST)
 	public String processSearchListing(@Valid @ModelAttribute("searchListing") JobListing jobListing, BindingResult result, Model model) {
-		if(result.hasErrors()){
-			return "searchlisting";
-		}
 		String location = jobListing.getJob_location();
 		String email = jobListing.getEmail();
 		String company = jobListing.getCompany_name();
