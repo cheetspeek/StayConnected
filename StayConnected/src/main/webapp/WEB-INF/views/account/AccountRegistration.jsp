@@ -25,7 +25,6 @@
 	<section>
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
-		<form:errors path="*" cssClass="errorblock" element="div" />
 		<P>In order to register you on StayConnected, we need
 		some information from you. Please fill out the following form
 		and submit it when you're done.</P>

@@ -18,7 +18,6 @@
 	<section>
 	<h2>Job Listing Creation</h2>
 	<form:form method="POST" action="jobListingConfirmation" modelAttribute ="jobListing">
-		<form:errors path="*" cssClass="errorblock" element="div" />
 		<P>Here, you can create and post a new job listing for others to see. 
 		Please fill out the following form and submit it when you're done.</P>
 		<table>
