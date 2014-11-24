@@ -4,6 +4,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="modules" tagdir="/WEB-INF/tags"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -14,12 +15,9 @@
 <title>Stay Connected</title>
 </head>
 <body>
-	<!--  
-	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
-	-->
-	<header>
-		<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="237" height="50" />
-	</header>
+	<modules:nav/>
+	
+	<modules:header/>
 	
 	<nav>
 		<a href="${contextPath}/"> 
@@ -96,10 +94,6 @@
 	</table>
 	</section>
 
-	<footer>
-		<p style="float:middle">
-		Copyright © FasTrax, Inc.
-		</p>
-	</footer>
+	<modules:footer/>
 </body>
 </html>
