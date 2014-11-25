@@ -98,7 +98,7 @@ ul li {
 	display: block;
 	position: relative;
 	float: left;
-	border: 1px solid #000;
+	border-right: 1px solid #000;
 }
  
  li ul {
@@ -108,7 +108,7 @@ ul li {
 ul li a {
 	display: block;
 	background: #ECE0F9;
-	padding: 0px 18px 0px 18px;
+	padding: 0px 16px 0px 16px;
 	text-decoration: none;
 	font-size: 22px;
     white-space: nowrap;
@@ -118,11 +118,14 @@ ul li a {
 ul ul li a {
 	display: block;
 	background: #ECE0F9;
-	padding: 5px 25px 5px 25px;
+	padding: 5px 23px 5px 23px;
 	text-decoration: none;
 	font-size: 16px;
     white-space: nowrap;
     color: #000;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
  
 ul li a:hover {
@@ -142,6 +145,10 @@ li:hover li a:hover {
 }
 #drop-nav li ul li {
 	border-top: 0px;
+}
+
+#search {
+	padding: 22px 10px 0px 10px;
 }
 
 
