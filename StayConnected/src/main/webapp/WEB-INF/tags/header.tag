@@ -51,6 +51,7 @@
 	<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')">
 		<div id="search" style="float:right">	
 			<form:form method="POST" action="${contextPath}/" modelAttribute="account">
+			<input/>
 			<input type="image" src="<s:url value="/resources/images/mag_glass.png" />" width="15" height="15" />
 			</form:form>
 		</div>
