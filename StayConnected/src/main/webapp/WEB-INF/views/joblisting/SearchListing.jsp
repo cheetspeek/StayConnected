@@ -18,8 +18,7 @@
 	<h2>Search Job Listings</h2>
 	<form:form method="POST" action="searchConfirmation" modelAttribute ="searchListing">
 		<form:errors path="*" cssClass="errorblock" element="div" />
-		<P>Please enter information into at least one of the following fields. <br>
-		You can enter information into multiple fields as well.</P>
+		<P>Please enter information into at least one of the following fields.</P>
 		<table>
 			<tr>
 				<td>Posted Email:</td>

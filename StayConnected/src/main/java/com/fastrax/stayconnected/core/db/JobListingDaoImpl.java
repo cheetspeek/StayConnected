@@ -80,7 +80,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	}
 	
 	/**
-	 * Gets the all the joblistings
+	 * Gets the all the job listings
 	 * @author Michael Holmes
 	 * @precondition None?
 	 * @postcondition A list of all job listings is returned
@@ -136,6 +136,20 @@ public class JobListingDaoImpl implements JobListingDao {
 		JobListing jl = jdbcTemplate.queryForObject(SQL,
 				new Object[] { id }, new JobListingMapper());
 		return jl;
+	}
+	
+	/**
+	 * Gets the three most recent job listings
+	 * @author Louis Balzani
+	 * @precondition None?
+	 * @postcondition A list of three job listings is returned
+	 * @return A list of three job listings in the database
+	 */
+	public List<JobListing> getRecentJobListings() {
+		List<JobListing> allListings = getAllJobListings();
+		int size = allListings.size();
+		List<JobListing> recent = allListings.subList(size-3, size);
+		return recent;
 	}
 
 	/**

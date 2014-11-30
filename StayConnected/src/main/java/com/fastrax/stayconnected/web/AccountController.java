@@ -28,7 +28,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fastrax.stayconnected.core.AccountService;
+import com.fastrax.stayconnected.core.JobListingService;
 import com.fastrax.stayconnected.core.entity.Account;
+import com.fastrax.stayconnected.core.entity.JobListing;
 import com.fastrax.stayconnected.core.entity.Role;
 
 @Controller
@@ -38,11 +40,14 @@ public class AccountController {
 			.getLogger(HomeController.class);
 	@Autowired
 	private AccountService accountService;
+	private List<JobListing> jobItems;
+	@Autowired
+	private JobListingService jobListingService;
 
 	/**
 	 * Controls the user home page mapping
 	 * 
-	 * @author Ben Degler
+	 * @author Ben Degler, Louis Balzani
 	 * @param principal
 	 *            Used to access security interface and get current users name
 	 * @param model
@@ -53,6 +58,9 @@ public class AccountController {
 	public String home(Principal principal, Model model) {
 		logger.info("login ID via Controller is: " + principal.getName());
 		logger.info("login ID via AuthenticationContext is: " + getLoginId());
+		
+		jobItems = jobListingService.getRecentJobListings();
+		model.addAttribute("listing", jobItems);
 		return "account/AccountHome";
 	}
 

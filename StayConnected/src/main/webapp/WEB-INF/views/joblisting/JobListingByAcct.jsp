@@ -43,7 +43,7 @@
     	<tr>
     		<td>
 				<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
-				<input type="image" value="Update" />
+				<input type="image" src="<s:url value="/resources/images/nav/update_box.png" />" width="74" height="28" value="Update" />
 			</td>
 		</tr>
 		</form:form>

@@ -71,6 +71,16 @@ public class JobListingServiceImpl implements JobListingService {
 		return jobListingDao.getJobListingsByEmail(email);
 	}
 
+	/**
+	 * Uses JobListingDAO to return a list of three recent job listings on the database 
+	 * @author Louis Balzani
+	 * @precondition  None
+	 * @postcondition A list of three job listings is returned
+	 * @return list of three job listings in the database
+	 */
+	public List<JobListing> getRecentJobListings() {
+		return jobListingDao.getRecentJobListings();
+	}
 	
 	/**
 	 * Uses JobListingDAO to return a list of all job listings
@@ -100,6 +110,8 @@ public class JobListingServiceImpl implements JobListingService {
 		}
 		return jobListing;
 	}
+	
+	
 	
 	public JobListing getJobListingById(int id) {
 		return jobListingDao.getJobListingById(id);

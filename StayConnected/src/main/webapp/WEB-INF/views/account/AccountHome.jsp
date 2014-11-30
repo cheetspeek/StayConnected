@@ -17,8 +17,34 @@
 	<section>
 		<h2>Account Home Page</h2>
 		<p>Your email address is: <security:authentication property="principal.username" /></p>
-		<h2>Recent Job Postings</h2>
+		<h2>Recent Job Listings</h2>
 		<P>The three most recent job postings will go here?</P>
+		
+		<c:forEach items="${listing}" var="current">
+		<table>
+	    	<tr>
+	    		<td>Job Name:</td>
+	    		<td><c:out value = "${current.company_name}"/></td>
+	    	</tr>
+	       	<tr>
+	    		<td>Job Position:</td>
+	    		<td><c:out value = "${current.position}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Job Description:</td>
+	    		<td><c:out value = "${current.job_description}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Location:</td>
+	    		<td><c:out value = "${current.job_location}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Contact Email:</td>
+	    		<td><c:out value = "${current.email}"/></td>
+	    	</tr>
+    	</table>
+		<hr>
+	</c:forEach>
 	</section>
 	
 	<modules:footer/>
