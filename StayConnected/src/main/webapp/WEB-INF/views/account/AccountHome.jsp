@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>Account Home</title>
+<title>Account Home Page</title>
 </head>
 <body>
 
@@ -17,6 +17,8 @@
 	<section>
 		<h2>Account Home Page</h2>
 		<p>Your email address is: <security:authentication property="principal.username" /></p>
+		<h2>Recent Job Postings</h2>
+		<P>The three most recent job postings will go here?</P>
 	</section>
 	
 	<modules:footer/>

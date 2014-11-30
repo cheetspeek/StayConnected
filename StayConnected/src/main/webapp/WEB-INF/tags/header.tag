@@ -6,9 +6,9 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <header>
 	
-	<img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="285" height="60" 
-		style="float:left"/>
-	
+	<a href="${contextPath}/"> <img class="alt-logo" src="<s:url value="/resources/images/alt_logo.png" />" width="285" height="60" 
+		style="float:left"/></a>
+		
 	<div id="menu" style="float:right">
    		<ul>
       <li><a href="${contextPath}/">Home</a></li>
@@ -47,5 +47,15 @@
       </security:authorize>
   	   </ul>
 	</div>
+	
+	<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')">
+		<div id="search" style="float:right">	
+			<form:form method="POST" action="${contextPath}/" modelAttribute="account">
+			<input/>
+			<input type="image" src="<s:url value="/resources/images/mag_glass.png" />" width="15" height="15" />
+			</form:form>
+		</div>
+	</security:authorize>
+	
 
 </header>

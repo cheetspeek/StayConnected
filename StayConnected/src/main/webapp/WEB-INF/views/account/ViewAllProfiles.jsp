@@ -8,14 +8,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>StayConnected - View All Profiles</title>
+<title>All Profiles</title>
 </head>
 <body>
 
 	<modules:header/>
 
 	<section>
-	<h2>Profiles</h2>
+	<h2>StayConnected Profiles</h2>
  	<c:forEach items="${profiles}" var="current">
     <div>
     <table>

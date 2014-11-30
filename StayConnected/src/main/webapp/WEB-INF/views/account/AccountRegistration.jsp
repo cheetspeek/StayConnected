@@ -10,7 +10,7 @@
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <script type="text/javascript" src="<c:url value="/resources/js/countries.js" />"></script>
-<title>StayConnected Registration</title>
+<title>Registration</title>
 </head>
 <body>
 	<modules:header/>

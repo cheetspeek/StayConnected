@@ -6,7 +6,7 @@
 <%@ taglib prefix="modules" tagdir="/WEB-INF/tags"%>
 <html>
 <head>
-<title>StayConnected - View Listings</title>
+<title>View Job Listings</title>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 </head>
 <body>
@@ -14,7 +14,7 @@
 	<modules:header/>
 	
 	<section>
-	<h2>Job Listings</h2>
+	<h2>StayConnected Job Listings</h2>
     <c:forEach items="${listing}" var="current">
     <div>
     <table>

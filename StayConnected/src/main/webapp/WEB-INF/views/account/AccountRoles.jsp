@@ -7,7 +7,7 @@
 <%@ taglib prefix="modules" tagdir="/WEB-INF/tags" %>
 <html>
 <head>
-<title>Stay Connected: Account Roles</title>
+<title>Administrator Functions</title>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 </head>
 <body>

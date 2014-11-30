@@ -8,7 +8,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<title>Stay Connected</title>
+<title>Administrator Functions</title>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 </head>
 <body>
@@ -16,7 +16,7 @@
 	<modules:header/>
 	
 	<section>
-	<h2>Activation/Deactivation Confirmation!</h2>
+	<h2>Activation or deactivation confirmed.</h2>
  
 	<table>
 		<tr>

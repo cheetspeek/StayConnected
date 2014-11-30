@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>Stay Connected</title>
+<title>Profile updated!</title>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 	
 	<section>
 	<h2>Profile Updated!</h2>
-	<P> Your profile has been successfully updated!. </P>
+	<P> Your profile has been updated successfully! Here's what it looks like: </P>
 	<table>
 		<tr>
     		<td>First Name:</td>

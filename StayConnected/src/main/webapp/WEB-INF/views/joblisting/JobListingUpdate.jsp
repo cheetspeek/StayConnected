@@ -8,16 +8,16 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>Stay Connected</title>
+<title>Job Listing Update</title>
 </head>
 <body>
 
 	<modules:header/>
 	
 	<section>
-	<h2>Job Listing Updating</h2>
+	<h2>Update A Job Listing</h2>
 	<form:form method="POST" action="jobListingConfirmUpdate" modelAttribute ="jobListing">
-		<P>Here, you can update	job listing for others to see. Please fill out the following form
+		<P>Here, you can update	an existing job listing for others to see. Please fill out the following form
 		and submit it when you're done.</P>
 		<table>
 			<tr>

@@ -9,15 +9,15 @@
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <script type="text/javascript" src="<c:url value="/resources/js/countries.js" />"></script>
-<title>Stay Connected</title>
+<title>Update Your Profile</title>
 </head>
 <body>
 	<modules:header/>
 	
 	<section>
-	<h2>Profile Updating</h2>
+	<h2>Update Your Profile</h2>
 	<form:form method="POST" action="editprofileconfirmation" modelAttribute="profile">
-		<P>Please Update your profile</P>
+		<P>Your profile information is displayed below. Please make your changes and submit them when you're done.</P>
 		<table>
 			<tr>
 				<td><form:input path="id" type="hidden" value="${profile.id}" /></td>

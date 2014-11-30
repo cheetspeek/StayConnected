@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>StayConnected - View Your Listings</title>
+<title>Your Job Listings</title>
 </head>
 <body>
 

@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>Stay Connected - Job Listing Update Confirmation</title>
+<title>Job Listing Update Confirmation</title>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 	
 	<section>
 	<h2>Congratulations!</h2>
-	<P>Your listing has been updated.</P>
+	<P>Here's your new listing.</P>
 
 	<table>
 		<tr>
