@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>Account Home</title>
+<title>Account Home Page</title>
 </head>
 <body>
 

@@ -9,15 +9,15 @@
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 <script type="text/javascript" src="<c:url value="/resources/js/countries.js" />"></script>
-<title>Stay Connected</title>
+<title>Update Your Profile</title>
 </head>
 <body>
 	<modules:header/>
 	
 	<section>
-	<h2>Profile Update: Confirm Password</h2>
+	<h2>Update Your Profile: Password Confirmation</h2>
 	<form:form method="POST" action="editmyprofile" modelAttribute="profile">
-		<P>In order to update your profile you need to re-enter your password.</P>
+		<P>Before you can update your profile, please confirm your current password.</P>
 		<table>
 		<tr>
 				<td>Password:</td>

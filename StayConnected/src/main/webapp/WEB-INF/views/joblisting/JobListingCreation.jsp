@@ -8,14 +8,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
-<title>Stay Connected</title>
+<title>Job Listing Creation</title>
 </head>
 <body>
 
 	<modules:header/>
 	
 	<section>
-	<h2>Job Listing Creation</h2>
+	<h2>Create A New Job Listing</h2>
 	<form:form method="POST" action="jobListingConfirmation" modelAttribute ="jobListing">
 		<P>Here, you can create and post a new job listing for others to see. 
 		Please fill out the following form and submit it when you're done.</P>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <link href="<s:url value="/resources/css/style.css" />" rel="stylesheet">
-<title>Stay Connected - Registration Confirmation</title>
+<title>Registration Confirmation</title>
 </head>
 <body>
 	<img src="<s:url value="/resources/images/logo_condensed.png" />" width="220" height="75" style="float: right" />
