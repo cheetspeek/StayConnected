@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 				<td>Job description:</td>
-				<td><form:input path="job_description" /></td>
+				<td><form:textarea path="job_description" /></td>
 				<td><form:errors path="job_description" cssClass="error" />
 				</td>
 			</tr>
