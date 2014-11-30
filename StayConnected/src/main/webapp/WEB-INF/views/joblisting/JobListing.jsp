@@ -19,7 +19,7 @@
     <div>
     <table>
     	<tr>
-    		<td>Job Name:</td>
+    		<td>Company Name:</td>
     		<td><c:out value = "${current.company_name}"/></td>
     	</tr>
        	<tr>
