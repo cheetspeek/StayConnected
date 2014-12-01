@@ -214,7 +214,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	}
 	
 	/**
-	 * Gets job listings using the Full Text search in my sql (searches across position, company, description, and location)
+	 * Gets job listings using the Full Text search in MySQL (searches across position, company, description, and location)
 	 * @author Michael Holmes
 	 * @precondition A search term
 	 * @postcondition The job listings who match the search term
