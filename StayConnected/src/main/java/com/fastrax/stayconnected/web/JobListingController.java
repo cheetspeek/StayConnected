@@ -111,7 +111,7 @@ public class JobListingController {
 	 */
 	@RequestMapping(value = "/viewlisting", method = RequestMethod.GET)
 	public String viewListing(Locale locale, Model model) {
-		jobItems = jobListingService.getAllJobListings();
+		jobItems = jobListingService.getActiveJobListings();
 		model.addAttribute("listing", jobItems);
 		return "joblisting/JobListing";
 	}	

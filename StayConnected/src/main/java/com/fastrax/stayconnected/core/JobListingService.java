@@ -11,6 +11,7 @@ public interface JobListingService {
 	public JobListing createJobListing(JobListing jobListing);
 	public int getRecentJobID();
 	public List<JobListing> getAllJobListings();
+	public List<JobListing> getActiveJobListings();
 	public int deactivate(JobListing jobListing);
 	public int activate(JobListing jobListing);
 	public JobListing getJobListingById(int id);

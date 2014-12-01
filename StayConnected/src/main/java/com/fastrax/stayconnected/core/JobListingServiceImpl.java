@@ -44,12 +44,11 @@ public class JobListingServiceImpl implements JobListingService {
 	 * @return A job listing with multiple specified fields is returned
 	 */
 	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location) {
-
 		return jobListingDao.getJobByMultiple(email, position, company, desc, location);
 	}
 
 	/**
-	 * Uses JobListingDAO to return a list of all job listings on the database 
+	 * Uses JobListingDAO to return a list of all job listings in the database 
 	 * @author Conner Simmons
 	 * @precondition  None
 	 * @postcondition A list of all job listings is returned
@@ -57,6 +56,17 @@ public class JobListingServiceImpl implements JobListingService {
 	 */
 	public List<JobListing> getAllJobListings() {
 		return jobListingDao.getAllJobListings();
+	}
+	
+	/**
+	 * Uses JobListingDAO to return a list of all active job listings in the database 
+	 * @author Conner Simmons
+	 * @precondition  None
+	 * @postcondition A list of all active job listings is returned
+	 * @return list of all active job listings in the database
+	 */
+	public List<JobListing> getActiveJobListings() {
+		return jobListingDao.getActiveJobListings();
 	}
 	
 	/**
@@ -128,8 +138,6 @@ public class JobListingServiceImpl implements JobListingService {
 		}
 		return jobListing;
 	}
-	
-	
 	
 	public JobListing getJobListingById(int id) {
 		return jobListingDao.getJobListingById(id);

@@ -94,6 +94,20 @@ public class JobListingDaoImpl implements JobListingDao {
 	}
 	
 	/**
+	 * Gets the all the active job listings
+	 * @author Conner Simmons
+	 * @precondition None?
+	 * @postcondition A list of all active job listings is returned
+	 * @return A list of all active job listings in the database
+	 */
+	@Override
+	public List<JobListing> getActiveJobListings() {
+		String SQL = "select * from job_listing where active=true";
+		List<JobListing> joblistings = jdbcTemplate.query(SQL, new JobListingMapper());
+		return joblistings;
+	}
+	
+	/**
 	 * Update a job listing
 	 * @author Conner Simmons
 	 * @precondition The job listing exists
