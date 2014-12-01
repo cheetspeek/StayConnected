@@ -86,6 +86,21 @@ public class JobListingController {
 		jobListingService.updateJobListing(jobListing);
 		return "joblisting/JobListingConfirmUpdate";
 	}
+	
+	/**
+	 * Controller for update job listing page
+	 * @author Ben Degler, Conner Simmons
+	 * @param locale				a new Locale object
+	 * @param model					Model object of jsp files
+	 * @return JobListingCreation	JSP of job listing update page
+	 */
+	@RequestMapping(value = "/joblistingdeactconfirm", method = RequestMethod.POST)
+	public String jobListingDeactConfirm(@ModelAttribute JobListing jobListing, Locale locale, Model model) {
+		JobListing jl = jobListingService.getJobListingById(jobListing.getId());
+		jobListingService.deactivate(jl);
+		model.addAttribute("jobListing", jl);
+		return "joblisting/JobListingUpdate";
+	}
 
 	/**
 	 * Controller for viewing job listing page

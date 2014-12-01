@@ -19,7 +19,6 @@
     <c:forEach items="${listing}" var="current">
     <div>
     <table>
-    	<form:form method="POST" action="updatelisting" modelAttribute="jobListing">
     	<tr>
     		<td>Company Name:</td>
     		<td><c:out value = "${current.company_name}"/></td>
@@ -40,13 +39,21 @@
     		<td>Contact Email:</td>
     		<td><c:out value = "${current.email}"/></td>
     	</tr>
+    	
     	<tr>
-    		<td>
+    		<form:form method="POST" action="updatelisting" modelAttribute="jobListing">
+	    		<td>
+					<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
+					<input type="image" src="<s:url value="/resources/images/nav/update_box.png" />" width="74" height="28" value="Update" />
+				</td>
+			</form:form>
+			<form:form method="POST" action="joblistingdeactconfirm" modelAttribute="jobListing">
+			<td>
 				<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
-				<input type="image" src="<s:url value="/resources/images/nav/update_box.png" />" width="74" height="28" value="Update" />
+				<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="74" height="28" value="Remove" />
 			</td>
+			</form:form>
 		</tr>
-		</form:form>
     </table>
 	<hr>
 	</div>
