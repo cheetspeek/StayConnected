@@ -172,8 +172,8 @@ public class JobListingController {
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/globalSearch", method = RequestMethod.POST)
-	public String processGlobalSearchListing(@Valid @ModelAttribute("searchTerm") JobListing jobListing, BindingResult result, Model model) {
-		String deh = null;
+	public String processGlobalSearchListing(@Valid @ModelAttribute("searchTerm") String s, BindingResult result, Model model) {
+		String deh = s;
 		jobItems = jobListingService.getJobFullTextSearch(deh);
 		model.addAttribute("listing", jobItems);
 		if (jobItems.size() < 1) { return "joblisting/JobListingFail";}
