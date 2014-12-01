@@ -50,7 +50,7 @@
 			<form:form method="POST" action="joblistingdeactconfirm" modelAttribute="jobListing">
 			<td>
 				<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
-				<input type="image" src="<s:url value="/resources/images/nav/submit_box.png" />" width="74" height="28" value="Remove" />
+				<input type="image" src="<s:url value="/resources/images/nav/remove_box.png" />" width="74" height="28" value="Remove" />
 			</td>
 			</form:form>
 		</tr>

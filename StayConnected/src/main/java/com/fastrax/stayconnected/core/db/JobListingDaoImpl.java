@@ -244,9 +244,10 @@ public class JobListingDaoImpl implements JobListingDao {
 		try {
 			String SQL = "UPDATE job_listing "
 					   + "SET active=false "
-					   + "WHERE email=?";
+					   + "WHERE email=? and id=?";
 			String email = jl.getEmail();
-			jdbcTemplate.update(SQL,email);
+			int id = jl.getId();
+			jdbcTemplate.update(SQL,email,id);
 
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {

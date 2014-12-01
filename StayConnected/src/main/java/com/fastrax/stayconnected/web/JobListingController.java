@@ -99,7 +99,7 @@ public class JobListingController {
 		JobListing jl = jobListingService.getJobListingById(jobListing.getId());
 		jobListingService.deactivate(jl);
 		model.addAttribute("jobListing", jl);
-		return "joblisting/JobListingUpdate";
+		return "joblisting/JobListingDeactStatus";
 	}
 
 	/**
