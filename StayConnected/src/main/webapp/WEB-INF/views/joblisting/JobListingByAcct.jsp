@@ -16,6 +16,10 @@
 	
 	<section>
 	<h2>Your Job Listings</h2>
+	<c:if test="${listing.size() == 0}">
+		<P> You don't currently have any listings posted.</P>
+	</c:if>
+    
     <c:forEach items="${listing}" var="current">
     <div>
     <table>
@@ -41,18 +45,16 @@
     	</tr>
     	
     	<tr>
+    		<td>
     		<form:form method="POST" action="updatelisting" modelAttribute="jobListing">
-	    		<td>
 					<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
 					<input type="image" src="<s:url value="/resources/images/nav/update_box.png" />" width="74" height="28" value="Update" />
-				</td>
 			</form:form>
 			<form:form method="POST" action="joblistingdeactconfirm" modelAttribute="jobListing">
-			<td>
 				<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
 				<input type="image" src="<s:url value="/resources/images/nav/remove_box.png" />" width="74" height="28" value="Remove" />
-			</td>
 			</form:form>
+			</td>
 		</tr>
     </table>
 	<hr>

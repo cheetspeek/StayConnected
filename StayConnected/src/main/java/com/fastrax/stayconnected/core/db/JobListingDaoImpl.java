@@ -161,8 +161,12 @@ public class JobListingDaoImpl implements JobListingDao {
 	 */
 	public List<JobListing> getRecentJobListings() {
 		List<JobListing> allListings = getActiveJobListings();
+		List<JobListing> recent = null;
 		int size = allListings.size();
-		List<JobListing> recent = allListings.subList(size-3, size);
+		if (size < 3) {
+			recent = allListings;
+		}
+		else {recent = allListings.subList(size-3, size);}
 		return recent;
 	}
 
