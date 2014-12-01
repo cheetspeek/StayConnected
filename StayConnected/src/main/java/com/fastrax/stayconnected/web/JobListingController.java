@@ -175,6 +175,9 @@ public class JobListingController {
 	public String processGlobalSearchListing(@Valid @ModelAttribute("searchTerm") String s, BindingResult result, Model model) {
 		String deh = s;
 		jobItems = jobListingService.getJobFullTextSearch(deh);
+		for(int i = 0; i < jobItems.size(); i++){
+			//System.out.println(jobItems.get(i).getJob_description());
+		}
 		model.addAttribute("listing", jobItems);
 		if (jobItems.size() < 1) { return "joblisting/JobListingFail";}
 		else {return "joblisting/JobListing";}
