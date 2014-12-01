@@ -239,10 +239,11 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return the job listings which match the search terms
 	 */
 	public List<JobListing> getJobFullTextSearch(String searchText) {
-		searchText = searchText + "*";
-		String SQL = "SELECT * FROM job_listing WHERE MATCH (position,company_name,job_description,job_location) AGAINST (? IN BOOLEAN MODE)";
+		String searchTextFull;
+		searchTextFull = searchText + "*";
+		String SQL = "SELECT *, MATCH (position,company_name, job_description,job_location) AGAINST (? IN BOOLEAN MODE) AS relevance FROM job_listing WHERE MATCH (position,company_name, job_description,job_location) AGAINST (? IN BOOLEAN MODE) ORDER BY relevance DESC;";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
-				new Object[] {searchText }, new JobListingMapper());
+				new Object[] {searchText, searchTextFull }, new JobListingMapper());
 		return joblistings;
 	}
 
@@ -324,6 +325,7 @@ class JobListingMapper implements RowMapper<JobListing> {
 		jl.setJob_location(rs.getString("job_location"));
 		jl.setPosted_date(rs.getDate("posted_date"));
 		jl.setActive(rs.getBoolean("active"));
+		System.out.println(rs.getString("job_description"));
 		return jl;
 	}
 }
