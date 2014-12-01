@@ -141,7 +141,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	/**
 	 * Gets the three most recent job listings
 	 * @author Louis Balzani
-	 * @precondition None?
+	 * @precondition None
 	 * @postcondition A list of three job listings is returned
 	 * @return A list of three job listings in the database
 	 */

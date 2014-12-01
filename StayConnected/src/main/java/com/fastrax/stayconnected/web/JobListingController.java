@@ -151,7 +151,7 @@ public class JobListingController {
 	
 	/**
 	 * Controller for confirmation of search job listing page by location
-	 * @author Louis Balzani
+	 * @author Michael Holmes, Louis Balzani
 	 * @param locale					a new Locale object
 	 * @param model						Model object of jsp files
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
