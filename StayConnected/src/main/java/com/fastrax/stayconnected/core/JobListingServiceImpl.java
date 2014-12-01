@@ -94,8 +94,26 @@ public class JobListingServiceImpl implements JobListingService {
 		return jobListingDao.getJobListingsByLocation(location);
 	}
 	
+	/**
+	 * Uses JobListingDAO to deactivate a job listing
+	 * @author Conner Simmons 
+	 * @precondition  The job listing exists in the database
+	 * @postcondition The job listing is deactivated
+	 * @return true to show method completion
+	 */
 	public int deactivate(JobListing jobListing) {
 		return jobListingDao.deactivate(jobListing);
+	}
+	
+	/**
+	 * Uses JobListingDAO to activate a job listing
+	 * @author Conner Simmons 
+	 * @precondition  The job listing exists in the database
+	 * @postcondition The job listing is activated
+	 * @return true to show method completion
+	 */
+	public int activate(JobListing jobListing) {
+		return jobListingDao.activate(jobListing);
 	}
 
 	public List<JobListing> getJobFullTextSearch(String searchTerm){
