@@ -160,7 +160,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return A list of three job listings in the database
 	 */
 	public List<JobListing> getRecentJobListings() {
-		List<JobListing> allListings = getAllJobListings();
+		List<JobListing> allListings = getActiveJobListings();
 		int size = allListings.size();
 		List<JobListing> recent = allListings.subList(size-3, size);
 		return recent;
