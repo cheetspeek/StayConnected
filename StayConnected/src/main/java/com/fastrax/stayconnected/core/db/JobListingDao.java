@@ -12,6 +12,7 @@ public interface JobListingDao {
 	public List<JobListing> getAllJobListings();
 	public int getRecentJobID();
 	public int deactivate(JobListing jl);
+	public int activate(JobListing jl);
 	public JobListing getJobListingById(int id);
 	public int getNumberOfJobListings();
 	public List<JobListing> getJobListingsByEmail(String email);
@@ -21,6 +22,4 @@ public interface JobListingDao {
 	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location);
 	public List<JobListing> getJobFullTextSearch(String searchTerm);
 	public List<JobListing> getRecentJobListings();
-
-
 }

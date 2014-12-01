@@ -228,15 +228,66 @@ public class JobListingDaoImpl implements JobListingDao {
 		return joblistings;
 	}
 
-
-	@Override
-	public int getNumberOfJobsByLocation(String location) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	/**  
+	 * Dectivate a job listing
+	 * @author Conner Simmons
+	 * @precondition Job Listing exists in database
+	 * @postcondition Job Listing has been changed to deactive
+	 * @return true to show method completion
+	 */
 	@Override
 	public int deactivate(JobListing jl) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+
+		try {
+			String SQL = "UPDATE job_listing "
+					   + "SET active=false "
+					   + "WHERE email=?";
+			String email = jl.getEmail();
+			jdbcTemplate.update(SQL,email);
+
+			//transactionManager.commit(status);
+		} catch (DataAccessException e) {
+			System.out.println("Error in deactivating job listing, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1; 
+	}
+	
+	/**  
+	 * Activate a job listing
+	 * @author Conner Simmons
+	 * @precondition Job Listing exists in database
+	 * @postcondition Job Listing has been changed to active
+	 * @return true to show method completion
+	 */
+	@Override
+	public int activate(JobListing jl) {
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+		//TransactionStatus status = transactionManager.getTransaction(def);
+
+		try {
+			String SQL = "UPDATE job_listing "
+					   + "SET active=true "
+					   + "WHERE email=?";
+			String email = jl.getEmail();
+			jdbcTemplate.update(SQL,email);
+
+			//transactionManager.commit(status);
+		} catch (DataAccessException e) {
+			System.out.println("Error in updating AccountDao active, rolling back");
+			//transactionManager.rollback(status);
+			throw e;
+		}
+		return 1; 
+	}
+	
+	@Override
+	public int getNumberOfJobsByLocation(String location) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
