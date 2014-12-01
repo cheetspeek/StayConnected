@@ -15,9 +15,9 @@
 	<modules:header/>
 	
 	<section>
-	<h2>Update A Job Listing</h2>
+	<h2>Update a Job Listing</h2>
 	<form:form method="POST" action="jobListingConfirmUpdate" modelAttribute ="jobListing">
-		<P>Here, you can update	an existing job listing for others to see. Please fill out the following form
+		<P>Here, you can update	one of your existing job listings. Please edit the information in the following form
 		and submit it when you're done.</P>
 		<table>
 			<tr>
