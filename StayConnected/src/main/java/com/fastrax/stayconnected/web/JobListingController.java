@@ -148,4 +148,20 @@ public class JobListingController {
 		if (jobItems.size() < 1) { return "joblisting/JobListingFail";}
 		else {return "joblisting/JobListing";}
 	}
+	
+	/**
+	 * Controller for confirmation of search job listing page by location
+	 * @author Louis Balzani
+	 * @param locale					a new Locale object
+	 * @param model						Model object of jsp files
+	 * @return JobListingConfirmation	JSP of job listing confirmation page
+	 */
+	@RequestMapping(value = "/globalSearch", method = RequestMethod.POST)
+	public String processGlobalSearchListing(@Valid @ModelAttribute("searchTerm") JobListing jobListing, BindingResult result, Model model) {
+		String deh = null;
+		jobItems = jobListingService.getJobFullTextSearch(deh);
+		model.addAttribute("listing", jobItems);
+		if (jobItems.size() < 1) { return "joblisting/JobListingFail";}
+		else {return "joblisting/JobListing";}
+	}
 }
