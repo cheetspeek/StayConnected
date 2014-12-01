@@ -52,7 +52,7 @@
 	<security:authorize access="hasAnyRole('Admin', 'Faculty', 'Alumni', 'Student')">
 		<div id="search" style="float:right">	
 			<form:form method="POST" action="globalSearch" modelAttribute="searchTerm">
-			<input/>
+			<input id="searchTerm" type='text' name='searchTerm'>
 			<input type="image" src="<s:url value="/resources/images/mag_glass.png" />" width="16" height="16" />
 			</form:form>
 		</div>
