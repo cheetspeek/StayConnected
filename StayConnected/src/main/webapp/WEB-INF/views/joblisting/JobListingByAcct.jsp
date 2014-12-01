@@ -48,11 +48,13 @@
     		<td>
     		<form:form method="POST" action="updatelisting" modelAttribute="jobListing">
 					<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
-					<input type="image" src="<s:url value="/resources/images/nav/update_box.png" />" width="74" height="28" value="Update" />
+					<input type="image" src="<s:url value="/resources/images/nav/update_box.png" />" width="74" height="28" 
+					value="Update" style="float: left"/>
 			</form:form>
 			<form:form method="POST" action="joblistingdeactconfirm" modelAttribute="jobListing">
 				<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
-				<input type="image" src="<s:url value="/resources/images/nav/remove_box.png" />" width="74" height="28" value="Remove" />
+				<input type="image" src="<s:url value="/resources/images/nav/remove_box.png" />" width="74" height="28" 
+				value="Remove" style="float: left"/>
 			</form:form>
 			</td>
 		</tr>
