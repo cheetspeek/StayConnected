@@ -6,10 +6,10 @@
 <link rel="stylesheet" href="<s:url value="/resources/css/style.css" />">
 </head>
 <body>
-	<modules:header/>
+	<!-- <modules:header/> -->
 	<div style="text-align: center;">
-		<!--<img src="<s:url value="/resources/images/alt_logo.png" />" width="340" height="73" /> -->
-		<br><br><br>
+		<img src="<s:url value="/resources/images/alt_logo.png" />" width="340" height="73" />
+		<!-- <br><br><br> -->
 		<h2>Welcome to StayConnected!</h2>
 		<p>${error_message}</p>
 		<s:url var="authUrl" value="/j_spring_security_check" />

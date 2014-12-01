@@ -52,7 +52,7 @@
 		<div id="search" style="float:right">	
 			<form:form method="POST" action="globalSearch" modelAttribute="searchTerm">
 			<input/>
-			<input type="image" src="<s:url value="/resources/images/mag_glass.png" />" width="14" height="14" />
+			<input type="image" src="<s:url value="/resources/images/mag_glass.png" />" width="16" height="16" />
 			</form:form>
 		</div>
 	</security:authorize>
