@@ -1,7 +1,6 @@
 package com.fastrax.stayconnected.web;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -15,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.context.SecurityContextImpl;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,17 +44,14 @@ public class AccountController {
 	 * Controls the user home page mapping
 	 * 
 	 * @author Ben Degler, Louis Balzani
-	 * @param principal
-	 *            Used to access security interface and get current users name
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountHome account home page of logged in user
+	 * @param principal		Used to access security interface and get current users name
+	 * @param model			properties of the Model object
+	 * @return AccountHome 	account home page of logged in user
 	 */
 	@RequestMapping(value = { "/", "/accounthome" }, method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
 		logger.info("login ID via Controller is: " + principal.getName());
-		logger.info("login ID via AuthenticationContext is: " + getLoginId());
-		
+		logger.info("login ID via AuthenticationContext is: " + getLoginId());		
 		jobItems = jobListingService.getRecentJobListings();
 		model.addAttribute("listing", jobItems);
 		return "account/AccountHome";
@@ -68,11 +61,9 @@ public class AccountController {
 	 * Controls the user registration page mapping
 	 * 
 	 * @author Ben Degler, Conner Simmons
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountRegistration account register page for new user
+	 * @param locale 		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return AccountRegistration	account register page for new user
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(Locale locale, Model model) {
@@ -85,11 +76,9 @@ public class AccountController {
 	 * Controls the user confirmation page mapping
 	 * 
 	 * @author Ben Degler
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountConfirmation account confirm page of registering user
+	 * @param locale	a new Locale object
+	 * @param model		properties of the Model object
+	 * @return AccountConfirmation	account confirm page of registering user
 	 */
 	@RequestMapping(value = "/registerConfirmation", method = RequestMethod.POST)
 	public String processSubmit(
@@ -115,11 +104,9 @@ public class AccountController {
 	 * Controls the account status page mapping
 	 * 
 	 * @author Ben Degler
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountStatus account confirm page of registering user
+	 * @param locale 		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return AccountStatus	account status page of registering user
 	 */
 	@RequestMapping(value = "/accountstatus", method = RequestMethod.GET)
 	public String accountStatus(Locale locale, Model model) {
@@ -137,21 +124,15 @@ public class AccountController {
 	 * Controls the account status confirmation page mapping
 	 * 
 	 * @author Ben Degler
-	 * @param account
-	 *            a new Account object with new user data
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountStatusConfirmation account confirm page of registering
-	 *         user
+	 * @param account		a new Account object with new user data
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return AccountStatusConfirmation	account confirm page of registering user
 	 */
 	@RequestMapping(value = "/accountstatusconfirmation", method = RequestMethod.POST)
-	public String accountStatusConfirmation(
-			@Valid @ModelAttribute("account") Account account,
-			BindingResult result, Model model) {
-		System.out.println("Email: " + account.getEmail());
-		System.out.println("Active: " + account.isActive());
+	public String accountStatusConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
+//		System.out.println("Email: " + account.getEmail());
+//		System.out.println("Active: " + account.isActive());
 		if (account.isActive()) {
 			accountService.activate(account);
 		} else {
@@ -161,41 +142,15 @@ public class AccountController {
 		return "account/AccountStatusConfirmation";
 	}
 
-	private String getLoginId() {
-		String currentPrincipalName = "none";
-		Authentication authentication = SecurityContextHolder.getContext()
-				.getAuthentication();
-		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-			currentPrincipalName = authentication.getName();
-		}
-		return currentPrincipalName;
-	}
-
-	@ModelAttribute("rolelist")
-	public Map<String, String> getRoleList() {
-		Map<String, String> roleList = new LinkedHashMap<String, String>();
-		roleList.put("Faculty", "Faculty");
-		roleList.put("Alumni", "Alumni");
-		roleList.put("Student", "Student");
-		return roleList;
-	}
-
-	public static String encodePassword(String rawPassword) {
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String encryptedPassword = passwordEncoder.encode(rawPassword);
-		return encryptedPassword;
-
-	}
+	
 
 	/**
-	 * Will display a users account profile
+	 * Will display all users account profile
 	 * 
 	 * @author Ben Degler
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return ViewProfile shows profiles of all public users
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return ViewProfile 	shows profiles of all public users
 	 */
 	@RequestMapping(value = "/viewallprofiles", method = RequestMethod.GET)
 	public String viewAllProfiles(Locale locale, Model model) {
@@ -204,25 +159,22 @@ public class AccountController {
 	}
 
 	/**
-	 * Will display a users account profile
+	 * Will display a users account profile to be edited
 	 * 
 	 * @author Ben Degler
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return ViewProfile JSP for editing an account profile
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
+	 * @param account		contains the account data the user entered from the source page
+	 * @return EditProfile 	JSP for editing an account profile
 	 */
 	@RequestMapping(value = "/editmyprofile", method = RequestMethod.POST)
-	public String editProfile(Principal principal,
-			@Valid @ModelAttribute("profile") Account account,
-			 BindingResult result, Model model) {
-		System.out.println("in edit profile");
+	public String editProfile(Principal principal, @Valid @ModelAttribute("profile") Account account,  BindingResult result, Model model) {
+//		System.out.println("in edit profile");
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		
 		Account getPass = accountService.getAccountByEmail(principal.getName());
 		
-		System.out.println(account.getEmailConfirm());
+//		System.out.println(account.getEmailConfirm());
 
 	
 		if (!passwordEncoder.matches(account.getPassword(),
@@ -230,9 +182,9 @@ public class AccountController {
 			return "account/EditProfilePasswordCheck";
 		}
 		else{
-		System.out.println(account.getEmail());
-		System.out.println(account.getPassword());
-		return "account/EditProfile";
+//			System.out.println(account.getEmail());
+//			System.out.println(account.getPassword());
+			return "account/EditProfile";
 		}
 	}
 
@@ -240,19 +192,17 @@ public class AccountController {
 	 * Will display a users account profile
 	 * 
 	 * @author Ben Degler
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return ViewProfile JSP for editing an account profile
+	 * @param principal		STS Security function to access logged in user's name
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return EditProfilePasswordCheck JSP for editing an account profile
 	 */
 	@RequestMapping(value = "/editprofilepasswordcheck", method = RequestMethod.GET)
-	public String editProfilePassCheck(Principal principal, Locale locale,
-			Model model) {
-		System.out.println("in edit profile password check");
+	public String editProfilePassCheck(Principal principal, Locale locale, Model model) {
+//		System.out.println("in edit profile password check");
 		Account account = accountService.getAccountByEmail(principal.getName());
-		System.out.println(account.getEmail());
-		System.out.println(account.getPassword());
+//		System.out.println(account.getEmail());
+//		System.out.println(account.getPassword());
 
 		model.addAttribute("profile", account);
 		return "account/EditProfilePasswordCheck";
@@ -262,28 +212,23 @@ public class AccountController {
 	 * Controls the update profile confirmation page mapping
 	 * 
 	 * @author Ben Degler, Conner Simmons
-	 * @param account
-	 *            a new Account object with new user data
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountStatusConfirmation account confirm page of updated profile
+	 * @param account		a new Account object with new user data
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return EditProfileConfirmation	profile confirm page of updated profile
 	 */
 	@RequestMapping(value = "/editprofileconfirmation", method = RequestMethod.POST)
-	public String editProfileConfirmation(
-			@Valid @ModelAttribute("profile") Account account,
-			BindingResult result, Model model) {
+	public String editProfileConfirmation(@Valid @ModelAttribute("profile") Account account, BindingResult result, Model model) {
 		
 		if (result.hasErrors()) {
 			for(int i = 0; i < result.getAllErrors().size(); i++){
-				System.out.println(result.getAllErrors().get(i));
+				//System.out.println(result.getAllErrors().get(i));
 			}
 			return "account/EditProfile";
 		}
-		System.out.println("in edit profile confirm");
-		System.out.println(account.getEmail());
-		System.out.println(account.getPassword());
+//		System.out.println("in edit profile confirm");
+//		System.out.println(account.getEmail());
+//		System.out.println(account.getPassword());
 		accountService.updateAccount(account);
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
@@ -299,10 +244,8 @@ public class AccountController {
 	 * Controls the account roles page mapping
 	 * 
 	 * @author Ben Degler
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
 	 * @return AccountRoles account role update page for registered user
 	 */
 	@RequestMapping(value = "/accountroles", method = RequestMethod.GET)
@@ -345,14 +288,10 @@ public class AccountController {
 	 * Controls the account role confirmation page mapping
 	 * 
 	 * @author Ben Degler
-	 * @param account
-	 *            a new Account object with new user data
-	 * @param locale
-	 *            a new Locale object
-	 * @param model
-	 *            properties of the Model object
-	 * @return AccountRoleConfirmation account role update confirm page of
-	 *         registering user
+	 * @param account		a new Account object with new user data
+	 * @param locale		a new Locale object
+	 * @param model			properties of the Model object
+	 * @return AccountRoleConfirmation	account role update confirm page of registering user
 	 */
 	@RequestMapping(value = "/accountroleconfirmation", method = RequestMethod.POST)
 	public String accountRolesConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
@@ -366,5 +305,31 @@ public class AccountController {
 		model.addAttribute("account", account);
 		model.addAttribute("roleList", list);
 		return "account/AccountRoleConfirmation";		
+	}
+	
+	private String getLoginId() {
+		String currentPrincipalName = "none";
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			currentPrincipalName = authentication.getName();
+		}
+		return currentPrincipalName;
+	}
+
+	@ModelAttribute("rolelist")
+	public Map<String, String> getRoleList() {
+		Map<String, String> roleList = new LinkedHashMap<String, String>();
+		roleList.put("Faculty", "Faculty");
+		roleList.put("Alumni", "Alumni");
+		roleList.put("Student", "Student");
+		return roleList;
+	}
+
+	public static String encodePassword(String rawPassword) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encryptedPassword = passwordEncoder.encode(rawPassword);
+		return encryptedPassword;
+
 	}
 }
