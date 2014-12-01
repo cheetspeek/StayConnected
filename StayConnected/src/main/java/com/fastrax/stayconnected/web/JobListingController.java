@@ -145,6 +145,7 @@ public class JobListingController {
 		String pos = jobListing.getPosition();
 		jobItems = jobListingService.getJobByMultiple(email, pos, company, desc, location);
 		model.addAttribute("listing", jobItems);
-		return "joblisting/JobListing";	
+		if (jobItems.size() < 1) { return "joblisting/JobListingFail";}
+		else {return "joblisting/JobListing";}
 	}
 }
