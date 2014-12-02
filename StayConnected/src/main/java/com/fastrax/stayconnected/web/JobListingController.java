@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fastrax.stayconnected.core.JobListingService;
-import com.fastrax.stayconnected.core.entity.Account;
 import com.fastrax.stayconnected.core.entity.JobListing;
 
 
@@ -185,45 +184,40 @@ public class JobListingController {
 	}
 	
 	/**
-	 * Controls the account status page mapping
+	 * Controls the job listing status page mapping
 	 * 
-	 * @author Ben Degler
+	 * @author Conner Simmons, Ben Degler
 	 * @param locale 		a new Locale object
 	 * @param model			properties of the Model object
-	 * @return AccountStatus	account status page of registering user
+	 * @return JobListingStatus		job listing status page for activating/deactivating listings
 	 */
 	@RequestMapping(value = "/joblistingstatus", method = RequestMethod.GET)
 	public String jobListingStatus(Locale locale, Model model) {
 		List<JobListing> jobListings = jobListingService.getAllJobListings();
-		/*
-		JobListing listing;
-		for (int i = 0; i < jobListings.size(); i++) {
-			listing = jobListings.get(i);
-			listing.setRoleList(jobListingService.getRoles(listing));
-			listing.setEmail(jobListingService.get);
-		}
-		*/
 		model.addAttribute("jobListings", jobListings);
 		return "joblisting/JobListingStatus";
 	}
 	
 	/**
-	 * Controls the account status confirmation page mapping
+	 * Controls the job listing status confirmation page mapping
 	 * 
-	 * @author Conner Simmons
+	 * @author Conner Simmons, Ben Degler
 	 * @param jobListing	a new JobListing object
 	 * @param locale		a new Locale object
 	 * @param model			properties of the Model object
-	 * @return JobListingStatusConfirmation		account confirm page of registering user
+	 * @return JobListingStatusConfirmation		job listing confirm page for activating/deactivating listings
 	 */
 	@RequestMapping(value = "/joblistingstatusconfirm", method = RequestMethod.POST)
 	public String jobListingStatusConfirm(@Valid @ModelAttribute("jobListing") JobListing jobListing, BindingResult result, Model model) {
+		JobListing jl = jobListingService.getJobListingById(jobListing.getId());
+		jl.setActive(jobListing.isActive());
 		if (jobListing.isActive()) {
 			jobListingService.activate(jobListing);
 		} else {
 			jobListingService.deactivate(jobListing);
 		}
-		model.addAttribute("jobListing");
+		System.out.println(jobListing.getEmail());
+		model.addAttribute("jobListings",jl);
 		return "joblisting/JobListingStatusConfirm";
 	}
 }

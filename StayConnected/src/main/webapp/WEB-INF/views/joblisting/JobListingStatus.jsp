@@ -50,6 +50,7 @@
 					</td> 
 					
 					<td>
+						<input name="id" type="hidden" value=<c:out value="${current.id}" /> />
 						<input name="email" type="hidden" value=<c:out value="${current.email}" /> />
 						<input type="submit" value="Update Status" />
 					</td>

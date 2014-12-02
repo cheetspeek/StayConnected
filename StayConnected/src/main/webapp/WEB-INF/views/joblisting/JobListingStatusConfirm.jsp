@@ -21,27 +21,27 @@
 	<table>
 		<tr>
 			<td>Posted Email:</td>
-			<td>${jobListing.email}</td>
+			<td>${jobListings.email}</td>
 		</tr>
 		<tr>
 			<td>Company Name:</td>
-			<td>${jobListing.company_name}</td>
+			<td>${jobListings.company_name}</td>
 		</tr>
 		<tr>
 			<td>Job Position:</td>
-			<td>${jobListing.position}</td>
+			<td>${jobListings.position}</td>
 		</tr>
 				<tr>
 			<td>Job Description:</td>
-			<td>${jobListing.job_description}</td>
+			<td>${jobListings.job_description}</td>
 		</tr>
 				<tr>
 			<td>Job Location:</td>
-			<td>${jobListing.job_location}</td>
+			<td>${jobListings.job_location}</td>
 		</tr>
 		<tr>
 			<td>Status :</td>
-			<td>${account.active}</td>
+			<td>${jobListings.active}</td>
 		</tr>
 	</table>
 	<p>

@@ -263,10 +263,9 @@ public class JobListingDaoImpl implements JobListingDao {
 		try {
 			String SQL = "UPDATE job_listing "
 					   + "SET active=false "
-					   + "WHERE email=? and id=?";
-			String email = jl.getEmail();
+					   + "WHERE id=?";
 			int id = jl.getId();
-			jdbcTemplate.update(SQL,email,id);
+			jdbcTemplate.update(SQL,id);
 
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
@@ -293,9 +292,9 @@ public class JobListingDaoImpl implements JobListingDao {
 		try {
 			String SQL = "UPDATE job_listing "
 					   + "SET active=true "
-					   + "WHERE email=?";
-			String email = jl.getEmail();
-			jdbcTemplate.update(SQL,email);
+					   + "WHERE id=?";
+			int id = jl.getId();
+			jdbcTemplate.update(SQL,id);
 
 			//transactionManager.commit(status);
 		} catch (DataAccessException e) {
