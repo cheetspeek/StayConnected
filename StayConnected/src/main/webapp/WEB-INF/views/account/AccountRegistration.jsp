@@ -13,11 +13,12 @@
 <title>Registration</title>
 </head>
 <body>
-	<!-- <modules:header/> -->
-	<!-- <section> -->
 	<div style="text-align: center;">
-		<img src="<s:url value="/resources/images/alt_logo.png" />" width="340" height="73"/>
+		<modules:def_header/>
 	</div>
+	
+	<section>
+	
 	<h2>Create a New StayConnected Account</h2>
 	<form:form method="POST" action="registerConfirmation" modelAttribute="account">
 		<P>In order to register you on StayConnected, we need
@@ -92,7 +93,7 @@
 		<a href="${contextPath}/home"> <img src="<s:url value="/resources/images/nav/cancel_box.png" />" width="93" height="35" /> </a>
 		</td>
 	</form:form>
-	<!-- </section> -->
+	</section>
 	
 	<modules:footer/>
 </body>
