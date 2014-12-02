@@ -37,9 +37,9 @@
       <security:authorize access="hasRole('Admin')">
       	<li><a href="#">Admin <img src="<s:url value="/resources/images/drop_down_arrow.png" />" width="12" height="12" /></a>
       		<ul>
-      			<li><a href="accountstatus">Update Account Status</a></li>
-      			<li><a href="accountroles">Update Account Roles</a></li>
-      			<li><a href="joblistingstatus">Update Job Listing Status</a></li>
+      			<li><a href="accountstatus">Account Status</a></li>
+      			<li><a href="accountroles">Account Roles</a></li>
+      			<li><a href="joblistingstatus">Job Listing Status</a></li>
       		</ul>
       	</li>
       </security:authorize>
