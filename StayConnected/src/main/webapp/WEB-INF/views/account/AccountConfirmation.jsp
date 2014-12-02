@@ -14,7 +14,7 @@
 	</div>
 	<section>
 		<h2>Registration confirmed!</h2>
-	 	<P> Your account will be active within 48 hours, and you will be notified at the email address you just provided. </P>
+	 	<P> Your account will be active within 48 hours. Check back soon! </P>
 		<table>
 			<tr>
 				<td>First name:</td>

@@ -200,7 +200,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return A job listing with the ID number specified
 	 */
 	public List<JobListing> getJobListingsByEmail(String email) {
-		String SQL = "select * from job_listing where email = ?, active = 1";
+		String SQL = "select * from job_listing where email = ? and active = 1";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] { email }, new JobListingMapper());
 		return joblistings;
