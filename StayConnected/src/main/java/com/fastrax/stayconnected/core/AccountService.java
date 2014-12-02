@@ -12,8 +12,6 @@ public interface AccountService {
 	public List<Account> getAllAccounts();
 	public int deactivate(Account account);
 	public Account getAccountByEmail(String email);
-	public int getNumberOfAccounts();
-	public int getNumberOfAccountsByRole(String role);
 	public int activate(Account account);
 	public String[] getRoles(Account account);
 	public int updateAccount(Account account);

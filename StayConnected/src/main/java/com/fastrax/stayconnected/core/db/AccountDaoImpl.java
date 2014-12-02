@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.fastrax.stayconnected.core.entity.Account;
@@ -20,12 +22,18 @@ import com.fastrax.stayconnected.core.entity.Account;
 public class AccountDaoImpl implements AccountDao {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
-	//private DataSourceTransactionManager transactionManager;
+	private DataSourceTransactionManager transactionManager;
 
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(this.dataSource);
+	}
+	
+	@Autowired
+	public void setDataSourceTransactionManager(
+			DataSourceTransactionManager txManager) {
+		this.transactionManager = txManager;
 	}
 
 	/**
@@ -39,7 +47,7 @@ public class AccountDaoImpl implements AccountDao {
 	public Account createAccount(Account account){
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
 			String SQL = "insert into account (firstname, lastname, address, city,"+
@@ -65,10 +73,10 @@ public class AccountDaoImpl implements AccountDao {
 				jdbcTemplate.update(SQL2,email,roles[i]);
 			}
 
-			//transactionManager.commit(status);
+			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in creating AccountDao record, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return account;
@@ -127,7 +135,7 @@ public class AccountDaoImpl implements AccountDao {
 	public int deactivate(Account account) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
 			String SQL = "UPDATE account "
@@ -136,10 +144,10 @@ public class AccountDaoImpl implements AccountDao {
 			String email = account.getEmail();
 			jdbcTemplate.update(SQL,email);
 
-			//transactionManager.commit(status);
+			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in updating AccountDao active, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1; 
@@ -156,7 +164,7 @@ public class AccountDaoImpl implements AccountDao {
 	public int activate(Account account) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
 			String SQL = "UPDATE account "
@@ -165,10 +173,10 @@ public class AccountDaoImpl implements AccountDao {
 			String email = account.getEmail();
 			jdbcTemplate.update(SQL,email);
 
-			//transactionManager.commit(status);
+			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in updating AccountDao active, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1; 
@@ -178,14 +186,6 @@ public class AccountDaoImpl implements AccountDao {
 		String SQL = "select * from account where email=\"" + email + "\"";
 		List<Account> account = jdbcTemplate.query(SQL, new AccountMapper());
 		return account.get(0);
-	}
-
-	public int getNumberOfAccounts(){
-		return 0;
-	}
-
-	public int getNumberOfAccountsByRole(String role){
-		return 0;
 	}
 
 	/**  
@@ -198,7 +198,7 @@ public class AccountDaoImpl implements AccountDao {
 	public int updateAccount(Account account) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 		System.out.println("in update account");
 		System.out.println(account.getId());
 		try {
@@ -212,10 +212,11 @@ public class AccountDaoImpl implements AccountDao {
 				account.getId()};
 		
 		jdbcTemplate.update(sql, params);
+		transactionManager.commit(status);
 		System.out.println("Updated Record with ID = " + account.getId());
 		} catch (DataAccessException e) {
 			System.out.println("Error in updating Account record, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1;
@@ -232,7 +233,7 @@ public class AccountDaoImpl implements AccountDao {
 	public int updateRoles(Account account) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
 			String SQL = "DELETE FROM authority WHERE email=?";
@@ -252,11 +253,11 @@ public class AccountDaoImpl implements AccountDao {
 					System.out.println("Role: " + roles[i]);
 					jdbcTemplate.update(SQL2,email,roles[i]);
 				}
-				//transactionManager.commit(status);
+				transactionManager.commit(status);
 			}
 		} catch (DataAccessException e) {
 			System.out.println("Error in updating AccountDao active, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1; 

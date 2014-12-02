@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.fastrax.stayconnected.core.entity.JobListing;
@@ -20,13 +22,18 @@ import com.fastrax.stayconnected.core.entity.JobListing;
 public class JobListingDaoImpl implements JobListingDao {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
-	//private DataSourceTransactionManager transactionManager;
-
+	private DataSourceTransactionManager transactionManager;
 
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(this.dataSource);
+	}
+	
+	@Autowired
+	public void setDataSourceTransactionManager(
+			DataSourceTransactionManager txManager) {
+		this.transactionManager = txManager;
 	}
 
 	/**
@@ -41,7 +48,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	public JobListing createJobListing(JobListing jl) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 	
 		try {
 			String SQL = "insert into job_listing (email, position, company_name, job_description, job_location) values "
@@ -57,10 +64,10 @@ public class JobListingDaoImpl implements JobListingDao {
 			
 			jl.setId(getRecentJobID());
 			
-			//transactionManager.commit(status);
+			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in creating Job Listing record, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return jl;	
@@ -117,7 +124,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	public int updateJobListing(JobListing jobListing) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 	
 		try {
 		String sql = "UPDATE job_listing SET email = ?, position = ?, "
@@ -129,10 +136,11 @@ public class JobListingDaoImpl implements JobListingDao {
 				jobListing.getJob_location(), jobListing.getId()};
 		
 		jdbcTemplate.update(sql, params);
+		transactionManager.commit(status);
 		System.out.println("Updated Record with ID = " + jobListing.getId());
 		} catch (DataAccessException e) {
 			System.out.println("Error in updating Job Listing record, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1;
@@ -166,7 +174,9 @@ public class JobListingDaoImpl implements JobListingDao {
 		if (size < 3) {
 			recent = allListings;
 		}
-		else {recent = allListings.subList(size-3, size);}
+		else {
+			recent = allListings.subList(size-3, size);
+		}
 		return recent;
 	}
 
@@ -190,7 +200,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return A job listing with the ID number specified
 	 */
 	public List<JobListing> getJobListingsByEmail(String email) {
-		String SQL = "select * from job_listing where email = ?";
+		String SQL = "select * from job_listing where email = ?, active = 1";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] { email }, new JobListingMapper());
 		return joblistings;
@@ -258,7 +268,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	public int deactivate(JobListing jl) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
 			String SQL = "UPDATE job_listing "
@@ -267,10 +277,10 @@ public class JobListingDaoImpl implements JobListingDao {
 			int id = jl.getId();
 			jdbcTemplate.update(SQL,id);
 
-			//transactionManager.commit(status);
+			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in deactivating job listing, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1; 
@@ -287,7 +297,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	public int activate(JobListing jl) {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-		//TransactionStatus status = transactionManager.getTransaction(def);
+		TransactionStatus status = transactionManager.getTransaction(def);
 
 		try {
 			String SQL = "UPDATE job_listing "
@@ -296,19 +306,13 @@ public class JobListingDaoImpl implements JobListingDao {
 			int id = jl.getId();
 			jdbcTemplate.update(SQL,id);
 
-			//transactionManager.commit(status);
+			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in updating AccountDao active, rolling back");
-			//transactionManager.rollback(status);
+			transactionManager.rollback(status);
 			throw e;
 		}
 		return 1; 
-	}
-	
-	@Override
-	public int getNumberOfJobsByLocation(String location) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }
 

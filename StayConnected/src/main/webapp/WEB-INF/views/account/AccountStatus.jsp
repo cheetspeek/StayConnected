@@ -39,12 +39,10 @@
 				 		<input type="radio" name="active" value="true" <c:if test="${current.active == 'true'}">checked</c:if> />Yes 
 						<input type="radio" name="active" value="false" <c:if test="${current.active == 'false'}">checked</c:if> />No
 					</td> 
-					
 					<td>
 						<input name="email" type="hidden" value=<c:out value="${current.email}" /> />
 						<input type="submit" value="Update Status" />
-					</td>
-					
+					</td>				
 				</form:form>
 			</tr>
 		</c:forEach>

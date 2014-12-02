@@ -17,13 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.fastrax.stayconnected.core.JobListingService;
 import com.fastrax.stayconnected.core.entity.JobListing;
 
-
 @Controller
 public class JobListingController {
-
 	@Autowired
 	private JobListingService jobListingService;
-
 	private List<JobListing> jobItems;
 
 	/**

@@ -45,14 +45,6 @@ public class AccountServiceImpl implements AccountService {
 		return account;
 	}
 
-	public int getNumberOfAccounts() {
-		return accountDao.getNumberOfAccounts();
-	}
-
-	public int getNumberOfAccountsByRole(String role) {
-		return accountDao.getNumberOfAccountsByRole(role);
-	}
-
 	@Override
 	public String[] getRoles(Account account) {
 		return accountDao.getRoles(account);

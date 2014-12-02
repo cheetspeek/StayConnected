@@ -17,8 +17,6 @@ public interface JobListingDao {
 	public JobListing getJobListingById(int id);
 	public int getNumberOfJobListings();
 	public List<JobListing> getJobListingsByEmail(String email);
-	public List<JobListing> getJobListingsByLocation(String location);
-	public int getNumberOfJobsByLocation(String location);
 	public int updateJobListing(JobListing jl);
 	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location);
 	public List<JobListing> getJobFullTextSearch(String searchTerm);

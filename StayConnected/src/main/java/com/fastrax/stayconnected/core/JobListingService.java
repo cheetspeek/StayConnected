@@ -18,8 +18,6 @@ public interface JobListingService {
 	public int getNumberOfJobListings();
 	public List<JobListing> getJobListingsByEmail(String email);
 	public List<JobListing> getRecentJobListings();
-	public List<JobListing> getJobListingsByLocation(String location);
-	public int getNumberOfJobsByLocation(String location);
 	public int updateJobListing(JobListing jobListing);
 	public List<JobListing> getJobByMultiple(String email, String position, String company, String desc, String location);
 	public List<JobListing> getJobFullTextSearch(String searchTerm);
