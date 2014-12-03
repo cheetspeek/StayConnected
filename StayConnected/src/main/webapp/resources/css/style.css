@@ -1,14 +1,15 @@
-
-/*@import url(http://fonts.googleapis.com/css?family=Raleway:600);*/
-/*@import url(http://fonts.googleapis.com/css?family=Montserrat);*/
 @import url(http://fonts.googleapis.com/css?family=Nunito:300);
 @font-face{
 	font-family: "AvenirLOL";
-	src:url("/stayconnected_3/resources/avenir.ttf");
+	src:url("/stayconnected/resources/avenir.ttf");
+}
+@font-face{
+	font-family: "AvenirExt";
+	src:url("http://www.goreschak.com/res/lbres/avenir.ttf");
 }
 html, section, footer {
 	background-color: #D9C1F3;
-	font-family: "AvenirLOL", Nunito, Verdana;
+	font-family: "AvenirExt", Nunito, Verdana;
 }
 
 header {
@@ -154,7 +155,7 @@ li:hover li a:hover {
 }
 
 #search {
-	padding: 22px 10px 0px 10px;
+	padding: 20px 10px 0px 10px;
 }
 
 
