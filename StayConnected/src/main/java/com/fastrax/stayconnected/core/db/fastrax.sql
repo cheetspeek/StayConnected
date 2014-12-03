@@ -23,17 +23,19 @@ CREATE TABLE authority (
 );
 
 CREATE TABLE job_listing (
-	id bigint auto_increment,
-	email varchar(100),
-	position varchar(50) NOT NULL,
-	company_name varchar(50) NOT NULL,
-	job_description varchar(2000) NOT NULL,
-	job_location varchar(50) NOT NULL,
-	posted_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-	active boolean NOT NULL DEFAULT 1,
-	primary key (id),
-	foreign key (email) references account(email) on delete cascade on update cascade
-);
+  id bigint auto_increment,
+  email varchar(100) NOT NULL,
+  position varchar(100) NOT NULL,
+  company_name varchar(100) NOT NULL,
+  job_description varchar(2000) NOT NULL,
+  job_location varchar(100) NOT NULL,
+  posted_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  active boolean NOT NULL DEFAULT 1,
+  primary key (id),
+  foreign key (email) references account(email) on delete cascade on update cascade,
+  FULLTEXT (position,company_name,job_description,job_location)
+) ENGINE=InnoDB;
+
 
 create table persistent_logins (
 	username varchar(50) NOT NULL, 
