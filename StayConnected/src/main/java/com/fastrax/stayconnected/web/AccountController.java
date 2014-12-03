@@ -219,16 +219,12 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/editprofileconfirmation", method = RequestMethod.POST)
 	public String editProfileConfirmation(@Valid @ModelAttribute("profile") Account account, BindingResult result, Model model) {
-		
 		if (result.hasErrors()) {
 			for(int i = 0; i < result.getAllErrors().size(); i++){
 				//System.out.println(result.getAllErrors().get(i));
 			}
 			return "account/EditProfile";
 		}
-//		System.out.println("in edit profile confirm");
-//		System.out.println(account.getEmail());
-//		System.out.println(account.getPassword());
 		accountService.updateAccount(account);
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
@@ -242,9 +238,7 @@ public class AccountController {
 
 	/**
 	 * Controls the account roles page mapping
-	 * 
 	 * @author Ben Degler
-	 * @param locale		a new Locale object
 	 * @param model			properties of the Model object
 	 * @return AccountRoles account role update page for registered user
 	 */
@@ -258,26 +252,20 @@ public class AccountController {
 			account = acctList.get(i);
 			String[] list = accountService.getRoles(account);
 			
-			for(int j = 0; j < list.length; j++)
-			{
-				if(list[j].equals("Admin"))
-				{
+			for(int j = 0; j < list.length; j++) {
+				if(list[j].equals("Admin")) {
 					x.setAdminChecked(true);
 				}
-				else if(list[j].equals("Faculty"))
-				{
+				else if(list[j].equals("Faculty")) {
 					x.setFacultyChecked(true);
 				}
-				else if(list[j].equals("Alumni"))
-				{
+				else if(list[j].equals("Alumni")) {
 					x.setAlumniChecked(true);
 				}
-				else
-				{
+				else {
 					x.setStudentChecked(true);
 				}
 			}
-			//account.setRoleList(accountService.getRoles(account));
 			acctList.get(i).setRole(x);
 		}
 		model.addAttribute("accounts", acctList);
@@ -286,21 +274,14 @@ public class AccountController {
 
 	/**
 	 * Controls the account role confirmation page mapping
-	 * 
 	 * @author Ben Degler
 	 * @param account		a new Account object with new user data
-	 * @param locale		a new Locale object
 	 * @param model			properties of the Model object
 	 * @return AccountRoleConfirmation	account role update confirm page of registering user
 	 */
 	@RequestMapping(value = "/accountroleconfirmation", method = RequestMethod.POST)
-	public String accountRolesConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
+	public String accountRolesConfirmation(@Valid @ModelAttribute("account") Account account, Model model) {
 		String[] list = account.getRoleList();
-		/*System.out.println(account.getEmail());
-		for(int i = 0; i < list.length; i++)
-		{
-			System.out.println(list[i]);
-		}*/
 		accountService.updateRoles(account);
 		model.addAttribute("account", account);
 		model.addAttribute("roleList", list);
@@ -330,6 +311,5 @@ public class AccountController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encryptedPassword = passwordEncoder.encode(rawPassword);
 		return encryptedPassword;
-
 	}
 }

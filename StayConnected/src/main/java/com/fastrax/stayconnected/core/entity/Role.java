@@ -1,7 +1,6 @@
 package com.fastrax.stayconnected.core.entity;
 
-public class Role
-{	
+public class Role {	
 	boolean adminChecked;
 	boolean facultyChecked;
 	boolean alumniChecked;
@@ -31,6 +30,4 @@ public class Role
 	public void setStudentChecked(boolean studentChecked) {
 		this.studentChecked = studentChecked;
 	}	
-	
-	
 }
