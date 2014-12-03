@@ -200,7 +200,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	 * @return A job listing with the ID number specified
 	 */
 	public List<JobListing> getJobListingsByEmail(String email) {
-		String SQL = "select * from job_listing where email = ? and active = 1";
+		String SQL = "select * from job_listing where email = ? and active = true";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] { email }, new JobListingMapper());
 		return joblistings;
@@ -235,14 +235,15 @@ public class JobListingDaoImpl implements JobListingDao {
 		desc = "%" + desc + "%";
 		location = "%" + location + "%";
 		
-		String SQL = "select * from job_listing where email LIKE ? AND position LIKE ? AND company_name LIKE ? AND job_description LIKE ? AND job_location LIKE ?";
+		String SQL = "select * from job_listing where email LIKE ? AND position LIKE ? AND company_name LIKE ? AND job_description LIKE ? AND job_location LIKE ? AND active=true";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] {email, position, company, desc, location }, new JobListingMapper());
 		return joblistings;
 	}
 	
 	/**
-	 * Gets job listings using the Full Text search in MySQL (searches across position, company, description, and location)
+	 * Gets job listings using the Full Text search in MySQL 
+	 * (searches across position, company, description, and location)
 	 * @author Michael Holmes
 	 * @precondition A search term
 	 * @postcondition The job listings who match the search term
@@ -251,7 +252,7 @@ public class JobListingDaoImpl implements JobListingDao {
 	public List<JobListing> getJobFullTextSearch(String searchText) {
 		String searchTextFull;
 		searchTextFull = searchText + "*";
-		String SQL = "SELECT *, MATCH (position,company_name, job_description,job_location) AGAINST (? IN BOOLEAN MODE) AS relevance FROM job_listing WHERE MATCH (position,company_name, job_description,job_location) AGAINST (? IN BOOLEAN MODE) ORDER BY relevance DESC;";
+		String SQL = "SELECT *, MATCH (position,company_name, job_description,job_location) AGAINST (? IN BOOLEAN MODE) AS relevance FROM job_listing WHERE active=true AND MATCH (position,company_name, job_description,job_location) AGAINST (? IN BOOLEAN MODE) ORDER BY relevance DESC;";
 		List<JobListing> joblistings = jdbcTemplate.query(SQL,
 				new Object[] {searchText, searchTextFull }, new JobListingMapper());
 		return joblistings;
