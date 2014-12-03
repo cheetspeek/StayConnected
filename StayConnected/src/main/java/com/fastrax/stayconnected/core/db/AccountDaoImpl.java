@@ -234,33 +234,30 @@ public class AccountDaoImpl implements AccountDao {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
 		TransactionStatus status = transactionManager.getTransaction(def);
-
+		int result = 0;
 		try {
 			String SQL = "DELETE FROM authority WHERE email=?";
 			String SQL2 = "insert into authority (email, role) values (?,?)";
+			String email = account.getEmail();		
 			
-			String email = account.getEmail();
-			jdbcTemplate.update(SQL,email);			
-			
-			if(!(account.getRoleList()==null))
+			if(!(account.getRoleList().length==0))
 			{
-				String[] roles = account.getRoleList();			
-			
-				System.out.println("in update roles");
-				System.out.println(account.getEmail());
+				jdbcTemplate.update(SQL,email);	
+				String[] roles = account.getRoleList();	
 				for(int i = 0; i < roles.length; i++)
 				{
-					System.out.println("Role: " + roles[i]);
+					//System.out.println("Role: " + roles[i]);
 					jdbcTemplate.update(SQL2,email,roles[i]);
-				}
-				transactionManager.commit(status);
+				}				
+				result = 1;
 			}
-		} catch (DataAccessException e) {
+			transactionManager.commit(status);
+		} catch (Exception e) {
 			System.out.println("Error in updating Account roles, rolling back");
 			transactionManager.rollback(status);
-			throw e;
+			//throw e;			
 		}
-		return 1; 
+		return result; 
 	}
 }
 

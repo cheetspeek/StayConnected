@@ -249,7 +249,7 @@ public class AccountController {
 	 * @return AccountRoles account role update page for registered user
 	 */
 	@RequestMapping(value = "/accountroles", method = RequestMethod.GET)
-	public String accountRoles(Locale locale, Model model) {
+	public String accountRoles(Model model) {
 		List<Account> acctList = accountService.getAllAccounts();
 		Account account;
 		
@@ -296,15 +296,14 @@ public class AccountController {
 	@RequestMapping(value = "/accountroleconfirmation", method = RequestMethod.POST)
 	public String accountRolesConfirmation(@Valid @ModelAttribute("account") Account account, BindingResult result, Model model) {
 		String[] list = account.getRoleList();
-		/*System.out.println(account.getEmail());
-		for(int i = 0; i < list.length; i++)
-		{
-			System.out.println(list[i]);
-		}*/
-		accountService.updateRoles(account);
-		model.addAttribute("account", account);
-		model.addAttribute("roleList", list);
-		return "account/AccountRoleConfirmation";		
+		if(accountService.updateRoles(account)==1){
+			model.addAttribute("account", account);
+			model.addAttribute("roleList", list);
+			return "account/AccountRoleConfirmation";
+		}
+		else{
+			return accountRoles(model);
+		}				
 	}
 	
 	private String getLoginId() {
