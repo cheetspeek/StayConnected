@@ -256,7 +256,7 @@ public class AccountDaoImpl implements AccountDao {
 				transactionManager.commit(status);
 			}
 		} catch (DataAccessException e) {
-			System.out.println("Error in updating AccountDao active, rolling back");
+			System.out.println("Error in updating Account roles, rolling back");
 			transactionManager.rollback(status);
 			throw e;
 		}
