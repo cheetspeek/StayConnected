@@ -240,13 +240,10 @@ public class AccountDaoImpl implements AccountDao {
 			String SQL2 = "insert into authority (email, role) values (?,?)";
 			String email = account.getEmail();		
 			
-			if(!(account.getRoleList().length==0))
-			{
+			if(!(account.getRoleList().length==0)) {
 				jdbcTemplate.update(SQL,email);	
 				String[] roles = account.getRoleList();	
-				for(int i = 0; i < roles.length; i++)
-				{
-					//System.out.println("Role: " + roles[i]);
+				for(int i = 0; i < roles.length; i++) {
 					jdbcTemplate.update(SQL2,email,roles[i]);
 				}				
 				result = 1;
@@ -254,8 +251,7 @@ public class AccountDaoImpl implements AccountDao {
 			transactionManager.commit(status);
 		} catch (Exception e) {
 			System.out.println("Error in updating Account roles, rolling back");
-			transactionManager.rollback(status);
-			//throw e;			
+			transactionManager.rollback(status);		
 		}
 		return result; 
 	}
