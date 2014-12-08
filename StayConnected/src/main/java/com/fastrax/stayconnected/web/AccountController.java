@@ -296,7 +296,12 @@ public class AccountController {
 		}
 		return currentPrincipalName;
 	}
-
+	
+	/**
+	 * Controls the account role confirmation page mapping
+	 * @author Ben Degler
+	 * @return roleList	list of accounts for jsp 
+	 */
 	@ModelAttribute("rolelist")
 	public Map<String, String> getRoleList() {
 		Map<String, String> roleList = new LinkedHashMap<String, String>();
