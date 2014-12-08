@@ -41,8 +41,7 @@ public class JobListingController {
 	/**
 	 * Controls the job listing confirmation page mapping
 	 * @author Ben Delger, Louis Balzani, Conner Simmons
-	 * @param locale				a new Locale object
-	 * @param model					properties of the Model object	
+	 * @param model						properties of the Model object	
 	 * @return JobListingConfirmation	JSP of job listing confirmation page
 	 */
 	@RequestMapping(value = "/jobListingConfirmation", method = RequestMethod.POST)
@@ -130,9 +129,9 @@ public class JobListingController {
 	/**
 	 * Controller for searching job listing page
 	 * @author Michael Holmes
-	 * @param locale		a new Locale object
-	 * @param model			Model object of jsp files
-	 * @return 	
+	 * @param locale			a new Locale object
+	 * @param model				Model object of jsp files
+	 * @return SearchListing 	JSP showing all search listings
 	 */
 	@RequestMapping(value = "/searchlisting", method = RequestMethod.GET)
 	public String searchListing(Principal principal, Locale locale, Model model) {
@@ -182,7 +181,6 @@ public class JobListingController {
 	
 	/**
 	 * Controls the job listing status page mapping
-	 * 
 	 * @author Conner Simmons, Ben Degler
 	 * @param locale 		a new Locale object
 	 * @param model			properties of the Model object
@@ -197,7 +195,6 @@ public class JobListingController {
 	
 	/**
 	 * Controls the job listing status confirmation page mapping
-	 * 
 	 * @author Conner Simmons, Ben Degler
 	 * @param jobListing	a new JobListing object
 	 * @param locale		a new Locale object
