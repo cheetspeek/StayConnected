@@ -9,6 +9,7 @@ import com.fastrax.stayconnected.core.entity.Account;
 public interface AccountDao {
 	public Account createAccount(Account account);
 	public List<Account> getAllAccounts();
+	public List<Account> getActiveAccounts();
 	public Account getAccountByEmail(String email);
 	public int deactivate(Account account);
 	public int activate(Account account);	

@@ -14,7 +14,7 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDao accountDao;
 	
 	/**
-	 * Uses accountDAO to create an account on the database 
+	 * Uses accountDAO to create an account in the database 
 	 * @author Conner Simmons
 	 * @precondition Account entity exists and passed in as an argument
 	 * @postcondition Account is created in the database and passed back with updated information
@@ -27,6 +27,17 @@ public class AccountServiceImpl implements AccountService {
 
 	public List<Account> getAllAccounts() {
 		return accountDao.getAllAccounts();
+	}
+	
+	/**
+	 * Uses accountDAO to get all active accounts in the database 
+	 * @author Conner Simmons
+	 * @precondition An active account is in the database
+	 * @postcondition Active accounts in the database are returned
+	 * @return List of all active accounts in the database
+	 */
+	public List<Account> getActiveAccounts() {
+		return accountDao.getActiveAccounts();
 	}
 
 	public int deactivate(Account account) {

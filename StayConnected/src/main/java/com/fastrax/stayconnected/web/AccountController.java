@@ -154,7 +154,7 @@ public class AccountController {
 	 */
 	@RequestMapping(value = "/viewallprofiles", method = RequestMethod.GET)
 	public String viewAllProfiles(Locale locale, Model model) {
-		model.addAttribute("profiles", accountService.getAllAccounts());
+		model.addAttribute("profiles", accountService.getActiveAccounts());
 		return "account/ViewAllProfiles";
 	}
 
