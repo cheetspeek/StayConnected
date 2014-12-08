@@ -110,6 +110,19 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	/**
+	 * Get the active accounts 
+	 * @author Conner Simmons
+	 * @precondition Database has at least one active account
+	 * @postcondition A List of all active accounts is returned
+	 * @return the list of all active accounts in the database
+	 */
+	public List<Account> getActiveAccounts(){
+		String SQL = "select * from account where active=true";
+		List<Account> accounts = jdbcTemplate.query(SQL, new AccountMapper());
+		return accounts;
+	}
+	
+	/**
 	 * Gets all the roles of an Account
 	 * @author Conner Simmons
 	 * @precondition Account exists
@@ -182,6 +195,13 @@ public class AccountDaoImpl implements AccountDao {
 		return 1; 
 	}
 	
+	/**  
+	 * Get an account by a specific email
+	 * @author Conner Simmons
+	 * @precondition Account exists in database
+	 * @postcondition Returns the account with the specified email
+	 * @return true to show method completion
+	 */
 	public Account getAccountByEmail(String email){
 		String SQL = "select * from account where email=\"" + email + "\"";
 		List<Account> account = jdbcTemplate.query(SQL, new AccountMapper());
